@@ -1,8 +1,6 @@
-# Ghost Starter Theme
+# ghost-advisory-theme
 
-A starter framework for Ghost themes! Fork this repository and start your development here with all the main things you need to develop a custom Ghost theme.
-
-&nbsp;
+Custom-built Ghost theme for [Advisory SG](https://advisory.sg).
 
 # First time using a Ghost theme?
 
@@ -24,7 +22,6 @@ One neat trick is that you can also create custom one-off templates just by addi
 - `page-about.hbs` - Custom template for the `/about/` page
 - `tag-news.hbs` - Custom template for `/tag/news/` archive
 - `author-ali.hbs` - Custom template for `/author/ali/` archive
-
 
 # Development
 
@@ -56,3 +53,4 @@ yarn zip
 # Copyright & License
 
 Copyright (c) 2013-2020 Ghost Foundation - Released under the [MIT license](LICENSE).
+Copyright (c) 2020 Advisory SG - Release under the [MIT license](LICENSE).
