@@ -21,9 +21,9 @@
         "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi"
     },
     "author": {
-        "name": "Ghost Foundation & Advisory SG",
-        "email": "hello@ghost.org & contact@advisory.sg",
-        "url": "https://ghost.org & https://advisory.sg"
+        "name": "Advisory SG",
+        "email": "contact@advisory.sg",
+        "url": "https://advisory.sg"
     },
     "gpm": {
         "type": "theme",
