@@ -1,0 +1,2 @@
+$(function(l){var n={};l(".gh-content > h1").each(function(){var t=l(this),h=t.attr("id");function e(){t.addClass("h1-toggle-hide"),t.removeClass("h1-toggle-show"),t.nextUntil("h1").hide(),n[h]=!0}t.addClass("h1-toggle"),t.nextUntil("h1").addClass(h+"-child"),e(),n[h]=!0,t.click(function(){n[h]?(t.addClass("h1-toggle-show"),t.removeClass("h1-toggle-hide"),t.nextUntil("h1").show(),n[h]=!1):e()}),n[h]=!n[h]})});
+//# sourceMappingURL=toggledropdown.js.map

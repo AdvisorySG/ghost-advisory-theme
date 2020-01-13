@@ -1,0 +1,17 @@
+.h1-toggle {
+    cursor: default;
+    text-decoration: none;
+}
+
+.h1-toggle:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.h1-toggle-hide::before {
+    content: 'ᐅ';
+}
+
+.h1-toggle-show::before {
+    content: 'ᐁ';
+}
