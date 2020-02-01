@@ -49,6 +49,8 @@
             </div>
         </div>
     </nav>
+    <input id="ghost-search-field">
+    <div id="ghost-search-results"></div>
 </header>
 
 <main class="gh-main">
@@ -108,7 +110,33 @@ $(document).ready(function () {
 });
 </script>
 {{/is}}
-
+<script src="https://unpkg.com/@tryghost/content-api@1.3.7/umd/content-api.min.js"></script>
+<script type="text/javascript" src="{{asset "js/ghost-search.min.js"}}"></script>
+<style>
+    #ghost-search-results a {
+        display: block;
+    }
+</style>
+<script>
+    let ghostSearch = new GhostSearch({
+        key: 'efe956878976e6a75796f926d9',
+        url: 'http://localhost:2368',
+        template: function(result) {
+            let url = [location.protocol, '//', location.host].join('')
+            return '<a href="' + url + '/' + result.slug + '/">' + result.title + '</a>';
+        },
+        on: {
+            afterDisplay: function(results){
+                if (results.total == 0 && document.getElementById('ghost-search-field').value != '') {
+                    let resultsElement = document.getElementById('ghost-search-results');
+                    let e = document.createElement('p');
+                    e.innerHTML = 'No results';
+                    resultsElement.appendChild(e.firstChild);
+                };
+            }
+        }
+    })
+</script>
 {{ghost_foot}}
 {{!-- Outputs important scripts - should always be included before closing body tag --}}
 
