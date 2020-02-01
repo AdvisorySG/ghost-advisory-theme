@@ -1,6 +1,6 @@
 # ghost-advisory-theme
 
-Custom-built Ghost theme for [Advisory SG](https://advisory.sg).
+Custom-built Ghost theme for [Advisory SG](https://advisory.sg), Based on Started theme.
 
 # First time using a Ghost theme?
 
