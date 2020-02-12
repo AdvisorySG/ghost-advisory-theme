@@ -187,6 +187,22 @@ html,
     margin: 2rem 0;
 }
 
+.tag-hash-insights .text-tag {
+    color: orangered;
+}
+
+.tag-hash-reflections .text-tag {
+    color: limegreen;
+}
+
+.tag-hash-conversations .text-tag {
+    color: royalblue;
+}
+
+.text-tag {
+    margin-top: 1rem;
+}
+
 
 /* Author Archive
 /* ---------------------------------------------------------- */
