@@ -94,7 +94,6 @@ html,
     width: 100%;
     max-height: 700px;
     object-fit: cover;
-    margin-bottom: 4vmin;
 }
 
 .gh-card-meta {
