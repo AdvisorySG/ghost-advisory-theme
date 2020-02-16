@@ -8,10 +8,6 @@
     text-decoration: underline;
 }
 
-.h1-toggle-hide::before {
-    content: 'ᐅ';
-}
-
-.h1-toggle-show::before {
-    content: 'ᐁ';
+.h1-toggle-icon {
+    padding: 0 0.25em 0 0.25em
 }

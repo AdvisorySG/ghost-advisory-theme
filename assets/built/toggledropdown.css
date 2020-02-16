@@ -1,2 +1,2 @@
-.h1-toggle{cursor:default;text-decoration:none}.h1-toggle:hover{cursor:pointer;text-decoration:underline}.h1-toggle-hide:before{content:"ᐅ"}.h1-toggle-show:before{content:"ᐁ"}
+.h1-toggle{cursor:default;text-decoration:none}.h1-toggle:hover{cursor:pointer;text-decoration:underline}.h1-toggle-icon{padding:0 .25em}
 /*# sourceMappingURL=toggledropdown.css.map */
