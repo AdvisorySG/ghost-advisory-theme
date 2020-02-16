@@ -84,5 +84,8 @@
                 "width": 2000
             }
         }
+    },
+    "dependencies": {
+        "@tryghost/admin-api": "^1.0.2"
     }
 }
