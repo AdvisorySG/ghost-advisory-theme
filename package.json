@@ -21,9 +21,9 @@
         "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi"
     },
     "author": {
-        "name": "Ghost Foundation & Advisory SG",
-        "email": "hello@ghost.org & contact@advisory.sg",
-        "url": "https://ghost.org & https://advisory.sg"
+        "name": "Advisory SG",
+        "email": "contact@advisory.sg",
+        "url": "https://advisory.sg"
     },
     "gpm": {
         "type": "theme",
@@ -46,7 +46,7 @@
     "devDependencies": {
         "autoprefixer": "9.7.3",
         "cssnano": "4.1.10",
-        "gscan": "^2.7.0",
+        "gscan": "2.11.0",
         "gulp": "4.0.2",
         "gulp-livereload": "4.0.1",
         "gulp-postcss": "8.0.0",
@@ -84,5 +84,8 @@
                 "width": 2000
             }
         }
+    },
+    "dependencies": {
+        "@tryghost/admin-api": "^1.0.2"
     }
 }

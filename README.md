@@ -1,6 +1,6 @@
 # ghost-advisory-theme
 
-Custom-built Ghost theme for [Advisory SG](https://advisory.sg).
+Custom-built Ghost theme for [Advisory SG](https://advisory.sg), based on the [Starter theme](https://github.com/TryGhost/Starter).
 
 # First time using a Ghost theme?
 
@@ -35,7 +35,7 @@ yarn
 $ yarn dev
 ```
 
-Now you can edit `/assets/css/` files, which will be compiled to `/assets/built/` automatically.
+Now you can edit `*.hbs`, `assets/css/` and `assets/js/` files, which will be compiled automatically. In order to speed up development with a local instance of Ghost, you can create a shortcut/symbolic link from this repository to `content/themes/ghost-advisory-theme/` in the root directory of your Ghost installation.
 
 The `zip` Gulp task packages the theme files into `dist/<theme-name>.zip`, which you can then upload to your site.
 
@@ -48,7 +48,6 @@ yarn zip
 - Autoprefixer - Don't worry about writing browser prefixes of any kind, it's all done automatically with support for the latest 2 major versions of every browser.
 - Variables - Simple pure CSS variables
 - [Color Function](https://github.com/postcss/postcss-color-function)
-
 
 # Copyright & License
 
