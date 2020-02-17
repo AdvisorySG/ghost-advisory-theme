@@ -43,21 +43,21 @@
     },
     "bugs": "https://github.com/AdvisorySG/ghost-advisory-theme/issues",
     "contributors": "https://github.com/AdvisorySG/ghost-advisory-theme/graphs/contributors",
-    "devDependencies": {
-        "autoprefixer": "9.7.3",
+    "dependencies": {
+        "@tryghost/admin-api": "^1.0.2",
+        "autoprefixer": "9.7.4",
+        "beeper": "2.0.0",
         "cssnano": "4.1.10",
-        "gscan": "2.11.0",
+        "gscan": "3.3.1",
         "gulp": "4.0.2",
-        "gulp-livereload": "4.0.1",
+        "gulp-livereload": "4.0.2",
         "gulp-postcss": "8.0.0",
-        "gulp-sourcemaps": "2.6.5",
         "gulp-uglify": "3.0.2",
-        "gulp-util": "3.0.8",
-        "gulp-watch": "5.0.1",
-        "gulp-zip": "5.0.0",
+        "gulp-zip": "5.0.1",
         "postcss-color-function": "4.1.0",
         "postcss-custom-properties": "9.0.2",
-        "postcss-easy-import": "3.0.0"
+        "postcss-easy-import": "3.0.0",
+        "pump": "3.0.0"
     },
     "browserslist": [
         "defaults"
@@ -84,8 +84,5 @@
                 "width": 2000
             }
         }
-    },
-    "dependencies": {
-        "@tryghost/admin-api": "^1.0.2"
     }
 }
