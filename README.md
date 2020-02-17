@@ -42,6 +42,8 @@ Alternatively (and more traditionally), the `zip` Gulp task packages the theme f
 yarn zip
 ```
 
+Should you have access to the [Admin panel of Advisory](https://beta.advisory.sg/ghost/), you may go to Settings > Labs > Migration Options > Export your content in order to obtain the posts and settings used for the actual website as a JSON file. Then, you may load up the file into your loacl instance of Ghost, at Settings > Labs > Migration Options > Import content. Take note that this will not remove existing posts/pages.
+
 # PostCSS Features Used
 
 - Autoprefixer - Don't worry about writing browser prefixes of any kind, it's all done automatically with support for the latest 2 major versions of every browser.
