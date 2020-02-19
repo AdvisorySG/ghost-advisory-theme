@@ -18,6 +18,10 @@ Re-usable card for linking to posts
         </div>
         {{/if}}
         <div class="col-lg p-4 d-flex flex-column position-static gh-card-content">
+						<span class="gh-card-meta">
+							<time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
+							&bull; {{reading_time}}
+						</span>
             <p class="h2 mb-0 gh-card-title">{{title}}</p>
             <p class="card-text mb-auto">{{excerpt characters="150"}} <a class="text-primary" href={{url}}>Read&nbsp;more</a></p>
         </div>
