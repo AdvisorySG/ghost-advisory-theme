@@ -1,4 +1,4 @@
-# ghost-advisory-theme
+# ghost-advisory-theme ![Test and Deploy Theme](https://github.com/AdvisorySG/ghost-advisory-theme/workflows/Test%20and%20Deploy%20Theme/badge.svg)
 
 Custom-built Ghost theme for [Advisory SG](https://advisory.sg), based on the [Starter theme](https://github.com/TryGhost/Starter).
 
@@ -31,7 +31,7 @@ Styles are compiled using Gulp/PostCSS to polyfill future CSS spec. You'll need 
 yarn
 
 # Run build & watch for changes
-$ yarn dev
+yarn dev
 ```
 
 Now you can edit `*.hbs`, `assets/css/` and `assets/js/` files, which will be compiled automatically. In order to speed up development with a local instance of Ghost, you can create a shortcut/symbolic link from this repository to `content/themes/ghost-advisory-theme/` in the root directory of your Ghost installation. Take note that if you add new post templates, you may need to restart Ghost manually for the changes to take place in the Admin panel.
