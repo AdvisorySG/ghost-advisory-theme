@@ -1,4 +1,4 @@
-# ghost-advisory-theme
+# ghost-advisory-theme ![Test and Deploy Theme](https://github.com/AdvisorySG/ghost-advisory-theme/workflows/Test%20and%20Deploy%20Theme/badge.svg)
 
 Custom-built Ghost theme for [Advisory SG](https://advisory.sg), based on the [Starter theme](https://github.com/TryGhost/Starter).
 
