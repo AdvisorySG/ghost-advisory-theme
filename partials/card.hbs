@@ -8,9 +8,9 @@ Re-usable card for linking to posts
         <div class="col-md d-block">
             <img class="gh-card-image"
                 srcset="{{img_url feature_image size="s"}} 300w,
-                    {{img_url feature_image size="m"}} 600w,
-                    {{img_url feature_image size="l"}} 1000w,
-                   {{img_url feature_image size="xl"}} 2000w"
+                    		{{img_url feature_image size="m"}} 600w,
+                    		{{img_url feature_image size="l"}} 1000w,
+                   			{{img_url feature_image size="xl"}} 2000w"
                 sizes="(max-width: 1000px) 400px, 700px"
                 src="{{img_url feature_image size="m"}}"
                 alt="{{title}}"
@@ -18,8 +18,8 @@ Re-usable card for linking to posts
         </div>
         {{/if}}
         <div class="col-md p-4 d-flex flex-column position-static gh-card-content">
-            <p class="h3 mb-0 gh-card-title">{{title}}</p>
-            <p class="card-text mb-auto">{{excerpt characters="150"}} &bull;&nbsp;<a class="text-primary" href={{url}}>Read&nbsp;more</a></p>
+            <p class="h2 mb-0 gh-card-title">{{title}}</p>
+            <p class="card-text mb-auto">{{excerpt characters="150"}} <a class="text-primary" href={{url}}>Read&nbsp;more</a></p>
         </div>
     </div>
 </article>

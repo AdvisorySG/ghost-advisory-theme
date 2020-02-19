@@ -85,11 +85,6 @@ html,
     margin: 8vmin auto 0;
 }
 
-.gh-card-link {
-    display: flex;
-    flex-direction: column;
-}
-
 .gh-card-image {
     width: 100%;
     max-height: 700px;
