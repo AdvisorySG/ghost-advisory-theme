@@ -114,8 +114,8 @@ html,
 }
 
 .gh-card-content p {
-    margin: 1.2rem 0;
-    padding: 0 6vmin;
+    margin: 0.5rem 0;
+    padding: 0 2vmin;
 }
 
 .gh-card-content > strong {
