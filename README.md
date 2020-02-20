@@ -55,4 +55,5 @@ Should you have access to the [Admin panel of Advisory](https://beta.advisory.sg
 # Copyright & License
 
 Copyright (c) 2013-2020 Ghost Foundation - Released under the [MIT license](LICENSE).
-Copyright (c) 2020 Advisory SG - Release under the [MIT license](LICENSE).
+
+Copyright (c) 2020 Advisory SG - Released under the [MIT license](LICENSE).
