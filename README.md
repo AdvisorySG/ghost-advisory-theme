@@ -44,13 +44,16 @@ yarn zip
 
 Should you have access to the [Admin panel of Advisory](https://beta.advisory.sg/ghost/), you may go to Settings > Labs > Migration Options > Export your content in order to obtain the posts and settings used for the actual website as a JSON file. Then, you may load up the file into your loacl instance of Ghost, at Settings > Labs > Migration Options > Import content. Take note that this will not remove existing posts/pages.
 
-# PostCSS Features Used
+# PostCSS Plugins Used
 
-- Autoprefixer - Don't worry about writing browser prefixes of any kind, it's all done automatically with support for the latest 2 major versions of every browser.
-- Variables - Simple pure CSS variables
-- [Color Function](https://github.com/postcss/postcss-color-function)
+- [Autoprefixer](https://github.com/postcss/autoprefixer)
+- [Color Mod Function](https://github.com/jonathantneal/postcss-color-mod-function)
+- [cssnano](https://github.com/cssnano/cssnano)
+- [Custom Properties](https://github.com/postcss/postcss-custom-properties)
+- [Easy Import](https://github.com/trysound/postcss-easy-import)
 
 # Copyright & License
 
 Copyright (c) 2013-2020 Ghost Foundation - Released under the [MIT license](LICENSE).
-Copyright (c) 2020 Advisory SG - Release under the [MIT license](LICENSE).
+
+Copyright (c) 2020 Advisory SG - Released under the [MIT license](LICENSE).
