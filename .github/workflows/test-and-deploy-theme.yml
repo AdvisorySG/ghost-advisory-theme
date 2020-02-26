@@ -33,7 +33,7 @@ jobs:
 
       - name: Deploy theme
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        run: node scripts/deploy_theme.js
+        run: node .github/scripts/deploy_theme.js
         env:
           url: ${{ secrets.GHOST_API_URL }}
           key: ${{ secrets.GHOST_DEPLOY_THEME_ADMIN_API_KEY }}
