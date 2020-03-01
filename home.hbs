@@ -1,0 +1,13 @@
+{{!< default}}
+
+<div class="gh-page">
+    <div class="gh-container">
+        <div class="gh-postfeed">
+        {{#foreach posts}}
+        {{#if featured}}
+            {{> "card"}} {{!-- partials/card.hbs --}}
+        {{/if}}
+        {{/foreach}}
+        </div>
+    </div>
+</div>
