@@ -2,6 +2,20 @@
 
 <div class="gh-page">
     <div class="gh-container">
+        <div class="filter">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Filter
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {{#get "tags" limit="all"}}
+                    {{#foreach tags visibility="all"}}
+                        <a class="dropdown-item filter-selection" href="#">{{name}}</a>
+                    {{/foreach}}
+                    {{/get}}
+                </div>
+            </div>
+        </div>
         <div class="gh-postfeed">
         {{#get "posts" include="authors,tags"}}
         {{#foreach posts}}
