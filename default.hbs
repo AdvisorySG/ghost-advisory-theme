@@ -87,7 +87,8 @@ $(document).ready(function () {
 
     // Filter
     $('.filter-selection').click(function(event) {
-        let classToFilter = event.target.innerHTML.replace(/\s+/g, '-').toLowerCase();
+        // Basic slug generator: strip non alphanumeric characters (including _), then replace whitespaces with dashes
+        let classToFilter = event.target.innerHTML.replace(/[_\W]/, '').replace(/\s+/g, '-').toLowerCase();
         let hashToFilter;
         if (classToFilter[0] == '#') {
             hashToFilter = classToFilter.slice(1);
@@ -97,7 +98,6 @@ $(document).ready(function () {
                 $(this).removeClass('d-none');
             }
             else $(this).addClass('d-none');
-
         });
     })
 });
