@@ -87,14 +87,13 @@ $(document).ready(function () {
 
     // Filter
     $('.filter-selection').click(function(event) {
-        // Basic slug generator: strip non alphanumeric characters (including _), then replace whitespaces with dashes
-        let classToFilter = event.target.innerHTML.replace(/[_\W]/, '').replace(/\s+/g, '-').toLowerCase();
-        let hashToFilter;
-        if (classToFilter[0] == '#') {
-            hashToFilter = classToFilter.slice(1);
-        }
+        let classToFilter = event.target.innerHTML;
+        let internalTag = $(this).hasClass('internal-tag');
+        // Basic slug generator: replace whitespaces with dashes, then strip punctuation
+        classToFilter = classToFilter.replace(/\s+/g, '-').replace(/[.,'!?]/, '').toLowerCase();
+        console.log(classToFilter);
         $('.gh-postfeed').children().each(function() {
-            if ($(this).hasClass(`tag-${classToFilter}`) || $(this).hasClass(`tag-hash-${hashToFilter}`)) {
+            if ($(this).hasClass(`tag-${classToFilter}`) && !internalTag || $(this).hasClass(`tag-hash-${classToFilter}`) && internalTag) {
                 $(this).removeClass('d-none');
             }
             else $(this).addClass('d-none');
