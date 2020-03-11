@@ -98,7 +98,12 @@ $(document).ready(function () {
             }
             else $(this).addClass('d-none');
         });
-    })
+    });
+    $('.clear-filter').click(function(event) {
+        $('.gh-postfeed').children().each(function() {
+            $(this).removeClass('d-none');
+        });
+    });
 });
 </script>
 
