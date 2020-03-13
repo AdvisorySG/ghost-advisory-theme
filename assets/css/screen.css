@@ -196,6 +196,52 @@ html,
 }
 
 
+/* Reading progress bar
+/* ---------------------------------------------------------- */
+
+.reading-progress-bar {
+    width: 150px;
+    margin: auto;
+    display: block;
+}
+
+.reading-progress-bar[value]::-webkit-progress-bar {
+    background-color: rgba(0,0,0,0.5);
+}
+
+.reading-progress-bar[value]::-webkit-progress-value {
+    background-color: #3eb0ef;
+}
+
+.progress-bar-container {
+    display: none; /* Don't show when viewport has not scrolled into the content */
+    width: 100%;
+    margin: auto;
+}
+
+.sticky {
+    background-color: #fff;
+    z-index: 1000;
+    display: block;
+    top: 0;
+    position: fixed;
+    border: 0.8px solid grey;
+}
+
+.animate-header-dropdown {
+    animation: header-dropdown 1s;
+}
+
+@keyframes header-dropdown {
+    from {
+        top: -70px;
+    }
+
+    to {
+        top: 0px;
+    }
+}
+
 /* Author Archive
 /* ---------------------------------------------------------- */
 
