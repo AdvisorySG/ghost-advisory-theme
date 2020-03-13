@@ -32,7 +32,7 @@ jobs:
       - run: yarn test:ci
 
       - run: yarn zip
-      - name: Upload Build
+      - name: Upload build
         uses: actions/upload-artifact@v1
         with:
           name: ghost-advisory-theme-${{ github.sha }}
@@ -54,7 +54,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install @tryghost/admin-api
 
-      - name: Download Build
+      - name: Download build
         uses: actions/download-artifact@v1
         with:
           name: ghost-advisory-theme-${{ github.sha }}
