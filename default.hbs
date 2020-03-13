@@ -85,6 +85,50 @@ $(document).ready(function () {
     $('.gh-burger').click(function () {
         $('body').toggleClass('gh-head-open');
     });
+
+    // Read progress bar
+    const readingProgress = (contentArea, progressBar) => {
+        const content = document.querySelector(contentArea);
+        const progress = document.querySelector(progressBar);
+
+        const frameListening = () => {
+            const contentBox = content.getBoundingClientRect();
+            const midPoint = window.innerHeight / 2;
+            const minsRemaining = Math.round(progress.max - progress.value);
+
+            if (contentBox.top > midPoint) {
+                progress.value = 0;
+            }
+
+            if (contentBox.top < midPoint) {
+                progress.value = progress.max;
+            }
+
+            if (contentBox.top <= midPoint && contentBox.bottom >= midPoint) {
+                progress.value =
+                    (progress.max * Math.abs(contentBox.top - midPoint)) /
+                    contentBox.height;
+            }
+
+            window.requestAnimationFrame(frameListening);
+        };
+
+        window.requestAnimationFrame(frameListening);
+    };
+
+    readingProgress(".gh-content", ".reading-progress-bar");
+
+    // Handle sticky progress bar container
+    var stickyThreshold = $('.gh-content').offset().top;
+    $(document).scroll(function (event) {
+        if (window.pageYOffset + window.innerHeight / 2 >= stickyThreshold) {
+            $('.progress-bar-container').addClass('sticky')
+            $('.progress-bar-container').addClass('animate-header-dropdown')
+        } else {
+            $('.progress-bar-container').removeClass('sticky')
+            $('.progress-bar-container').removeClass('animate-header-dropdown')
+        }
+    })
 });
 </script>
 {{#is "post"}}
