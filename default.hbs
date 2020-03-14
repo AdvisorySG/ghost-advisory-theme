@@ -90,6 +90,7 @@ $(document).ready(function () {
         let classToFilter = event.target.innerHTML;
         let internalTag = $(this).hasClass('internal-tag');
         // Basic slug generator: replace whitespaces with dashes, then strip punctuation
+        // TODO: Document behaviour of this generator in API v3
         classToFilter = classToFilter.replace(/\s+/g, '-').replace(/[.,'!?]/, '').toLowerCase();
         console.log(classToFilter);
         $('.gh-postfeed').children().each(function() {
