@@ -50,7 +50,7 @@
 .gh-error-stack-list > li {
     padding: 2rem 0;
     margin: 0;
-    border-top: rgba(0,0,0,0.1) 1px solid;
+    border-top: rgba(0, 0, 0, 0.1) 1px solid;
 }
 
 .gh-error-stack-function {

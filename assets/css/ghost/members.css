@@ -16,7 +16,7 @@
 .gh-auth-form p {
     margin: 10px 0 4vmin 0;
     font-size: 1.7rem;
-    color: rgba(0,0,0,0.6)
+    color: rgba(0, 0, 0, 0.6);
 }
 
 .gh-auth-form p small {
@@ -126,8 +126,8 @@ form[data-members-form].loading .gh-button-loader {
 }
 
 .gh-button-loader svg path,
-.gh-button-loader svg rect{
-  fill: #fff;
+.gh-button-loader svg rect {
+    fill: #fff;
 }
 
 /*-- Show success message on success --*/

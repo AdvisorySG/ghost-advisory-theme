@@ -1,5 +1,3 @@
-
-
 /* Content grid
 /* ---------------------------------------------------------- */
 
@@ -7,17 +5,16 @@
     display: grid;
     grid-template-columns:
         [full-start]
-          minmax(calc(calc(100% - 1200px) / 2), 1fr)
-            [wide-start]
-                auto
-                    [main-start]
-                        720px
-                    [main-end]
-                auto
-            [wide-end]
-          minmax(calc(calc(100% - 1200px) / 2), 1fr)
-        [full-end]
-    ;
+        minmax(calc(calc(100% - 1200px) / 2), 1fr)
+        [wide-start]
+        auto
+        [main-start]
+        720px
+        [main-end]
+        auto
+        [wide-end]
+        minmax(calc(calc(100% - 1200px) / 2), 1fr)
+        [full-end];
 }
 
 @media (max-width: 1296px) {
@@ -25,16 +22,15 @@
         grid-template-columns:
             [full-start]
             4vw
-                [wide-start]
-                    auto
-                        [main-start]
-                            720px
-                        [main-end]
-                    auto
-                [wide-end]
+            [wide-start]
+            auto
+            [main-start]
+            720px
+            [main-end]
+            auto
+            [wide-end]
             4vw
-            [full-end]
-        ;
+            [full-end];
     }
 }
 
@@ -43,16 +39,15 @@
         grid-template-columns:
             [full-start]
             4vw
-                [wide-start]
-                    0
-                        [main-start]
-                            auto
-                        [main-end]
-                    0
-                [wide-end]
+            [wide-start]
+            0
+            [main-start]
+            auto
+            [main-end]
+            0
+            [wide-end]
             4vw
-            [full-end]
-        ;
+            [full-end];
     }
 }
 
@@ -71,7 +66,6 @@
 .kg-width-full img {
     width: 100%;
 }
-
 
 /* Content & Typography
 /* ---------------------------------------------------------- */
@@ -147,7 +141,6 @@
     }
 }
 
-
 /* Cards
 /* ---------------------------------------------------------- */
 
@@ -162,14 +155,14 @@
 .kg-card figcaption {
     padding: 1.5rem 1.5rem 0;
     text-align: center;
-    color: rgba(0,0,0,0.5);
+    color: rgba(0, 0, 0, 0.5);
     font-weight: 600;
     font-size: 1.3rem;
     line-height: 1.4em;
 }
 
 .kg-card figcaption strong {
-    color: rgba(0,0,0,0.8);
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .gh-canvas :not(pre) code {
@@ -187,9 +180,9 @@
 .gh-canvas > pre {
     overflow: scroll;
     padding: 16px 20px;
-    background: rgba(255,255,255,0.8);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 5px;
-    box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
 }
 
 .kg-embed-card {
@@ -202,7 +195,6 @@
 .kg-image-card img {
     margin: auto;
 }
-
 
 /* Galleries
 /* ---------------------------------------------------------- */
@@ -236,7 +228,6 @@
     margin: 0 0 0 0.75em;
 }
 
-
 /* Bookmark Cards
 /* ---------------------------------------------------------- */
 
@@ -251,7 +242,7 @@
     flex-wrap: wrap;
     flex-direction: row-reverse;
     color: currentColor;
-    background: rgba(255,255,255,0.6);
+    background: rgba(255, 255, 255, 0.6);
     font-family: var(--font-sans-serif);
     text-decoration: none;
     border-radius: 5px;
@@ -334,9 +325,8 @@
 
 .kg-bookmark-publisher::before {
     content: "•";
-    margin: 0 .5em;
+    margin: 0 0.5em;
 }
-
 
 /* Card captions
 /* ---------------------------------------------------------- */
@@ -357,7 +347,6 @@
     grid-column: main-start / main-end;
 }
 
-
 /* Tables
 /* ---------------------------------------------------------- */
 
@@ -369,7 +358,7 @@
 .gh-content th {
     padding: 0.5em 0.8em;
     text-align: left;
-    font-size: .75em;
+    font-size: 0.75em;
     text-transform: uppercase;
 }
 
@@ -378,20 +367,18 @@
 }
 
 .gh-content tbody tr:nth-child(2n + 1) {
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     padding: 1px;
 }
 
 .gh-content tbody tr:nth-child(2n + 2) td:last-child {
-    box-shadow:
-        inset 1px 0 rgba(0,0,0,0.1),
-        inset -1px 0 rgba(0,0,0,0.1);
+    box-shadow: inset 1px 0 rgba(0, 0, 0, 0.1), inset -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .gh-content tbody tr:nth-child(2n + 2) td {
-    box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    box-shadow: inset 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .gh-content tbody tr:last-child {
-    border-bottom: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }

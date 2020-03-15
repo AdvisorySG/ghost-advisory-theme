@@ -8,17 +8,17 @@ Ghost uses a simple templating language called [Handlebars](http://handlebarsjs.
 
 **The main files are:**
 
-- `default.hbs` - The main template file
-- `index.hbs` - Used for an index of posts (**deprecated**, superseded by `home.hbs`, `tag.hbs` & `author.hbs`)
-- `home.hbs` - Used for the home page
-- `post.hbs` - Used for individual posts
-- `page.hbs` - Used for individual pages
-- `tag.hbs` - Used for tag archives
-- `author.hbs` - Used for author archives
+-   `default.hbs` - The main template file
+-   `index.hbs` - Used for an index of posts (**deprecated**, superseded by `home.hbs`, `tag.hbs` & `author.hbs`)
+-   `home.hbs` - Used for the home page
+-   `post.hbs` - Used for individual posts
+-   `page.hbs` - Used for individual pages
+-   `tag.hbs` - Used for tag archives
+-   `author.hbs` - Used for author archives
 
 The following custom page templates have been created:
 
-- `page-stories.hbs` - Custom template for the `/stories/` page
+-   `page-stories.hbs` - Custom template for the `/stories/` page
 
 Take note that for custom pages to be generated on Ghost, you would need to create static pages with the same slugs as indicated in their filename. For more details, please refer to the documentation for [pages](https://ghost.org/docs/api/v3/handlebars-themes/context/page/).
 
@@ -46,11 +46,11 @@ Should you have access to the [Admin panel of Advisory](https://beta.advisory.sg
 
 # PostCSS Plugins Used
 
-- [Autoprefixer](https://github.com/postcss/autoprefixer)
-- [Color Mod Function](https://github.com/jonathantneal/postcss-color-mod-function)
-- [cssnano](https://github.com/cssnano/cssnano)
-- [Custom Properties](https://github.com/postcss/postcss-custom-properties)
-- [Easy Import](https://github.com/trysound/postcss-easy-import)
+-   [Autoprefixer](https://github.com/postcss/autoprefixer)
+-   [Color Mod Function](https://github.com/jonathantneal/postcss-color-mod-function)
+-   [cssnano](https://github.com/cssnano/cssnano)
+-   [Custom Properties](https://github.com/postcss/postcss-custom-properties)
+-   [Easy Import](https://github.com/trysound/postcss-easy-import)
 
 # Copyright & License
 

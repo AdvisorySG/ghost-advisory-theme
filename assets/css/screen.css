@@ -22,7 +22,6 @@ production stylesheet in assets/built/screen.css using: gulp dev
 @import "ghost/errors.css";
 @import "ghost/footer.css";
 
-
 /* Main - Your styles here! Edit below
 /* ---------------------------------------------------------- */
 
@@ -121,7 +120,6 @@ html,
     opacity: 0.5;
 }
 
-
 /* Page
 /* ---------------------------------------------------------- */
 
@@ -149,7 +147,6 @@ html,
         font-size: 1.6rem;
     }
 }
-
 
 /* Post
 /* ---------------------------------------------------------- */
@@ -192,7 +189,6 @@ html,
     background: #daabe7;
 }
 
-
 /* Author Archive
 /* ---------------------------------------------------------- */
 
@@ -229,7 +225,7 @@ html,
     margin: 0 1.25vmin 0 0;
     height: 1em;
     width: 1px;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     transform: rotate(20deg);
 }
 

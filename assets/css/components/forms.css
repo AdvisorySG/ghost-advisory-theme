@@ -75,7 +75,7 @@
     background: var(--color-bg);
     border-radius: var(--radius);
     border: solid 1px var(--color-border);
-    content: '';
+    content: "";
     display: inline-block;
     height: calc(var(--height) * 0.6);
     line-height: calc(var(--height) * 0.56);
@@ -89,7 +89,7 @@
     background: var(--color-primary);
     border-color: var(--color-primary);
     color: var(--color-bg);
-    content: '✓';
+    content: "✓";
 }
 
 .gh-check:focus + label:before,
@@ -97,7 +97,6 @@
     border-color: var(--color-primary);
     box-shadow: 0 0 0 1px var(--color-primary);
 }
-
 
 .gh-check + label:before {
     border-radius: var(--radius);
