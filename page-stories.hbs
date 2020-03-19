@@ -2,6 +2,33 @@
 
 <div class="gh-page">
     <div class="gh-container">
+        <div class="filter">
+            <div class="dropdown"> <!-- External tags -->
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Filter
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {{#get "tags" limit="all"}}
+                    {{#foreach tags}}
+                        <a class="dropdown-item filter-selection" href="#">{{name}}</a>
+                    {{/foreach}}
+                    {{/get}}
+                </div>
+            </div>
+            <div class="dropdown"> <!-- Internal tags -->
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Internal tag filter
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item filter-selection internal-tag" href="#">Conversations</a>
+                    <a class="dropdown-item filter-selection internal-tag" href="#">Insights</a>
+                    <a class="dropdown-item filter-selection internal-tag" href="#">Reflections</a>
+                </div>
+            </div>
+            <button class="btn btn-secondary clear-filter">
+                Clear filters
+            </button>
+        </div>
         <div class="gh-postfeed">
         {{#get "posts"}}
         {{#foreach posts}}
