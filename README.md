@@ -34,7 +34,7 @@ yarn
 yarn dev
 ```
 
-Now you can edit `*.hbs`, `assets/css/` and `assets/js/` files, which will be compiled automatically. In order to speed up development with a local instance of Ghost, you can create a shortcut/symbolic link from this repository to `content/themes/ghost-advisory-theme/` in the root directory of your Ghost installation. Take note that if you add new post templates, you may need to restart Ghost manually for the changes to take place in the Admin panel.
+Now you can edit `*.hbs`, `assets/css/` and `assets/js/` files, which will be compiled automatically. In order to speed up development with a local instance of Ghost, you can create a symbolic link from this repository to `content/themes/ghost-advisory-theme/` in the root directory of your Ghost installation. Take note that if you add new post templates, you may need to restart Ghost manually for the changes to take place in the Admin panel.
 
 Alternatively (and more traditionally), the `zip` Gulp task packages the theme files into `dist/<theme-name>.zip`, which you can then upload to your site.
 
@@ -42,7 +42,7 @@ Alternatively (and more traditionally), the `zip` Gulp task packages the theme f
 yarn zip
 ```
 
-Should you have access to the [Admin panel of Advisory](https://beta.advisory.sg/ghost/), you may go to Settings > Labs > Migration Options > Export your content in order to obtain the posts and settings used for the actual website as a JSON file. Then, you may load up the file into your loacl instance of Ghost, at Settings > Labs > Migration Options > Import content. Take note that this will not remove existing posts/pages.
+Should you have access to the [Admin panel of Advisory](https://beta.advisory.sg/ghost/), you may go to Settings > Labs > Migration Options > Export your content in order to obtain the posts and settings used for the actual website as a JSON file. Then, you may load up the file into your local instance of Ghost, at Settings > Labs > Migration Options > Import content. Take note that this will not remove existing posts/pages.
 
 # PostCSS Plugins Used
 
