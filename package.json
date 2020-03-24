@@ -42,7 +42,7 @@
     "contributors": "https://github.com/AdvisorySG/ghost-advisory-theme/graphs/contributors",
     "dependencies": {
         "@tryghost/admin-api": "^1.0.3",
-        "autoprefixer": "9.7.4",
+        "autoprefixer": "9.7.5",
         "beeper": "2.0.0",
         "cssnano": "4.1.10",
         "gscan": "3.4.0",
