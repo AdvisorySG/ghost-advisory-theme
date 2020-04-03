@@ -30,10 +30,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@tryghost/admin-api@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@tryghost/admin-api/-/admin-api-1.1.0.tgz#c93e0e87346ccc2b0f2ea78fdf0a7355b513ea61"
-  integrity sha512-l/xkMenDlxfCsevbAzNlkx+BVzMyBFtC3R3xBB3TTxlYHtuJSc/yNVn/EpffW1imuIC9sdkBGroNgev7g9H//w==
+"@tryghost/admin-api@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@tryghost/admin-api/-/admin-api-1.1.1.tgz#a72abf04d62d6f1dfd51fbdc0c4126404ab544b6"
+  integrity sha512-R8XWxRaPxFrCuzr7wrS7JvdrQZ++HHKY7jkJGKneImyzzBIor/ip8cZBfJCAE7fXtJ+/LE3Uljfl1NbAoWJlgQ==
   dependencies:
     axios "0.19.2"
     form-data "^3.0.0"
