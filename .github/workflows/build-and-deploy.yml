@@ -32,15 +32,17 @@ jobs:
             - run: yarn test:ci
 
             - run: yarn zip
+            - run: unzip dist/ghost-advisory-theme.zip -d dist/
+            - run: rm dist/ghost-advisory-theme.zip
             - name: Upload build
               uses: actions/upload-artifact@v1
               with:
                   name: ghost-advisory-theme-${{ github.sha }}
-                  path: dist/ghost-advisory-theme.zip
+                  path: dist/
 
     deploy:
         needs: build
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         runs-on: ubuntu-latest
         strategy:
             matrix:
@@ -59,10 +61,11 @@ jobs:
               with:
                   name: ghost-advisory-theme-${{ github.sha }}
                   path: dist/
+            - run: zip ghost-advisory-theme dist/
 
             - name: Deploy theme
               run: node .github/scripts/deploy_theme.js
               env:
                   url: ${{ secrets.GHOST_API_URL }}
                   key: ${{ secrets.GHOST_DEPLOY_THEME_ADMIN_API_KEY }}
-                  path: dist/ghost-advisory-theme.zip
+                  path: ghost-advisory-theme.zip
