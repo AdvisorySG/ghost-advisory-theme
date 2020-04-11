@@ -32,37 +32,22 @@ jobs:
             - run: yarn test:ci
 
             - run: yarn zip
+            - run: unzip dist/ghost-advisory-theme.zip -d dist/
+            - run: rm dist/ghost-advisory-theme.zip
             - name: Upload build
               uses: actions/upload-artifact@v1
               with:
                   name: ghost-advisory-theme-${{ github.sha }}
-                  path: dist/ghost-advisory-theme.zip
+                  path: dist/
 
     deploy:
         needs: build
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [12.x]
         steps:
             - uses: actions/checkout@v2
-
-            - name: Setup Node
-              uses: actions/setup-node@v1
+            - name: Deploy Ghost theme
+              uses: TryGhost/action-deploy-theme@v1.2.0
               with:
-                  node-version: ${{ matrix.node-version }}
-            - run: npm install @tryghost/admin-api
-
-            - name: Download build
-              uses: actions/download-artifact@v1
-              with:
-                  name: ghost-advisory-theme-${{ github.sha }}
-                  path: dist/
-
-            - name: Deploy theme
-              run: node .github/scripts/deploy_theme.js
-              env:
-                  url: ${{ secrets.GHOST_API_URL }}
-                  key: ${{ secrets.GHOST_DEPLOY_THEME_ADMIN_API_KEY }}
-                  path: dist/ghost-advisory-theme.zip
+                  api-url: ${{ secrets.GHOST_API_URL }}
+                  api-key: ${{ secrets.GHOST_DEPLOY_THEME_ADMIN_API_KEY }}
