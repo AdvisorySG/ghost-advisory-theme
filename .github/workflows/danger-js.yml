@@ -1,0 +1,33 @@
+name: Danger JS
+on:
+    pull_request:
+jobs:
+    danger:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [12.x]
+        steps:
+            - uses: actions/checkout@v2
+            - name: Get Yarn cache directory path
+              id: yarn-cache-dir-path
+              run: echo '::set-output name=dir::$(yarn cache dir)'
+            - name: Cache Yarn
+              uses: actions/cache@v1
+              id: yarn-cache
+              with:
+                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-yarn-
+
+            - name: Setup Node
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - run: npm install yarn
+            - run: yarn install
+
+            - run: yarn danger ci
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
