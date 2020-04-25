@@ -20,8 +20,8 @@ function serve(done) {
     done();
 }
 
-const handleError = done => {
-    return function(err) {
+const handleError = (done) => {
+    return function (err) {
         if (err) {
             beeper();
         }
@@ -42,7 +42,7 @@ function css(done) {
         customProperties({ preserve: false }),
         colorModFunction(),
         autoprefixer(),
-        cssnano()
+        cssnano(),
     ];
 
     pump(
@@ -50,7 +50,7 @@ function css(done) {
             src("assets/css/*.css", { sourcemaps: true }),
             postcss(processors),
             dest("assets/built/", { sourcemaps: "." }),
-            livereload()
+            livereload(),
         ],
         handleError(done)
     );
@@ -62,7 +62,7 @@ function js(done) {
             src("assets/js/*.js", { sourcemaps: true }),
             uglify(),
             dest("assets/built/", { sourcemaps: "." }),
-            livereload()
+            livereload(),
         ],
         handleError(done)
     );
@@ -80,10 +80,10 @@ function zipper(done) {
                 "!node_modules",
                 "!node_modules/**",
                 "!dist",
-                "!dist/**"
+                "!dist/**",
             ]),
             zip(filename),
-            dest(targetDir)
+            dest(targetDir),
         ],
         handleError(done)
     );
