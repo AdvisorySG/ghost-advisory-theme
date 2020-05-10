@@ -11,10 +11,6 @@
         {{#if custom_excerpt}}
         <p class="gh-excerpt">{{custom_excerpt}}</p>
         {{/if}}
-
-        {{#if feature_image}}
-            <img class="gh-feature-image" src="{{feature_image}}" alt="{{title}}" />
-        {{/if}}
     </header>
     
     <div class="progress-bar-container">
@@ -23,6 +19,10 @@
     </div>
 
     <div class="gh-content gh-canvas">
+        {{#if feature_image}}
+            <img class="gh-feature-image" src="{{feature_image}}" alt="{{title}}" />
+        {{/if}}
+
         {{content}}
     </div>
 
