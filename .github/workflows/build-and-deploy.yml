@@ -73,3 +73,4 @@ jobs:
               with:
                   api-url: ${{ secrets.GHOST_API_URL }}
                   api-key: ${{ secrets.GHOST_DEPLOY_THEME_ADMIN_API_KEY }}
+                  exclude: "dist/* node_modules/*"
