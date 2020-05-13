@@ -182,6 +182,55 @@ html,
     margin: 2rem 0;
 }
 
+.tag-hash-conversations {
+    background: #e2f0d9;
+}
+.tag-hash-insights {
+    background: #bdd7ee;
+}
+.tag-hash-reflections {
+    background: #daabe7;
+}
+
+/* Reading progress bar
+/* ---------------------------------------------------------- */
+
+.reading-progress-bar {
+    width: 100%;
+    display: block;
+    background-color: #ff8600;
+    height: 4px;
+}
+
+.progress-bar-container {
+    display: none; /* Don't show when viewport has not scrolled into the content */
+    width: 100%;
+    margin: auto;
+}
+
+.sticky {
+    background-color: #fff;
+    z-index: 1000;
+    display: block;
+    top: 0;
+    position: fixed;
+    border: 0.8px solid grey;
+}
+
+.animate-header-dropdown {
+    animation: header-dropdown 1s;
+}
+
+@keyframes header-dropdown {
+    from {
+        top: -70px;
+    }
+
+    to {
+        top: 0px;
+    }
+}
+
 /* Author Archive
 /* ---------------------------------------------------------- */
 

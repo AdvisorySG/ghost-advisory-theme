@@ -11,13 +11,18 @@
         {{#if custom_excerpt}}
         <p class="gh-excerpt">{{custom_excerpt}}</p>
         {{/if}}
+    </header>
+    
+    <div class="progress-bar-container">
+        <h3 class="text-center my-2">{{title}}</h3>
+        <div class="reading-progress-bar"></div>
+    </div>
 
+    <div class="gh-content gh-canvas">
         {{#if feature_image}}
             <img class="gh-feature-image" src="{{feature_image}}" alt="{{title}}" />
         {{/if}}
-    </header>
 
-    <div class="gh-content gh-canvas">
         {{content}}
     </div>
 
