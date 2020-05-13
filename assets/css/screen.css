@@ -196,17 +196,10 @@ html,
 /* ---------------------------------------------------------- */
 
 .reading-progress-bar {
-    width: 150px;
-    margin: auto;
+    width: 100%;
     display: block;
-}
-
-.reading-progress-bar[value]::-webkit-progress-bar {
-    background-color: rgba(0,0,0,0.5);
-}
-
-.reading-progress-bar[value]::-webkit-progress-value {
-    background-color: #3eb0ef;
+    background-color: #ff8600;
+    height: 4px;
 }
 
 .progress-bar-container {
