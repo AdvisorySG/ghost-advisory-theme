@@ -34,15 +34,25 @@ yarn
 yarn dev
 ```
 
-Now you can edit `*.hbs`, `assets/css/` and `assets/js/` files, which will be compiled automatically. In order to speed up development with a local instance of Ghost, you can create a symbolic link from this repository to `content/themes/ghost-advisory-theme/` in the root directory of your Ghost installation. Take note that if you add new post templates, you may need to restart Ghost manually for the changes to take place in the Admin panel.
-
-Alternatively (and more traditionally), the `zip` Gulp task packages the theme files into `dist/<theme-name>.zip`, which you can then upload to your site.
+Now you can edit `*.hbs`, `assets/css/` and `assets/js/` files, which will be compiled automatically. The `zip` Gulp task packages the theme files into `dist/<theme-name>.zip`, which you can then upload to your site.
 
 ```bash
 yarn zip
 ```
 
 Should you have access to the [Admin panel of Advisory](https://beta.advisory.sg/ghost/), you may go to Settings > Labs > Migration Options > Export your content in order to obtain the posts and settings used for the actual website as a JSON file. Then, you may load up the file into your local instance of Ghost, at Settings > Labs > Migration Options > Import content. Take note that this will not remove existing posts/pages.
+
+## Speedy Development (Advanced)
+
+To speed up development with a local instance of Ghost, you may use an alternative procedure to directly place the theme directory in the `content/themes/` directory of Ghost.
+
+Firstly, use the earlier mentioned process with `yarn zip` and upload the theme. This is important, as **Ghost will not recognise your new theme directory if you do not perform this import first**. In the `content/themes/` directory from the root directory of your Ghost installation, you should see the `ghost-advisory-theme` directory. (**Do not perform this step by importing a zipfile directly from the GitHub Actions builds; as the zipfile has an appended hash, Ghost will not recognise your new `ghost-advisory-theme` directory. Make sure to rename the zipfile to `ghost-advisory-theme.zip` before importing.**)
+
+Once you have verified that the `content/themes/ghost-advisory-theme/` directory is in place and Ghost recognises the directory as a theme, remove the `ghost-advisory-theme` directory and clone this repository into the `content/themes/` directory under the same directory name `ghost-advisory-theme`. (Alternatively, if you use an Unix-based system, you may create a symbolic link instead. Windows users may wish to create a shortcut from the Ghost directory instead.)
+
+Finally, run `yarn dev` in the `content/themes/ghost-advisory-theme/` directory and refresh the Ghost admin panel. You should see the correct theme appear. Upon making changes to theme files, `yarn dev` should build the changed files and the changes should be reflected upon refresh.
+
+This method is not officially supported by Ghost and might break any time (though the theme handling logic is unlikely to be modified in the foreseeable future). Take note that if you add new post templates, you may need to restart Ghost manually for the changes to take place in the Admin panel.
 
 # PostCSS Plugins Used
 
