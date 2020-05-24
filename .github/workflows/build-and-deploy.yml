@@ -46,8 +46,30 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
+            - name: Get Yarn cache directory path
+              id: yarn-cache-dir-path
+              run: echo '::set-output name=dir::$(yarn cache dir)'
+            - name: Cache Yarn
+              uses: actions/cache@v1
+              id: yarn-cache
+              with:
+                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-yarn-
+
+            - name: Setup Node
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - run: npm install yarn
+            - run: yarn install
+
+            - run: yarn zip
+
             - name: Deploy Ghost theme
               uses: TryGhost/action-deploy-theme@v1.2.0
               with:
                   api-url: ${{ secrets.GHOST_API_URL }}
                   api-key: ${{ secrets.GHOST_DEPLOY_THEME_ADMIN_API_KEY }}
+                  exclude: "dist/* node_modules/*"
