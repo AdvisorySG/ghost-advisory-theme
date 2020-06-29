@@ -50,7 +50,7 @@
         "gulp-livereload": "4.0.2",
         "gulp-postcss": "8.0.0",
         "gulp-uglify": "3.0.2",
-        "gulp-zip": "5.0.1",
+        "gulp-zip": "5.0.2",
         "postcss-color-mod-function": "3.0.3",
         "postcss-custom-properties": "9.1.1",
         "postcss-easy-import": "3.0.0",
