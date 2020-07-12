@@ -155,31 +155,67 @@ html,
 /* ---------------------------------------------------------- */
 
 .gh-header {
-    padding: 0 0 8vmin 0;
     text-align: center;
+}
+.gh-header > :first-child {
+    margin: 0 0 1rem 0;
+}
+.gh-header > :not(:first-child) {
+    margin: 1rem 0;
 }
 
 .gh-post-meta {
-    display: block;
-    margin: 0 0 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     font-size: 1.4rem;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     opacity: 0.8;
 }
-
-.gh-excerpt {
-    margin: 1rem 0 0 0;
+.gh-post-meta > :after {
+    padding: 0 1rem;
+    content: "|";
+}
+.gh-post-meta > :last-child:after {
+    content: "";
+}
+.gh-post-meta .gh-post-meta-content-item:after {
+    content: ", ";
+}
+.gh-post-meta .gh-post-meta-content-item:last-child:after {
+    content: "";
 }
 
 .gh-feature-image {
-    grid-column: wide-start / wide-end;
     width: 100%;
-    margin: 8vmin 0 0;
+    margin: 1rem 0 0 0;
+}
+.gh-feature-image-caption {
+    margin: 1rem 0 0 0;
+    text-align: center;
 }
 
 .gh-post-footer {
-    margin: 2rem 0;
+    margin: 4rem 0;
+}
+.gh-post-footer .gh-post-comments-header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.gh-post-footer .gh-post-comments-header-item {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2.2rem;
+    letter-spacing: 0.5px;
+}
+.gh-post-footer .gh-post-comments-other {
+    display: flex;
+    flex-direction: row;
+}
+.gh-post-footer .gh-post-comments-other > * {
+    margin-left: 2rem;
 }
 
 .tag-hash-conversations {
@@ -190,6 +226,16 @@ html,
 }
 .tag-hash-reflections {
     background: #daabe7;
+}
+
+@media (max-width: 700px) {
+    .gh-post-meta {
+        flex-direction: column;
+    }
+    .gh-post-meta > :after {
+        padding: 0;
+        content: "";
+    }
 }
 
 /* Reading progress bar

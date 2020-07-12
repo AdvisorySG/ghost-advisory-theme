@@ -5,8 +5,13 @@
 <article class="gh-article {{post_class}}">
 
     <header class="gh-header gh-canvas">
-        <span class="gh-post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</span>
         <h1 class="gh-title">{{title}}</h1>
+        
+        <span class="gh-post-meta">
+            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
+            <div class="gh-post-meta-content"><span>Tags:&nbsp;</span>{{#foreach tags}}<span class="gh-post-meta-content-item"><a  href={{url}}>{{name}}</a></span>{{/foreach}}</div>
+            <div class="gh-post-meta-content"><span>Written by:&nbsp;</span>{{#foreach authors}}<span class="gh-post-meta-content-item"><a  href={{url}}>{{name}}</a></span>{{/foreach}}</div>
+        </span>
 
         {{#if custom_excerpt}}
         <p class="gh-excerpt">{{custom_excerpt}}</p>
@@ -21,23 +26,25 @@
     <div class="gh-content gh-canvas">
         {{#if feature_image}}
             <img class="gh-feature-image" src="{{feature_image}}" alt="{{title}}" />
+            <span class="gh-feature-image-caption">Pic Credits:&nbsp;</span>
         {{/if}}
 
         {{content}}
     </div>
 
-    <footer class="gh-footer gh-canvas">
-
-        <div class="gh-post-authors">
-            Written by {{#foreach authors}}<a href="{{url}}">{{name}}</a>{{/foreach}}
-        </div>
-
-        {{!--
-        <section class="gh-post-comments">
+    <footer class="gh-post-footer gh-canvas">
+        
+        {{!-- <section class="gh-post-comments">
+            <div class="gh-post-comments-header-container">
+                <div class="gh-post-comments-header-item gh-post-comments-header">Responses</div> 
+                <div class="gh-post-comments-header-item gh-post-comments-other">
+                    <div class="gh-post-comments-share">Share</div>
+                    <div class="gh-post-comments-more">More</div>
+                </div> 
+            </div>
             If you want to embed comments, this is a good place to do it!
-        </section>
-        --}}
-
+        </section> --}}
+       
     </footer>
 
 </article>
