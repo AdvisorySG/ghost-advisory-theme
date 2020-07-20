@@ -9,8 +9,8 @@
         
         <span class="gh-post-meta">
             <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
-            <div class="gh-post-meta-content"><span>Tags:&nbsp;</span>{{#foreach tags}}<span class="gh-post-meta-content-item"><a  href={{url}}>{{name}}</a></span>{{/foreach}}</div>
-            <div class="gh-post-meta-content"><span>Written by:&nbsp;</span>{{#foreach authors}}<span class="gh-post-meta-content-item"><a  href={{url}}>{{name}}</a></span>{{/foreach}}</div>
+            <span>Tags:&nbsp;{{#foreach tags}}<span class="gh-post-meta-content-item"><a href={{url}}>{{name}}</a></span>{{/foreach}}</span>
+            <span>Written by:&nbsp;{{#foreach authors}}<span class="gh-post-meta-content-item"><a href={{url}}>{{name}}</a></span>{{/foreach}}</span>
         </span>
 
         {{#if custom_excerpt}}
@@ -26,7 +26,6 @@
     <div class="gh-content gh-canvas">
         {{#if feature_image}}
             <img class="gh-feature-image" src="{{feature_image}}" alt="{{title}}" />
-            <span class="gh-feature-image-caption">Pic Credits:&nbsp;</span>
         {{/if}}
 
         {{content}}
