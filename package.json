@@ -83,7 +83,7 @@
         }
     },
     "devDependencies": {
-        "danger": "^10.2.1",
+        "danger": "^10.3.0",
         "husky": "^4.2.5",
         "prettier": "^2.0.5",
         "pretty-quick": "^2.0.1"
