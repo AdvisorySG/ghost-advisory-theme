@@ -2,6 +2,67 @@
 
 <div class="gh-page">
     <div class="gh-container">
+        <div class="gh-page-head">
+            <h1 class="gh-header">Stories</h1>
+        </div>
+        <div class="featured-post-slider">
+            <!-- TO DO -->
+        </div>
+        <div class="stories-description gh-canvas mb-4">
+            <h3 class="gh-header">Types of Stories</h3>
+            <p>With our <strong>Conversations, Insights and Reflections</strong> series, Advisory hopes to provide a platform through which youths can learn about various professions.</p>
+            <div class="d-flex justify-content-center">
+                <div class="p-4">
+                    <img src="/assets/icons/scrollinggraphic_conversation.png" alt="Conversations" height="261">
+                    <p class="text-center font-weight-bold">CONVERSATIONS</p>
+                </div>
+                <div class="p-4">
+                    <img src="/assets/icons/scrollinggraphic_insight.png" alt="Insights" height="261">
+                    <p class="text-center font-weight-bold">INSIGHTS</p>
+                </div>
+                <div class="p-4">
+                    <img src="/assets/icons/scrollinggraphic_reflection.png" alt="Reflections" height="261">
+                    <p class="text-center font-weight-bold">REFLECTIONS</p>
+                </div>
+            </div>
+            <ol>
+                <li>CONVERSATIONS: Interviews with entry- to mid-level working professionals, published in Q&amp;A form. Comprises a short introduction to the interviewee and interview transcript. Each interviewee will select the 5 most important qualities needed for the job (as per the 42 Harvard Competencies). These will serve as the bread and butter of Advisory’s content.</li>
+                <li>INSIGHTS: Articles communicating industry concepts and jargon to students in easily-accessible writing — explaining terms (i.e. bitcoin, blockchain), discussions on the future of various industries, and discussions on the world economy. Writers include both Correspondents (through interviews with professionals/research) and professionals themselves.</li>
+                <li>REFLECTIONS: Narrative, in-depth accounts of interactions with mid- to upper-level working professionals. Discussions about values, work-life balance, advice for youths, and other concepts to personalize interviewees and provide youth with role models.</li>
+            </ol>
+        </div>
+        <div class="filter p-4">
+            <h3 class="gh-header">Tags</h3>
+            <div class="d-flex justify-content-center">
+                <div class="dropdown px-4"> <!-- External tags -->
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Industry
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        {{#get "tags" limit="all"}}
+                        {{#foreach tags}}
+                            <a class="dropdown-item filter-selection">{{name}}</a>
+                        {{/foreach}}
+                        {{/get}}
+                    </div>
+                </div>
+                <div class="dropdown px-4"> <!-- Internal tags -->
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Article Type
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item filter-selection internal-tag">Conversations</a>
+                        <a class="dropdown-item filter-selection internal-tag">Insights</a>
+                        <a class="dropdown-item filter-selection internal-tag">Reflections</a>
+                    </div>
+                </div>
+                <div class="px-4">
+                    <button class="btn btn-secondary clear-filter">
+                        Clear filters
+                    </button>
+                </div>
+            </div>
+        </div>
         <div class="gh-postfeed">
         {{#get "posts"}}
         {{#foreach posts}}
