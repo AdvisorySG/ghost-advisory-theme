@@ -1,118 +1,111 @@
 <!DOCTYPE html>
 <html lang="{{@site.lang}}">
-<head>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+        <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
 
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
-    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+        <title>{{meta_title}}</title>
 
-    <title>{{meta_title}}</title>
+        {{ghost_head}}
+        {{!-- Outputs SEO meta+structured data and important settings, should always be in <head> --}}
+    </head>
+    <body class="{{body_class}}">
+        <div class="gh-viewport">
+            <header id="gh-head" class="gh-head">
+                <nav class="gh-head-inner gh-container">
 
-    {{ghost_head}}
-    {{!-- Outputs SEO meta+structured data and important settings, should always be in <head> --}}
+                    <div class="gh-head-brand">
+                        <a class="gh-head-logo" href="{{@site.url}}">
+                            {{#if @site.logo}}
+                                <img src="{{@site.logo}}" alt="{{@site.title}}" />
+                            {{else}}
+                                {{@site.title}}
+                            {{/if}}
+                        </a>
+                        <a class="gh-burger" role="button">
+                            <div class="gh-burger-box">
+                                <div class="gh-burger-inner"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gh-head-menu">
+                        {{navigation}}
+                    </div>
+                    <div class="gh-head-actions">
+                        <div class="gh-head-actions-list">
+                            {{#if @site.facebook}}
+                            <a href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
+                            {{/if}}
+                            {{#if @site.twitter}}
+                            <a href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
+                            {{/if}}
+                            <a href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
+                        </div>
+                    </div>
+                </nav>
+            </header>
 
-</head>
-<body class="{{body_class}}">
-<div class="gh-viewport">
+            <main class="gh-main">
+                {{{body}}}
+                {{!-- All content gets inserted here, index.hbs, post.hbs, etc --}}
+            </main>
 
-<header id="gh-head" class="gh-head">
-    <nav class="gh-head-inner gh-container">
-
-        <div class="gh-head-brand">
-            <a class="gh-head-logo" href="{{@site.url}}">
-                {{#if @site.logo}}
-                    <img src="{{@site.logo}}" alt="{{@site.title}}" />
-                {{else}}
-                    {{@site.title}}
-                {{/if}}
-            </a>
-            <a class="gh-burger" role="button">
-                <div class="gh-burger-box">
-                    <div class="gh-burger-inner"></div>
+            <footer class="gh-foot">
+                <div class="gh-container">
+                    <div class="gh-foot-menu">
+                        {{navigation type="secondary"}}
+                    </div>
+                    <div class="gh-foot-meta">
+                        Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                    </div>
                 </div>
-            </a>
+            </footer>
         </div>
-        <div class="gh-head-menu">
-            {{navigation}}
-        </div>
-        <div class="gh-head-actions">
-            <div class="gh-head-actions-list">
-                {{#if @site.facebook}}
-                <a href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
-                {{/if}}
-                {{#if @site.twitter}}
-                <a href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
-                {{/if}}
-                <a href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
-            </div>
-        </div>
-    </nav>
-</header>
 
-<main class="gh-main">
+        {{!-- <foot> --}}
 
-    {{{body}}}
-    {{!-- All content gets inserted here, index.hbs, post.hbs, etc --}}
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-</main>
+        <script>
+            $(document).ready(function () {
+                // Mobile Menu Trigger
+                $('.gh-burger').click(function () {
+                    $('body').toggleClass('gh-head-open');
+                });
 
-<footer class="gh-foot">
-    <div class="gh-container">
-        <div class="gh-foot-menu">
-            {{navigation type="secondary"}}
-        </div>
-        <div class="gh-foot-meta">
-            Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
-        </div>
-    </div>
-</footer>
+                // Filter
+                $('.filter-selection').click(function(event) {
+                    let classToFilter = event.target.innerHTML;
+                    let internalTag = $(this).hasClass('internal-tag');
+                    // Basic slug generator: replace whitespaces with dashes, then strip punctuation
+                    // TODO: Document behaviour of this generator in API v3
+                    classToFilter = classToFilter.replace(/\s+/g, '-').replace(/[.,'!?]/, '').toLowerCase();
+                    $('.gh-postfeed').children().each(function() {
+                        if ($(this).hasClass(`tag-${classToFilter}`) && !internalTag || $(this).hasClass(`tag-hash-${classToFilter}`) && internalTag) {
+                            $(this).removeClass('d-none');
+                        }
+                        else $(this).addClass('d-none');
+                    });
+                });
+                $('.clear-filter').click(function(event) {
+                    $('.gh-postfeed').children().each(function() {
+                        $(this).removeClass('d-none');
+                    });
+                });
+            });
+        </script>
+        {{#is "post"}}
+            <script src="{{asset "built/toggledropdown.js"}}"></script>
+        {{/is}}
 
-</div>
-
-{{!-- <foot> --}}
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-<script>
-$(document).ready(function () {
-    // Mobile Menu Trigger
-    $('.gh-burger').click(function () {
-        $('body').toggleClass('gh-head-open');
-    });
-
-    // Filter
-    $('.filter-selection').click(function(event) {
-        let classToFilter = event.target.innerHTML;
-        let internalTag = $(this).hasClass('internal-tag');
-        // Basic slug generator: replace whitespaces with dashes, then strip punctuation
-        // TODO: Document behaviour of this generator in API v3
-        classToFilter = classToFilter.replace(/\s+/g, '-').replace(/[.,'!?]/, '').toLowerCase();
-        $('.gh-postfeed').children().each(function() {
-            if ($(this).hasClass(`tag-${classToFilter}`) && !internalTag || $(this).hasClass(`tag-hash-${classToFilter}`) && internalTag) {
-                $(this).removeClass('d-none');
-            }
-            else $(this).addClass('d-none');
-        });
-    });
-    $('.clear-filter').click(function(event) {
-        $('.gh-postfeed').children().each(function() {
-            $(this).removeClass('d-none');
-        });
-    });
-});
-</script>
-{{#is "post"}}
-<script src="{{asset "built/toggledropdown.js"}}"></script>
-{{/is}}
-
-{{ghost_foot}}
-{{!-- Outputs important scripts - should always be included before closing body tag --}}
-
-</body>
+        {{ghost_foot}}
+        {{!-- Outputs important scripts - should always be included before closing body tag --}}
+    </body>
 </html>

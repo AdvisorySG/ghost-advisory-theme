@@ -1,46 +1,57 @@
 {{!< default}}
 
 {{#post}}
-
-<article class="gh-article {{post_class}}">
-    <header class="gh-header gh-canvas">
-        <h1 class="gh-title">{{title}}</h1>
-        <span class="gh-post-meta">
-            <time datetime="{{date format="YYYY-MM-DD"}}">
-                {{date format="D MMM YYYY"}}
-            </time>
-            <span>
-                Tags:&nbsp;
-                {{#foreach tags}}
-                <span class="gh-post-meta-content-item">
-                    <a href={{url}}>{{name}}</a>
+    <article class="gh-article {{post_class}}">
+        <header class="gh-header gh-canvas">
+            <h1 class="gh-title">
+                {{title}}
+            </h1>
+            <span class="gh-post-meta">
+                <time datetime="{{date format="YYYY-MM-DD"}}">
+                    {{date format="D MMM YYYY"}}
+                </time>
+                <span>
+                    Tags:&nbsp;
+                    {{#foreach tags}}
+                        <span class="gh-post-meta-content-item">
+                            <a href={{url}}>
+                                {{name}}
+                            </a>
+                        </span>
+                    {{/foreach}}
                 </span>
-                {{/foreach}}
-            </span>
-            <span>
-                Written by:&nbsp;
-                {{#foreach authors}}
-                <span class="gh-post-meta-content-item">
-                    <a href={{url}}>{{name}}</a>
+                <span>
+                    Written by:&nbsp;
+                    {{#foreach authors}}
+                        <span class="gh-post-meta-content-item">
+                            <a href={{url}}>
+                                {{name}}
+                            </a>
+                        </span>
+                    {{/foreach}}
                 </span>
-                {{/foreach}}
             </span>
-        </span>
 
-        {{#if custom_excerpt}}
-        <p class="gh-excerpt">{{custom_excerpt}}</p>
-        {{/if}}
-    </header>
+            {{#if custom_excerpt}}
+                <p class="gh-excerpt">
+                    {{custom_excerpt}}
+                </p>
+            {{/if}}
+        </header>
 
-    <div class="gh-content gh-canvas">
-        {{#if feature_image}}
-        <img class="gh-feature-image" src="{{feature_image}}" alt="{{title}}" />
-        {{/if}}
-        {{content}}
-    </div>
+        <div class="gh-content gh-canvas">
+            {{#if feature_image}}
+                <img
+                    class="gh-feature-image"
+                    src="{{feature_image}}"
+                    alt="{{title}}"
+                />
+            {{/if}}
+            {{content}}
+        </div>
 
-    <footer class="gh-post-footer gh-canvas">
-        {{!-- <section class="gh-post-comments">
+        <footer class="gh-post-footer gh-canvas">
+            {{! <section class="gh-post-comments">
             <div class="gh-post-comments-header-container">
                 <div class="gh-post-comments-header-item gh-post-comments-header">Responses</div> 
                 <div class="gh-post-comments-header-item gh-post-comments-other">
@@ -49,27 +60,34 @@
                 </div> 
             </div>
             If you want to embed comments, this is a good place to do it!
-        </section> --}}
-    </footer>
-</article>
+        </section> }}
+        </footer>
+    </article>
 
-<aside class="gh-readmore">
-    <div class="gh-readmore-inner gh-container">
-        <div class="gh-readmore-next">
-            {{#next_post}}
-            <a href="{{url}}">
-                <i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;<h4>{{title}}</h4>
-            </a>
-            {{/next_post}}
+    <aside class="gh-readmore">
+        <div class="gh-readmore-inner gh-container">
+            <div class="gh-readmore-next">
+                {{#next_post}}
+                    <a href="{{url}}">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                        &nbsp;
+                        <h4>
+                            {{title}}
+                        </h4>
+                    </a>
+                {{/next_post}}
+            </div>
+            <div class="gh-readmore-prev">
+                {{#prev_post}}
+                    <a href="{{url}}">
+                        <h4>
+                            {{title}}
+                        </h4>
+                        &nbsp;
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                {{/prev_post}}
+            </div>
         </div>
-        <div class="gh-readmore-prev">
-            {{#prev_post}}
-            <a href="{{url}}">
-                <h4>{{title}}</h4>&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
-            </a>
-            {{/prev_post}}
-        </div>
-    </div>
-</aside>
-
+    </aside>
 {{/post}}
