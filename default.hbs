@@ -89,25 +89,6 @@ $(document).ready(function () {
         $('body').toggleClass('gh-head-open');
     });
 
-    // Filter
-    $('.filter-selection').click(function(event) {
-        let classToFilter = event.target.innerHTML;
-        let internalTag = $(this).hasClass('internal-tag');
-        // Basic slug generator: replace whitespaces with dashes, then strip punctuation
-        // TODO: Document behaviour of this generator in API v3
-        classToFilter = classToFilter.replace(/\s+/g, '-').replace(/[.,'!?]/, '').toLowerCase();
-        $('.gh-postfeed').children().each(function() {
-            if ($(this).hasClass(`tag-${classToFilter}`) && !internalTag || $(this).hasClass(`tag-hash-${classToFilter}`) && internalTag) {
-                $(this).removeClass('d-none');
-            }
-            else $(this).addClass('d-none');
-        });
-    });
-    $('.clear-filter').click(function(event) {
-        $('.gh-postfeed').children().each(function() {
-            $(this).removeClass('d-none');
-        });
-    });
 });
 </script>
 {{#is "post"}}
