@@ -216,7 +216,9 @@ html,
 .filter-option {
     font-size: 1.4rem;
 }
-
+.page-link {
+    padding: 1.2rem;
+}
 /* Author Archive
 /* ---------------------------------------------------------- */
 
