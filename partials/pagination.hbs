@@ -1,0 +1,20 @@
+<script type="text/javascript">
+	// set the values that we'll use in the bootstrap-pagination.js file
+	{{!if there is no value for the variable, display a 0}}
+	prev = {{#if prev}}{{prev}}{{else}}0{{/if}};
+	pages = {{#if pages}}{{pages}}{{else}}0{{/if}};
+	page = {{#if page}}{{page}}{{else}}0{{/if}};
+	next = {{#if next}}{{next}}{{else}}0{{/if}};
+	pageUrl = '{{page_url}}';
+	pageUrlPrev = '{{page_url prev}}';
+	pageUrlNext = '{{page_url next}}';
+	pageUrlFirst = '{{page_url 1}}';
+	pageUrlLast = '{{page_url pages}}';
+</script>
+<div class="col-12 d-flex justify-content-center">
+
+<nav>
+  <ul class="pagination bootstrap-pagination">
+  </ul>
+</nav>
+</div>

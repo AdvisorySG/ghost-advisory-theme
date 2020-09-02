@@ -55,11 +55,17 @@
             </div>
         </div>
         <div class="gh-postfeed">
-        {{#get "posts"}}
-            {{#foreach posts}}
-                {{> "card"}} {{!-- partials/card.hbs --}}
-            {{/foreach}}
-        {{/get}}
+            {{pagination}}
+            {{#get "posts" limit=@config.posts_per_page page=pagination.page}}
+                {{! Loop through our articles collection }}
+                {{#foreach posts}}
+                    {{> "card"}}
+                {{/foreach}}
+                {{! Use our pages (pagination) object }}
+            {{/get}}
+            {{pagination}}
+
         </div>
     </div>
 </div>
+
