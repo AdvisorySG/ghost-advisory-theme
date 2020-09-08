@@ -64,7 +64,7 @@
             </div>
         </div>
         <div class="gh-postfeed">
-        {{#get "posts"}}
+        {{#get "posts" include="tags,authors"}}
             {{#foreach posts}}
                 {{> "card"}} {{!-- partials/card.hbs --}}
             {{/foreach}}
