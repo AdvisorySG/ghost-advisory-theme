@@ -19,6 +19,7 @@ Ghost uses a simple templating language called [Handlebars](http://handlebarsjs.
 The following custom page templates have been created:
 
 -   `page-stories.hbs` - Custom template for the `/stories/` page
+-   `page-impact.hbs` - Custom template for the `/impact/` page
 
 Take note that for custom pages to be generated on Ghost, you would need to create static pages with the same slugs as indicated in their filename. For more details, please refer to the documentation for [pages](https://ghost.org/docs/api/v3/handlebars-themes/context/page/).
 
