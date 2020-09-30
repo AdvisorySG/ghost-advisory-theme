@@ -41,7 +41,7 @@
     "bugs": "https://github.com/AdvisorySG/ghost-advisory-theme/issues",
     "contributors": "https://github.com/AdvisorySG/ghost-advisory-theme/graphs/contributors",
     "dependencies": {
-        "@tryghost/admin-api": "^1.3.1",
+        "@tryghost/admin-api": "^1.3.2",
         "autoprefixer": "9.8.6",
         "beeper": "2.0.0",
         "cssnano": "4.1.10",
