@@ -14,6 +14,7 @@ var colorModFunction = require("postcss-color-mod-function");
 var cssnano = require("cssnano");
 var customProperties = require("postcss-custom-properties");
 var easyImport = require("postcss-easy-import");
+var tailwindcss = require("tailwindcss");
 
 function serve(done) {
     livereload.listen();
@@ -38,6 +39,7 @@ function hbs(done) {
 
 function css(done) {
     var processors = [
+        tailwindcss,
         easyImport,
         customProperties({ preserve: false }),
         colorModFunction(),
