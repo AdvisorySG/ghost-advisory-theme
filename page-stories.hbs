@@ -40,9 +40,9 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         {{#get "tags" limit="all"}}
-                        {{#foreach tags}}
-                            <a class="dropdown-item filter-selection">{{name}}</a>
-                        {{/foreach}}
+                            {{#foreach tags}}
+                                <a class="dropdown-item filter-selection">{{name}}</a>
+                            {{/foreach}}
                         {{/get}}
                     </div>
                 </div>
@@ -64,10 +64,10 @@
             </div>
         </div>
         <div class="gh-postfeed">
-        {{#get "posts"}}
-        {{#foreach posts}}
-            {{> "card"}} {{!-- partials/card.hbs --}}
-        {{/foreach}}
+        {{#get "posts" include="tags,authors"}}
+            {{#foreach posts}}
+                {{> "card"}} {{!-- partials/card.hbs --}}
+            {{/foreach}}
         {{/get}}
         </div>
     </div>
