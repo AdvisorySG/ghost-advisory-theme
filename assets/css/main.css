@@ -1,0 +1,15 @@
+/* Base components */
+@import "tailwind.css";
+@import "vars.css";
+@import "screen.css";
+@import "components/global.css";
+
+/* Ghost components */
+@import "ghost/header.css";
+@import "ghost/content.css";
+@import "ghost/readmore.css";
+@import "ghost/errors.css";
+@import "ghost/footer.css";
+
+/* Toggle dropdown */
+@import "toggledropdown.css";
