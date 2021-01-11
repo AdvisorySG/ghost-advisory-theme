@@ -25,25 +25,23 @@ Take note that for custom pages to be generated on Ghost, you would need to crea
 
 # Development
 
-Styles are compiled using Gulp/PostCSS to polyfill future CSS spec. You'll need [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com/) and [Gulp](https://gulpjs.com) installed globally. After that, from the theme's root directory:
-
-```bash
-# Install
-yarn
-
-# Run build & watch for changes
-yarn dev
-```
-
-Now you can edit `*.hbs`, `assets/css/` and `assets/js/` files, which will be compiled automatically. The `zip` Gulp task packages the theme files into `dist/<theme-name>.zip`, which you can then upload to your site.
-
-```bash
-yarn zip
-```
+First, [setup a local Ghost instance](https://ghost.org/docs/install/local/).
 
 Should you have access to the [Admin panel of Advisory](https://beta.advisory.sg/ghost/), you may go to Settings > Labs > Migration Options > Export your content in order to obtain the posts and settings used for the actual website as a JSON file. Then, you may load up the file into your local instance of Ghost, at Settings > Labs > Migration Options > Import content. Take note that this will not remove existing posts/pages.
 
-## Speedy Development (Advanced)
+To build the theme, you'll need [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com/) and [Gulp](https://gulpjs.com) installed globally. From the root directory, you can execute the `zip` Gulp task:
+
+```bash
+# Install dependencies
+yarn
+
+# Package the theme into a zip archive
+yarn zip
+```
+
+The theme files are packaged into `dist/<theme-name>.zip`, which you can then upload to your site, at Settings > Design > Installed Themes > Upload a theme.
+
+## Speedy Development
 
 To speed up development with a local instance of Ghost, you may use an alternative procedure to directly place the theme directory in the `content/themes/` directory of Ghost.
 
@@ -55,7 +53,11 @@ Finally, run `yarn dev` in the `content/themes/ghost-advisory-theme/` directory 
 
 This method is not officially supported by Ghost and might break any time (though the theme handling logic is unlikely to be modified in the foreseeable future). Take note that if you add new post templates, you may need to restart Ghost manually for the changes to take place in the Admin panel.
 
-# PostCSS Plugins Used
+# PostCSS
+
+Styles are compiled using PostCSS to polyfill future CSS spec.
+
+Plugins used:
 
 -   [Autoprefixer](https://github.com/postcss/autoprefixer)
 -   [Color Mod Function](https://github.com/jonathantneal/postcss-color-mod-function)
