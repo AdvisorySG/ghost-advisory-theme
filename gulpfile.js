@@ -39,8 +39,8 @@ function hbs(done) {
 
 function css(done) {
     var processors = [
-        tailwindcss,
         easyImport,
+        tailwindcss,
         customProperties({ preserve: false }),
         colorModFunction(),
         autoprefixer(),
