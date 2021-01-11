@@ -63,6 +63,10 @@ This method is not officially supported by Ghost and might break any time (thoug
 -   [Custom Properties](https://github.com/postcss/postcss-custom-properties)
 -   [Easy Import](https://github.com/trysound/postcss-easy-import)
 
+# Search
+
+We use [SearchInGhostEasy](https://github.com/gmfmi/searchinghost-easy) to implement a client-side full-text search for articles. If you want search to be functional on your local machine, you'll need to update [default.hbs](./default.hbs) with a new local content API key. See the [SearchInGhostEasy documentation for more information](https://github.com/gmfmi/searchinghost-easy).
+
 # Copyright & License
 
 Copyright (c) 2013-2020 Ghost Foundation - Released under the [MIT license](LICENSE).
