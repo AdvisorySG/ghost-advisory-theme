@@ -1,5 +1,9 @@
+/* Tailwind layers */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 /* Base components */
-@import "tailwind.css";
 @import "vars.css";
 @import "screen.css";
 @import "components/global.css";
