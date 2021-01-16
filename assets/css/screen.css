@@ -1,17 +1,3 @@
-html,
-.gh-viewport {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background: #fff;
-}
-
-.gh-main {
-    flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
-}
-
 .gh-page {
     padding: 0 4vw;
 }
@@ -24,6 +10,7 @@ html,
     padding: 8vmin 0;
 }
 
+/* TODO: To remove after header and footer are migrated to Tailwind */
 .gh-container {
     width: 100%;
     max-width: 1200px;
