@@ -7,12 +7,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
-<<<<<<< HEAD
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
         <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
-=======
         <link rel="stylesheet" type="text/css" href="{{asset "built/main.css"}}" />
->>>>>>> upstream/master
 
         <title>{{meta_title}}</title>
 
@@ -76,22 +73,122 @@
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<<<<<<< HEAD
         <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
         <script src="{{asset "js/bootstrap-pagination.js"}}"></script>
-=======
         <script src="https://cdn.jsdelivr.net/gh/gmfmi/searchinghost-easy@latest/dist/searchinghost-easy-backpack.js"></script>
->>>>>>> upstream/master
 
         <script>
             // contentApiKey is instance-dependent; replace this with a new key if
             // testing on a local instance
             new SearchinGhostEasy({ contentApiKey: '3ecdb68993794bc0157e776e5d' });
 
+
+            // Filter feature
+            let primaryFilters = "";
+            let internalFilters = "";
+
+            function getFilterOptions(target){
+                // Retrieve select value from filter and manipulate the values for filtering
+                let filterOptions = $(target).val();
+                // Check if target is an internal tag filter
+                let internalTag = $(target).hasClass('internal-tag');
+                // Set respective prefix 
+                let tagPrefix = internalTag ? "tag-hash-" : "tag-";
+                // Initialise a new array for holding raw values to be written to localstorage
+                let rawFilter = new Array();
+                // Loop through each item in the filter
+                $.each(filterOptions, function(index,value) {
+                    // Push the raw value for localstorage
+                    rawFilter.push(value);
+                    // Basic slug generator: replace whitespaces with dashes, then strip punctuation
+                    filterOptions[index] = tagPrefix + value.replace(/\s+/g, '-').replace(/[.,'!?]/, '').toLowerCase();
+                })
+                if (internalTag){
+                    // Write values for internal tags
+                    internalFilters = filterOptions;
+                    // Write internal filters to localstorage for persistance across pages
+                    localStorage.setItem('internalStories', rawFilter.join("|"));
+                } else {
+                    // Write values for primary tags
+                    primaryFilters = filterOptions;
+                    // Write filters to localstorage for persistance across pages
+                    localStorage.setItem('primaryStories', rawFilter.join("|"));
+                }
+            }
+
+            function filterPosts(){
+                // Get filter options for both filter categories
+                getFilterOptions($('#primary-filter'));
+                getFilterOptions($('#internal-filter'));
+                // Combine both filters
+                let filters = primaryFilters.concat(internalFilters);
+                // Check if there is a need to filter posts
+                if (filters.length > 0) {
+                    // Hide all posts by default
+                    $('.gh-postfeed').children().each(function() {
+                        $(this).addClass('d-none');
+                    });
+                    // Show post if post meets the filter tags for each filter 
+                    $.each(filters, function(index, value) {
+                        $('.gh-postfeed').children().each(function() {
+                            if ($(this).hasClass(value)) {
+                                $(this).removeClass('d-none');
+                            }
+                        });
+                    });
+                } else {
+                    // No filter needed, show all posts
+                    $('.gh-postfeed').children().each(function() {
+                        $(this).removeClass('d-none');
+                    });
+                }
+            };
+        
+            function retrieveFiltersFromLS(){
+                // Retrieve filters from local storage and set it to the respective select element (force refresh using change())
+                let rawIntFilter = localStorage.getItem('internalStories').split("|");
+                $('#internal-filter').val(rawIntFilter).change();
+                let rawPriFilter = localStorage.getItem('primaryStories').split("|");
+                $('#primary-filter').val(rawPriFilter).change();
+            }
             $(document).ready(function () {
-                // Mobile Menu Trigger
+                // On page load, set persisted filters via localstorage 
+                retrieveFiltersFromLS();
+                // Filter posts on active page
+                filterPosts();
+                // Listen to changes to both filters
+                $('#primary-filter, #internal-filter').change(function(){
+                    // Retrieve filter options on selection change
+                    {{!-- getFilterOptions(this); --}}
+                    // Filter 
+                    filterPosts();
+                })
+                    // Mobile Menu Trigger
                 $('.gh-burger').click(function () {
                     $('body').toggleClass('gh-head-open');
+                });
+                // Filtering
+                $('.filter-selection').click(function(event) {
+                    console.log("Filter");
+                    let classToFilter = event.target.innerHTML;
+                    console.log("Filtering: " + classToFilter);
+                    let internalTag = $(this).hasClass('internal-tag');
+                    // Basic slug generator: replace whitespaces with dashes, then strip punctuation
+                    // TODO: Document behaviour of this generator in API v3
+                    classToFilter = classToFilter.replace(/\s+/g, '-').replace(/[.,'!?]/, '').toLowerCase();
+                    console.log("cleaned Filtering: " + classToFilter);
+
+                    $('.gh-postfeed').children().each(function() {
+                        if ($(this).hasClass(`tag-${classToFilter}`) && !internalTag || $(this).hasClass(`tag-hash-${classToFilter}`) && internalTag) {
+                            $(this).removeClass('d-none');
+                        }
+                        else $(this).addClass('d-none');
+                    });
+                });
+                $('.clear-filter').click(function(event) {
+                    $('.gh-postfeed').children().each(function() {
+                        $(this).removeClass('d-none');
+                    });
                 });
                 // Pagination
                 if (prev > 0) {
