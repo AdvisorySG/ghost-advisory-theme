@@ -1,0 +1,12 @@
+<ul class="nav" role="menu">
+    {{#foreach navigation}}
+    <li class="{{link_class for=(url) class=(concat "nav-" slug)}}" role="menuitem">
+        <a href="{{url absolute="true"}}">{{label}}</a>
+    </li>
+    {{/foreach}}
+    {{#unless isSecondary}}
+    <li class="nav-search">
+        <a href="#searchinghost-easy">{{> "icons/search"}}</a>
+    </li>
+    {{/unless}}
+</ul>

@@ -4,7 +4,9 @@ $(function () {
     var isHiding = {};
 
     $(".gh-content > h1").each(function () {
-        $(this).addClass("h1-toggle");
+        $(this).addClass(
+            "h1-toggle cursor-default no-underline hover:cursor-pointer hover:underline"
+        );
     });
 
     $(".h1-toggle").each(function () {
@@ -17,7 +19,7 @@ $(function () {
             $header.nextUntil("h1").hide();
 
             $("#" + headerId + " > i").remove();
-            $header.prepend('<i class="fas fa-chevron-up h1-toggle-icon"></i>');
+            $header.prepend('<i class="fas fa-chevron-up px-2 py-0"></i>');
         }
 
         function showHeader() {
@@ -26,9 +28,7 @@ $(function () {
             $header.nextUntil("h1").show();
 
             $("#" + headerId + " > i").remove();
-            $header.prepend(
-                '<i class="fas fa-chevron-down h1-toggle-icon"></i>'
-            );
+            $header.prepend('<i class="fas fa-chevron-down px-2 py-0"></i>');
         }
 
         // set headers to be hidden by default,

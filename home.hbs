@@ -71,15 +71,14 @@
                 </div>
             </div>
         </div>
-        <h2 style="text-align:center">
+        <h2 class="text-center m-4">
             Upcoming Events
         </h2>
-        <div data-tockify-component="calendar" data-tockify-calendar="advisory">
-            <script
-                data-cfasync="false"
-                data-tockify-script="embed"
-                src="https://public.tockify.com/browser/embed.js"
-            ></script>
+        <div class="grid grid-cols-4 gap-x-20 w-4/5 m-auto">
+            {{> "event-card"}}
+            {{> "event-card"}}
+            {{> "event-card"}}
+            {{> "event-card"}}
         </div>
     </div>
 </div>
