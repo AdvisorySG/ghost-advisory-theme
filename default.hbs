@@ -174,22 +174,7 @@
                 $('.gh-burger').click(function () {
                     $('body').toggleClass('gh-head-open');
                 });
-                // Filtering
-                $('.filter-selection').click(function(event) {
-                    console.log("Filter");
-                    let classToFilter = event.target.innerHTML;
-                    console.log("Filtering: " + classToFilter);
-                    let internalTag = $(this).hasClass('internal-tag');
-                    classToFilter = slugRegex(classToFilter)
-                    console.log("cleaned Filtering: " + classToFilter);
 
-                    $('.gh-postfeed').children().each(function() {
-                        if ($(this).hasClass(`tag-${classToFilter}`) && !internalTag || $(this).hasClass(`tag-hash-${classToFilter}`) && internalTag) {
-                            $(this).removeClass('d-none');
-                        }
-                        else $(this).addClass('d-none');
-                    });
-                });
                 $('.clear-filter').click(function(event) {
                     $('.gh-postfeed').children().each(function() {
                         $(this).removeClass('d-none');
