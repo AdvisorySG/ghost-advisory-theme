@@ -100,8 +100,7 @@
                 $.each(filterOptions, function(index,value) {
                     // Push the raw value for localstorage
                     rawFilter.push(value);
-                    // Basic slug generator: replace whitespaces with dashes, then strip punctuation
-                    filterOptions[index] = tagPrefix + value.replace(/\s+/g, '-').replace(/[.,'!?]/, '').toLowerCase();
+                    filterOptions[index] = tagPrefix + slugRegex(value)
                 })
                 if (internalTag){
                     // Write values for internal tags
@@ -115,7 +114,11 @@
                     localStorage.setItem('primaryStories', rawFilter.join("|"));
                 }
             }
-
+            function slugRegex(value) {
+                // ! Potentially breaking regex
+                // Basic slug generator: replace whitespaces with dashes, then strip punctuation
+                return value.replace(/\s+/g, '-').replace(/[.,'!?]/, '').toLowerCase();
+            }
             function filterPosts(){
                 // Get filter options for both filter categories
                 getFilterOptions($('#primary-filter'));
@@ -173,9 +176,7 @@
                     let classToFilter = event.target.innerHTML;
                     console.log("Filtering: " + classToFilter);
                     let internalTag = $(this).hasClass('internal-tag');
-                    // Basic slug generator: replace whitespaces with dashes, then strip punctuation
-                    // TODO: Document behaviour of this generator in API v3
-                    classToFilter = classToFilter.replace(/\s+/g, '-').replace(/[.,'!?]/, '').toLowerCase();
+                    classToFilter = slugRegex(classToFilter)
                     console.log("cleaned Filtering: " + classToFilter);
 
                     $('.gh-postfeed').children().each(function() {
