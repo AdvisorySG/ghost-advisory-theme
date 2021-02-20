@@ -149,10 +149,14 @@
         
             function retrieveFiltersFromLS(){
                 // Retrieve filters from local storage and set it to the respective select element (force refresh using change())
-                let rawIntFilter = localStorage.getItem('internalFilters').split("|");
-                $('#internal-filter').val(rawIntFilter).change();
-                let rawPriFilter = localStorage.getItem('primaryFilters').split("|");
-                $('#primary-filter').val(rawPriFilter).change();
+                if (localStorage.getItem('internalFilters') != null) {
+                    let rawIntFilter = localStorage.getItem('internalFilters').split("|");
+                    $('#internal-filter').val(rawIntFilter).change();
+                }
+                if (localStorage.getItem('primaryFilters') != null) {
+                    let rawPriFilter = localStorage.getItem('primaryFilters').split("|");
+                    $('#primary-filter').val(rawPriFilter).change();
+                }
             }
             $(document).ready(function () {
                 // On page load, set persisted filters via localstorage 
