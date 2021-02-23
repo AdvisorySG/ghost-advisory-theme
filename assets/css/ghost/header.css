@@ -97,6 +97,26 @@
     padding: 5px 0;
 }
 
+.gh-head-actions a {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    padding: 10px;
+}
+
+.gh-head-actions a svg {
+    height: 1.125rem;
+    fill: currentcolor;
+}
+
+.gh-head-actions a:first-child svg {
+    margin-left: 20px;
+}
+
+.gh-head-actions a:last-child svg {
+    height: 1.25rem;
+}
+
 /* Mobile Menu Trigger
 /* ---------------------------------------------------------- */
 

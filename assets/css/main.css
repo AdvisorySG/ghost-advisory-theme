@@ -3,9 +3,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* Base components */
-@import "screen.css";
-
 /* Ghost components */
 @import "ghost/header.css";
 @import "ghost/content.css";
