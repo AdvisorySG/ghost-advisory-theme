@@ -7,8 +7,6 @@ html {
 
 body {
     color: color(var(--color-base) l(+20%));
-    font-size: 0.9375rem;
-    line-height: 1.6em;
 }
 
 label {
@@ -51,56 +49,6 @@ a[class] {
 
 a[class]:hover {
     transition: 0.2s ease;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    line-height: 2.15em;
-    font-weight: 700;
-}
-
-h1 {
-    font-size: 2.875rem;
-    letter-spacing: -0.5px;
-}
-@media (max-width: 500px) {
-    h1 {
-        font-size: 1.6875rem;
-    }
-}
-
-h2 {
-    font-size: 2.25rem;
-}
-@media (max-width: 500px) {
-    h2 {
-        font-size: 1.375rem;
-    }
-}
-
-h3 {
-    font-size: 2rem;
-}
-@media (max-width: 500px) {
-    h3 {
-        font-size: 1.125rem;
-    }
-}
-
-h4 {
-    font-size: 1.625rem;
-}
-
-h5 {
-    font-size: 1.5rem;
-}
-
-h6 {
-    font-size: 1.375rem;
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */
