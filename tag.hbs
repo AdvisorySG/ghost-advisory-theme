@@ -1,27 +1,25 @@
 {{!< default}}
 
-<div class="gh-page">
-    <div class="w-full max-w-screen-xl mx-auto my-0">
-        {{#tag}}
-        <header class="gh-page-head">
-            <h1>{{name}}</h1>
+<div class="w-full max-w-screen-xl mx-auto my-0">
+    {{#tag}}
+    <header>
+        <h1>{{name}}</h1>
 
-            <p>
-                {{#if description}}
-                    {{description}}
-                {{/if}}
-            </p>
-
-            {{#if feature_image}}
-                <img class="gh-page-image" src="{{feature_image}}" alt="{{name}}" />
+        <p>
+            {{#if description}}
+                {{description}}
             {{/if}}
-        </header>
-        {{/tag}}
+        </p>
 
-        <div class="gh-postfeed">
-        {{#foreach posts}}
-            {{> "card"}} {{!-- partials/card.hbs --}}
-        {{/foreach}}
-        </div>
+        {{#if feature_image}}
+            <img class="gh-page-image" src="{{feature_image}}" alt="{{name}}" />
+        {{/if}}
+    </header>
+    {{/tag}}
+
+    <div class="px-0 py-6">
+    {{#foreach posts}}
+        {{> "card"}} {{!-- partials/card.hbs --}}
+    {{/foreach}}
     </div>
 </div>
