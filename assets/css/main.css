@@ -6,7 +6,6 @@
 /* Base components */
 @import "vars.css";
 @import "screen.css";
-@import "components/global.css";
 
 /* Ghost components */
 @import "ghost/header.css";
