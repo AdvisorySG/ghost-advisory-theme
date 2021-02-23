@@ -9,11 +9,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
         <link rel="stylesheet" type="text/css" href="{{asset "built/main.css"}}" />
-
         <title>{{meta_title}}</title>
-
         {{ghost_head}}
-        {{!-- Outputs SEO meta+structured data and important settings, should always be in <head> --}}
     </head>
     <body class="{{body_class}}">
         <div class="gh-viewport">
@@ -85,7 +82,7 @@
             // Filter feature
             let primaryFilters = "";
             let internalFilters = "";
-
+                        
             function getFilterOptions(target){
                 // Retrieve select value from filter and manipulate the values for filtering
                 let filterOptions = $(target).val();
@@ -124,12 +121,11 @@
                 getFilterOptions($('#internal-filter'));
                 // Combine both filters
                 let filters = primaryFilters.concat(internalFilters);
-                // Check if there is a need to filter posts
+                // Hide all posts by default
+                $('.gh-postfeed').children().each(function() {
+                    $(this).addClass('d-none');
+                });
                 if (filters.length > 0) {
-                    // Hide all posts by default
-                    $('.gh-postfeed').children().each(function() {
-                        $(this).addClass('d-none');
-                    });
                     // Show post if post meets the filter tags for each filter 
                     $.each(filters, function(index, value) {
                         $('.gh-postfeed').children().each(function() {
@@ -137,11 +133,6 @@
                                 $(this).removeClass('d-none');
                             }
                         });
-                    });
-                } else {
-                    // No filter needed, show all posts
-                    $('.gh-postfeed').children().each(function() {
-                        $(this).removeClass('d-none');
                     });
                 }
             };
@@ -151,10 +142,19 @@
                 if (localStorage.getItem('internalFilters') != null) {
                     let rawIntFilter = localStorage.getItem('internalFilters').split("|");
                     $('#internal-filter').val(rawIntFilter).change();
+                } else {
+                    // First load, select all by default
+                    $("#internal-filter option").prop("selected", "selected");
+                    $('#internal-filter').selectpicker('refresh');
                 }
                 if (localStorage.getItem('primaryFilters') != null) {
                     let rawPriFilter = localStorage.getItem('primaryFilters').split("|");
                     $('#primary-filter').val(rawPriFilter).change();
+                } else {
+                    // First load, select all by default
+                    $("#primary-filter option").prop("selected", "selected");
+                    $('#primary-filter').selectpicker('refresh');
+
                 }
             }
             $(document).ready(function () {

@@ -5,7 +5,7 @@ var next;
 var pageUrl;
 var pageUrlPrev;
 var pageUrlNext;
-var numbersSurroundingEllipses = 3;
+var numbersSurroundingEllipses = 2;
 var useSimplePagination = false;
 
 function doSimplePagination() {
@@ -62,6 +62,10 @@ function doSimplePagination() {
     );
 }
 function doComplexPagination() {
+    console.log(pages);
+    if (pages <= 1) {
+        return;
+    }
     if (numbersSurroundingEllipses < 0) {
         numbersSurroundingEllipses = pages;
     } else if (numbersSurroundingEllipses < 2) {
