@@ -25,7 +25,7 @@
 }
 
 .gh-head-actions a svg {
-    height: 1.8rem;
+    height: 1.125rem;
     fill: currentcolor;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .gh-head-actions a:last-child svg {
-    height: 2rem;
+    height: 1.25rem;
 }
 
 /* Index
@@ -52,8 +52,8 @@
 
 .gh-card-meta {
     display: block;
-    margin: 0 0 1rem;
-    font-size: 1.4rem;
+    margin: 0 0 0.625rem;
+    font-size: 0.875rem;
     line-height: 1.2em;
     letter-spacing: 0.5px;
     text-transform: uppercase;
@@ -64,11 +64,11 @@
     max-width: 720px;
     margin: 0 auto;
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 1rem;
 }
 
 .gh-card-content p {
-    margin: 0.5rem 0;
+    margin: 0.3125rem 0;
     padding: 0 2vmin;
 }
 
@@ -104,7 +104,7 @@
 
 @media (max-width: 700px) {
     .gh-page-head > p {
-        font-size: 1.6rem;
+        font-size: 1rem;
     }
 }
 
@@ -115,20 +115,20 @@
     text-align: center;
 }
 .gh-header > :first-child {
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.625rem 0;
 }
 .gh-header > :not(:first-child) {
-    margin: 1rem 0;
+    margin: 0.625rem 0;
 }
 
 .gh-post-meta {
-    font-size: 1.4rem;
+    font-size: 0.875rem;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     opacity: 0.8;
 }
 .gh-post-meta > :after {
-    padding: 0 1rem;
+    padding: 0.625rem;
     content: "|";
 }
 .gh-post-meta > :last-child:after {
@@ -143,11 +143,11 @@
 
 .gh-feature-image {
     width: 100%;
-    margin: 1rem 0 0 0;
+    margin: 0.625rem 0 0 0;
 }
 
 .gh-post-footer {
-    margin: 4rem 0;
+    margin: 2.5rem 0;
 }
 .gh-post-footer .gh-post-comments-header-container {
     display: flex;
@@ -157,7 +157,7 @@
 .gh-post-footer .gh-post-comments-header-item {
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 2.2rem;
+    font-size: 1.375rem;
     letter-spacing: 0.5px;
 }
 .gh-post-footer .gh-post-comments-other {
@@ -165,7 +165,7 @@
     flex-direction: row;
 }
 .gh-post-footer .gh-post-comments-other > * {
-    margin-left: 2rem;
+    margin-left: 1.25rem;
 }
 
 /* Author Archive
@@ -210,6 +210,6 @@
 
 @media (max-width: 700px) {
     .gh-author-meta {
-        font-size: 1.6rem;
+        font-size: 1rem;
     }
 }
