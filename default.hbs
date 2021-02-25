@@ -97,7 +97,9 @@
         {{#is "post"}}
             <script src="{{asset "built/toggledropdown.js"}}"></script>
         {{/is}}
-
+        {{#is "home"}}
+            <script src="{{asset "built/eventCardDateFormatter.js"}}"></script>
+        {{/is}}
         {{ghost_foot}}
         {{!-- Outputs important scripts - should always be included before closing body tag --}}
     </body>
