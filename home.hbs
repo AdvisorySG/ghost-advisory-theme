@@ -73,7 +73,7 @@
             Upcoming Events
         </h2>
         <div class="grid grid-cols-4 gap-x-20 w-4/5 m-auto">
-            {{#get "posts" include="tags" filter="primary_tag:event" limit="4" order="excerpt asc"}}
+            {{#get "posts" include="tags" filter="tags:[hash-event]" limit="4" order="excerpt asc"}}
                 {{#foreach posts}}
                     {{> "event-card"}} {{!-- partials/event-card.hbs --}}
                 {{/foreach}}
