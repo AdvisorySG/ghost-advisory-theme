@@ -89,7 +89,7 @@
                 // Check if target is an internal tag filter
                 let internalTag = $(target).hasClass('internal-tag');
                 // Set respective prefix 
-                let tagPrefix = internalTag ? "tag-hash-" : "tag-";
+                let tagPrefix = internalTag ? ".tag-hash-" : ".tag-";
                 // Initialise a new array for holding raw values to be written to localstorage
                 let rawFilter = new Array();
                 // Loop through each item in the filter
@@ -119,17 +119,27 @@
                 // Get filter options for both filter categories
                 getFilterOptions($('#primary-filter'));
                 getFilterOptions($('#internal-filter'));
-                // Combine both filters
-                let filters = primaryFilters.concat(internalFilters);
+                let filters = [];
+                if (primaryFilters.length >= 1 && internalFilters.length >= 1) {
+                    // Combine filters for an AND relationship filter 
+                    $.each(primaryFilters, function(indexP, valueP) {
+                        $.each(internalFilters, function(indexI, valueI) {
+                            filters.push(valueP + valueI);
+                        });
+                    });
+                } else {
+                    // Get filters
+                    filters = primaryFilters.concat(internalFilters);
+                }
                 // Hide all posts by default
                 $('.gh-postfeed').children().each(function() {
                     $(this).addClass('d-none');
                 });
                 if (filters.length > 0) {
-                    // Show post if post meets the filter tags for each filter 
+                    // Show post if post meets the filter tags
                     $.each(filters, function(index, value) {
                         $('.gh-postfeed').children().each(function() {
-                            if ($(this).hasClass(value)) {
+                            if ($(this).is(value)) {
                                 $(this).removeClass('d-none');
                             }
                         });
