@@ -62,7 +62,6 @@ function doSimplePagination() {
     );
 }
 function doComplexPagination() {
-    console.log(pages);
     if (pages <= 1) {
         return;
     }
