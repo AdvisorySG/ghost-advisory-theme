@@ -22,7 +22,7 @@
 .gh-error-description {
     max-width: 600px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1.25rem;
     font-size: 4vmin;
     line-height: 1.2em;
     font-weight: 300;
@@ -32,7 +32,7 @@
 .gh-error-link {
     display: block;
     margin-top: 4vmin;
-    font-size: 1.6rem;
+    font-size: 1rem;
 }
 
 .gh-error-stack {
@@ -44,17 +44,17 @@
 
 .gh-error-stack-list {
     margin: 4vmin 0 0;
-    font-size: 1.4rem;
+    font-size: 0.875rem;
 }
 
 .gh-error-stack-list > li {
-    padding: 2rem 0;
+    padding: 1.25rem 0;
     margin: 0;
     border-top: rgba(0, 0, 0, 0.1) 1px solid;
 }
 
 .gh-error-stack-function {
     margin: 0 0 0.5em;
-    font-size: 1.8rem;
+    font-size: 1.125rem;
     color: red;
 }
