@@ -16,7 +16,7 @@
 .gh-head-inner {
     display: grid;
     grid-gap: 40px;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr auto;
     grid-auto-flow: row dense;
 }
 
@@ -24,7 +24,7 @@
 /* ---------------------------------------------------------- */
 
 .gh-head-brand {
-    grid-column-start: 2;
+    grid-column-start: 1;
     display: flex;
     align-items: center;
     max-width: 200px;
@@ -71,50 +71,6 @@
 
 .gh-head-menu .nav-current a {
     box-shadow: 0 -1px 0 0 currentcolor inset;
-}
-
-/* Secondary Navigation
-/* ---------------------------------------------------------- */
-
-.gh-head-actions {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    list-style: none;
-    text-align: right;
-}
-
-.gh-head-actions-list {
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.gh-head-actions-list a:not([class]) {
-    display: inline-block;
-    margin: 0 0 0 1.5vw;
-    padding: 5px 0;
-}
-
-.gh-head-actions a {
-    display: inline-flex;
-    align-items: center;
-    margin: 0;
-    padding: 10px;
-}
-
-.gh-head-actions a svg {
-    height: 1.125rem;
-    fill: currentcolor;
-}
-
-.gh-head-actions a:first-child svg {
-    margin-left: 20px;
-}
-
-.gh-head-actions a:last-child svg {
-    height: 1.25rem;
 }
 
 /* Mobile Menu Trigger
