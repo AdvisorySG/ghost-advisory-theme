@@ -24,26 +24,26 @@ $(function () {
         var splitTitle = post.title.split(":"); // <!> This assumes all event titles contain a colon
         var splitDate = post.custom_excerpt.split("-");
         var html =
-            '<article class="border-2 border-gray-400 rounded-xl p-4 event-card">\
+            '<article class="border-2 border-gray-400 rounded-xl p-2.5 event-card">\
                         <div class="grid grid-cols-2">\
                             <div>\
-                                <p class="text-yellow-500 font-semibold text-5xl event-date-day">' +
+                                <p class="text-yellow-500 font-semibold text-3xl event-date-day">' +
             splitDate[2] +
             '</p>\
-                                <p class="text-yellow-500 text-3xl event-date-month">' +
+                                <p class="text-yellow-500 text-xl event-date-month">' +
             monthNames[parseInt(splitDate[1]) - 1] +
             '</p>\
                             </div>\
                             <div>\
-                                <p class="text-5xl text-gray-500 text-right">➔</p>\
+                                <p class="text-3xl text-gray-500 text-right">➔</p>\
                             </div>\
                         </div>\
                         \
-                        <div class="my-4">\
-                            <p class="text-gray-600 font-semibold text-5xl py-1">' +
+                        <div class="my-2.5">\
+                            <p class="text-gray-600 font-semibold text-3xl py-0.5">' +
             splitTitle[0] +
             ':</p>\
-                            <p class="text-gray-600 font-semibold text-3xl">' +
+                            <p class="text-gray-600 font-semibold text-xl">' +
             splitTitle[1] +
             "</p>\
                         </div>\
