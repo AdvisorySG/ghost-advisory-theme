@@ -284,6 +284,7 @@ body:not(.gh-head-open) .gh-burger:hover .gh-burger-inner::after {
         left: 0;
         z-index: 900;
         overflow-y: scroll;
+        background-color: white;
     }
     .gh-head-open #gh-head .gh-head-inner {
         grid-template-rows: auto 1fr auto;
