@@ -52,7 +52,7 @@ $(function () {
     }
 
     function renderContainer(posts) {
-        var html = '<div class="grid grid-cols-4 gap-x-20 w-4/5 m-auto">';
+        var html = '<div class="grid grid-cols-1 gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-16 w-4/5 m-auto break-words">';
         posts.slice(0, 4).forEach(function (post) {
             html += renderCard(post);
         });
