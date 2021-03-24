@@ -1,106 +1,50 @@
-var prev;
-var pages;
-var page;
-var next;
-var pageUrl;
-var pageUrlPrev;
-var pageUrlNext;
-var numbersSurroundingEllipses = 2;
-var useSimplePagination = false;
+// Source: https://gist.github.com/kottenator/9d936eb3e4e3c3e02598
+function pagination(c, m) {
+    var current = c,
+        last = m,
+        delta = 2,
+        left = current - delta,
+        right = current + delta + 1,
+        range = [],
+        rangeWithDots = [],
+        l;
 
-function doSimplePagination() {
-    $(".bootstrap-pagination").append(
-        '<li class="page-item"><a class="page-link" href="' +
-            pageUrl +
-            'page/"' +
-            page +
-            '" aria-label="Page ' +
-            page +
-            " of " +
-            pages +
-            '">Page ' +
-            page +
-            " of " +
-            pages +
-            "</a></li>"
-    );
-}
+    for (var i = 1; i <= last; i++) {
+        if (i == 1 || i == last || (i >= left && i < right)) {
+            range.push(i);
+        }
+    }
 
-function addPageLink(pageNum) {
-    $(".bootstrap-pagination").append(
-        "<li class='page-item page" +
-            pageNum +
-            "'><a class='page-link' href='" +
-            pageUrl +
-            "page/" +
-            pageNum +
-            "/' title='Go to page " +
-            pageNum +
-            "' aria-label='Go to page " +
-            pageNum +
-            "'>" +
-            pageNum +
-            "</a></li>"
-    );
-}
+    for (
+        var arr = range,
+            isArray = Array.isArray(arr),
+            i = 0,
+            arr = isArray ? arr : arr[Symbol.iterator]();
+        ;
 
-function doSimplePagination() {
-    $(".bootstrap-pagination").append(
-        '<li class="page-item"><a class="page-link" href="' +
-            pageUrl +
-            'page/"' +
-            page +
-            '" aria-label="Page ' +
-            page +
-            " of " +
-            pages +
-            '">Page ' +
-            page +
-            " of " +
-            pages +
-            "</a></li>"
-    );
-}
-function doComplexPagination() {
-    if (pages <= 1) {
-        return;
-    }
-    if (numbersSurroundingEllipses < 0) {
-        numbersSurroundingEllipses = pages;
-    } else if (numbersSurroundingEllipses < 2) {
-        numbersSurroundingEllipses = 2;
-    }
-    var curPage = page;
-    var showEllipses = true;
-    var maxAdjusted = pages - numbersSurroundingEllipses * 2;
-    if (curPage > maxAdjusted) {
-        showEllipses = false;
-        curPage = pages - numbersSurroundingEllipses * 2;
-    } else {
-        curPage--;
-    }
-    if (curPage < 1) {
-        curPage = 1;
-    }
-    var firstLiCount = curPage + numbersSurroundingEllipses;
-    for (var i = curPage; i < firstLiCount; i++) {
-        addPageLink(i);
-    }
-    if (pages > numbersSurroundingEllipses) {
-        if (showEllipses) {
-            $(".bootstrap-pagination").append(
-                '<li class="page-item disabled"><a class="page-link" href="' +
-                    pageUrl +
-                    'page/"' +
-                    page +
-                    '">&#x2026;</a></li>'
-            );
+    ) {
+        var ref;
+
+        if (isArray) {
+            if (i >= arr.length) break;
+            ref = arr[i++];
         } else {
-            addPageLink(pages - numbersSurroundingEllipses);
+            i = arr.next();
+            if (i.done) break;
+            ref = i.value;
         }
-        for (i = pages - numbersSurroundingEllipses + 1; i <= pages; i++) {
-            addPageLink(i);
+
+        var n = ref;
+
+        if (l) {
+            if (n - l === 2) {
+                rangeWithDots.push(l + 1);
+            } else if (n - l !== 1) {
+                rangeWithDots.push("...");
+            }
         }
+        rangeWithDots.push(n);
+        l = n;
     }
-    $("li.page" + page).addClass("active");
+    return rangeWithDots;
 }

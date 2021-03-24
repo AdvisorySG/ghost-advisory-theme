@@ -11,10 +11,36 @@
     pageUrlFirst = '{{page_url 1}}';
     pageUrlLast = '{{page_url pages}}';
 </script>
-<div class="col-12 d-flex justify-content-center">
 
-<nav>
-  <ul class="pagination bootstrap-pagination">
-  </ul>
+<div class="col-12 d-flex justify-content-center">
+<nav aria-label="Page navigation">
+<ul class="pagination" role="navigation" aria-label="Pagination">
+    {{#if prev}}
+    <li class="page-item pagination-previous">
+      <a class="page-link " href="{{page_url prev}}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    {{else}}
+      <li class="page-item pagination-previous d-none">
+        <a class="page-link " href="{{page_url prev}}" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+    {{/if}}
+    {{#if next}}
+      <li class="page-item pagination-next">
+        <a class="page-link " href="{{page_url next}}" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    {{else}}
+      <li class="page-item pagination-next d-none">
+        <a class="page-link " href="{{page_url next}}" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    {{/if}}
+</ul>
 </nav>
 </div>
