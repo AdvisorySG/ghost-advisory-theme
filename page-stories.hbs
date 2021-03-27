@@ -32,41 +32,37 @@
     </div>
     <div class="filter p-4">
         <h3 class="gh-header">Tags</h3>
-        <div class="d-flex justify-content-center">
-            <div class="dropdown px-4"> <!-- External tags -->
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Industry
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    {{#get "tags" limit="all"}}
+        <div class="col-xs-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2 pt-4">
+            <div class="row">
+                <div class="col-xs-12 col-md-6 pb-4">
+                    <select id="primary-filter" class="selectpicker" title="Select Industry(s)" multiple data-style="btn-secondary" data-actions-box="true" data-size="5" data-width="100%">
+                        {{#get "tags" limit="all"}}
                         {{#foreach tags}}
-                            <a class="dropdown-item filter-selection">{{name}}</a>
+                            <option class="filter-selection">{{name}}</option>
                         {{/foreach}}
-                    {{/get}}
+                        {{/get}}
+                    </select>
                 </div>
-            </div>
-            <div class="dropdown px-4"> <!-- Internal tags -->
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Article Type
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item filter-selection internal-tag">Conversations</a>
-                    <a class="dropdown-item filter-selection internal-tag">Insights</a>
-                    <a class="dropdown-item filter-selection internal-tag">Reflections</a>
+                <div class="col-xs-12 col-md-6 pb-4">
+                    <select id="internal-filter" class="selectpicker internal-tag" title="Select Article Type(s)" multiple data-style="btn-secondary" data-actions-box="true" data-size="5" data-width="100%">
+                        <option class="filter-selection internal-tag">Conversations</option>
+                        <option class="filter-selection internal-tag">Insights</option>
+                        <option class="filter-selection internal-tag">Reflections</option>
+                    </select>
                 </div>
-            </div>
-            <div class="px-4">
-                <button class="btn btn-secondary clear-filter">
-                    Clear filters
-                </button>
             </div>
         </div>
     </div>
-    <div class="px-0 py-6">
-    {{#get "posts" include="tags,authors"}}
-        {{#foreach posts}}
-            {{> "card"}} {{!-- partials/card.hbs --}}
-        {{/foreach}}
-    {{/get}}
+    <div class="gh-postfeed">
+        {{pagination}}
+        {{#get "posts" limit=@config.posts_per_page page=pagination.page include="tags,authors"}}
+            {{! Loop through our articles collection }}
+            {{#foreach posts}}
+                {{> "card"}}
+            {{/foreach}}
+            {{! Use our pages (pagination) object }}
+        {{/get}}
     </div>
+    {{pagination}}
 </div>
+
