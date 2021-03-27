@@ -15,7 +15,8 @@
         "test:ci": "gscan --fatal --verbose .",
         "pretest": "gulp build",
         "preship": "yarn test",
-        "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi"
+        "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi",
+        "prepare": "husky install"
     },
     "author": {
         "name": "Advisory SG",
@@ -89,10 +90,5 @@
         "husky": "^5.2.0",
         "prettier": "^2.2.1",
         "pretty-quick": "^3.1.0"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "pretty-quick --staged"
-        }
     }
 }
