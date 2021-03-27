@@ -2,6 +2,16 @@
 
 <div class="w-full max-w-screen-xl mx-auto my-0">
     <h2 class="text-center m-4">
+        Our Stories
+    </h2>
+    <div id="story-postcard-container" class="grid grid-cols-1 lg:grid-cols-3 gap-x-16 gap-y-10 w-4/5 m-auto">
+    {{#get "posts" include="tags" limit="3" order="published_at desc" filter="tags:-[hash-event]"}}
+        {{#foreach posts}}
+            {{> "story-postcard"}}
+        {{/foreach}}
+    {{/get}}
+    </div>
+    <h2 class="text-center m-4">
         Upcoming Events
     </h2>
     <div id="event-card-container">
