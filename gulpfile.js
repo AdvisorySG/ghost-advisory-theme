@@ -34,10 +34,7 @@ function hbs(done) {
 }
 
 function css(done) {
-    var processors = [
-        atImport,
-        tailwindcss,
-    ];
+    var processors = [atImport, tailwindcss];
 
     pump(
         [
