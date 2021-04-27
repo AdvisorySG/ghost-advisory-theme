@@ -45,7 +45,7 @@
         "@tryghost/admin-api": "^1.4.1",
         "autoprefixer": "^10.2.5",
         "beeper": "2.1.0",
-        "cssnano": "4.1.11",
+        "cssnano": "5.0.1",
         "gscan": "4.0.2",
         "gulp": "4.0.2",
         "gulp-livereload": "4.0.2",
