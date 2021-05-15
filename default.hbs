@@ -74,7 +74,7 @@
                         
             function getFilterOptions(target){
                 // Retrieve select value from filter and manipulate the values for filtering
-                let filterOptions = $(target).val();
+                let filterOptions = $(target).val() ? $(target).val() : [];
                 // Check if target is an internal tag filter
                 let internalTag = $(target).hasClass('internal-tag');
                 // Set respective prefix 
@@ -180,6 +180,7 @@
                 });
                 function createPagination() {
                     var url = window.location.href;
+                    var pages = pages ? pages : 0;
                     if(pages > 1) {
                         var paginationArr = pagination(page, pages);
                         var paginationItem;
