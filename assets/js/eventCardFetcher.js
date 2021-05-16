@@ -2,7 +2,7 @@ $(function () {
     var api = new GhostContentAPI({
         url: "https://beta.advisory.sg",
         key: "336313a0318904e945f0938d06",
-        version: "v3",
+        version: "v4",
     });
 
     var monthNames = [

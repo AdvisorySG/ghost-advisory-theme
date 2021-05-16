@@ -2,10 +2,9 @@
     "name": "ghost-advisory-theme",
     "description": "Custom-built Ghost theme for Advisory SG",
     "demo": "https://advisory.sg",
-    "version": "1.0.0",
+    "version": "1.0.0-beta",
     "engines": {
-        "ghost": ">=3.0.0",
-        "ghost-api": "v3"
+        "ghost-api": "v4"
     },
     "license": "MIT",
     "scripts": {
