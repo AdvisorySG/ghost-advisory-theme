@@ -53,9 +53,14 @@ Finally, run `yarn dev` in the `content/themes/ghost-advisory-theme/` directory 
 
 This method is not officially supported by Ghost and might break any time (though the theme handling logic is unlikely to be modified in the foreseeable future). Take note that if you add new post templates, you may need to restart Ghost manually for the changes to take place in the Admin panel.
 
-# Search
+# Content API Key
 
-We use [SearchInGhostEasy](https://github.com/gmfmi/searchinghost-easy) to implement a client-side full-text search for articles. If you want search to be functional on your local machine, you'll need to update [default.hbs](./default.hbs) with a new local content API key. See the [SearchInGhostEasy documentation for more information](https://github.com/gmfmi/searchinghost-easy).
+We have two features which make use of Ghost's content API:
+
+1. [SearchInGhostEasy](https://github.com/gmfmi/searchinghost-easy), which adds a client-side full-text search for articles.
+1. Population of event cards in the homepage
+
+If you want these features to be functional on your local machine, you'll need to update [default.hbs](./default.hbs) with a new local content API key. To add a new key, go to Integrations > Custom Integrations > Add custom integration and copy the content API key.
 
 # Copyright & License
 
