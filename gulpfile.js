@@ -2,15 +2,15 @@ const { series, watch, src, dest, parallel } = require("gulp");
 const pump = require("pump");
 
 // gulp plugins and utils
-var livereload = require("gulp-livereload");
-var postcss = require("gulp-postcss");
-var zip = require("gulp-zip");
-var uglify = require("gulp-uglify");
-var beeper = require("beeper");
+const livereload = require("gulp-livereload");
+const postcss = require("gulp-postcss");
+const zip = require("gulp-zip");
+const uglify = require("gulp-uglify");
+const beeper = require("beeper");
 
 // postcss plugins
-var atImport = require("postcss-import");
-var tailwindcss = require("tailwindcss");
+const atImport = require("postcss-import");
+const tailwindcss = require("tailwindcss");
 
 function serve(done) {
     livereload.listen();
