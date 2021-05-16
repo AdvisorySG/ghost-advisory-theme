@@ -50,6 +50,7 @@
         "gulp": "4.0.2",
         "gulp-livereload": "4.0.2",
         "gulp-postcss": "9.0.0",
+        "gulp-terser-js": "^5.2.2",
         "gulp-uglify": "3.0.2",
         "gulp-zip": "5.1.0",
         "postcss": "^8.2.15",

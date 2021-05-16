@@ -5,7 +5,7 @@ const pump = require("pump");
 const livereload = require("gulp-livereload");
 const postcss = require("gulp-postcss");
 const zip = require("gulp-zip");
-const uglify = require("gulp-uglify");
+const terser = require("gulp-terser-js");
 const beeper = require("beeper");
 
 // postcss plugins
@@ -51,7 +51,9 @@ function js(done) {
     pump(
         [
             src("assets/js/*.js", { sourcemaps: true }),
-            uglify(),
+            terser({
+                mangle: { toplevel: true },
+            }),
             dest("assets/built/", { sourcemaps: "." }),
             livereload(),
         ],
