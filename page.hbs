@@ -1,31 +1,29 @@
 {{!< default}}
 
 {{#post}}
-    <div class="{{post_class}} gh-canvas">
-        <article class="prose lg:prose-xl">
-            <header class="gh-header">
-                <h1>
-                    {{title}}
-                </h1>
+    <article class="{{post_class}}">
+        <header class="gh-header gh-canvas">
+            <h1 class="gh-title">
+                {{title}}
+            </h1>
 
-                {{#if custom_excerpt}}
-                    <p>
-                        {{custom_excerpt}}
-                    </p>
-                {{/if}}
+            {{#if custom_excerpt}}
+                <p class="gh-excerpt">
+                    {{custom_excerpt}}
+                </p>
+            {{/if}}
 
-                {{#if feature_image}}
-                    <img
-                        class="gh-feature-image"
-                        src="{{feature_image}}"
-                        alt="{{title}}"
-                    />
-                {{/if}}
-            </header>
+            {{#if feature_image}}
+                <img
+                    class="gh-feature-image"
+                    src="{{feature_image}}"
+                    alt="{{title}}"
+                />
+            {{/if}}
+        </header>
 
-            <div class="gh-content">
-                {{content}}
-            </div>
-        </article>
-    </div>
+        <div class="gh-content gh-canvas">
+            {{content}}
+        </div>
+    </article>
 {{/post}}
