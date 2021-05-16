@@ -15,7 +15,8 @@
         "test:ci": "gscan --fatal --verbose .",
         "pretest": "gulp build",
         "preship": "yarn test",
-        "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi"
+        "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi",
+        "prepare": "husky install"
     },
     "author": {
         "name": "Advisory SG",
@@ -41,28 +42,26 @@
     "bugs": "https://github.com/AdvisorySG/ghost-advisory-theme/issues",
     "contributors": "https://github.com/AdvisorySG/ghost-advisory-theme/graphs/contributors",
     "dependencies": {
-        "@tryghost/admin-api": "^1.4.0",
+        "@tailwindcss/typography": "^0.4.0",
+        "@tryghost/admin-api": "^1.4.2",
         "autoprefixer": "^10.2.5",
         "beeper": "2.1.0",
-        "cssnano": "4.1.10",
-        "gscan": "4.0.1",
+        "gscan": "4.0.2",
         "gulp": "4.0.2",
         "gulp-livereload": "4.0.2",
         "gulp-postcss": "9.0.0",
         "gulp-uglify": "3.0.2",
         "gulp-zip": "5.1.0",
-        "postcss": "^8.2.8",
-        "postcss-color-mod-function": "3.0.3",
-        "postcss-custom-properties": "11.0.0",
-        "postcss-easy-import": "3.0.0",
+        "postcss": "^8.2.15",
+        "postcss-import": "^14.0.0",
         "pump": "3.0.0",
-        "tailwindcss": "^2.0.4"
+        "tailwindcss": "^2.1.2"
     },
     "browserslist": [
         "defaults"
     ],
     "config": {
-        "posts_per_page": 15,
+        "posts_per_page": 2,
         "image_sizes": {
             "xxs": {
                 "width": 30
@@ -86,13 +85,8 @@
     },
     "devDependencies": {
         "danger": "^10.6.4",
-        "husky": "^5.2.0",
-        "prettier": "^2.2.1",
+        "husky": "^6.0.0",
+        "prettier": "^2.3.0",
         "pretty-quick": "^3.1.0"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "pretty-quick --staged"
-        }
     }
 }

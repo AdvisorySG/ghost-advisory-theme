@@ -9,11 +9,7 @@ var uglify = require("gulp-uglify");
 var beeper = require("beeper");
 
 // postcss plugins
-var autoprefixer = require("autoprefixer");
-var colorModFunction = require("postcss-color-mod-function");
-var cssnano = require("cssnano");
-var customProperties = require("postcss-custom-properties");
-var easyImport = require("postcss-easy-import");
+var atImport = require("postcss-import");
 var tailwindcss = require("tailwindcss");
 
 function serve(done) {
@@ -38,14 +34,7 @@ function hbs(done) {
 }
 
 function css(done) {
-    var processors = [
-        easyImport,
-        tailwindcss,
-        customProperties({ preserve: false }),
-        colorModFunction(),
-        autoprefixer(),
-        cssnano(),
-    ];
+    var processors = [atImport, tailwindcss];
 
     pump(
         [

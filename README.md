@@ -53,18 +53,6 @@ Finally, run `yarn dev` in the `content/themes/ghost-advisory-theme/` directory 
 
 This method is not officially supported by Ghost and might break any time (though the theme handling logic is unlikely to be modified in the foreseeable future). Take note that if you add new post templates, you may need to restart Ghost manually for the changes to take place in the Admin panel.
 
-# PostCSS
-
-Styles are compiled using PostCSS to polyfill future CSS spec.
-
-Plugins used:
-
--   [Autoprefixer](https://github.com/postcss/autoprefixer)
--   [Color Mod Function](https://github.com/jonathantneal/postcss-color-mod-function)
--   [cssnano](https://github.com/cssnano/cssnano)
--   [Custom Properties](https://github.com/postcss/postcss-custom-properties)
--   [Easy Import](https://github.com/trysound/postcss-easy-import)
-
 # Search
 
 We use [SearchInGhostEasy](https://github.com/gmfmi/searchinghost-easy) to implement a client-side full-text search for articles. If you want search to be functional on your local machine, you'll need to update [default.hbs](./default.hbs) with a new local content API key. See the [SearchInGhostEasy documentation for more information](https://github.com/gmfmi/searchinghost-easy).
