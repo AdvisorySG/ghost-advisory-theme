@@ -52,7 +52,7 @@
         "gulp-terser-js": "^5.2.2",
         "gulp-uglify": "3.0.2",
         "gulp-zip": "5.1.0",
-        "postcss": "^8.2.15",
+        "postcss": "^8.3.0",
         "postcss-import": "^14.0.2",
         "pump": "3.0.0",
         "tailwindcss": "^2.1.2"
