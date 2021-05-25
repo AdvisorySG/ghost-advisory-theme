@@ -2,10 +2,9 @@
     "name": "ghost-advisory-theme",
     "description": "Custom-built Ghost theme for Advisory SG",
     "demo": "https://advisory.sg",
-    "version": "1.0.0",
+    "version": "1.0.0-beta",
     "engines": {
-        "ghost": ">=3.0.0",
-        "ghost-api": "v3"
+        "ghost-api": "v4"
     },
     "license": "MIT",
     "scripts": {
@@ -50,10 +49,11 @@
         "gulp": "4.0.2",
         "gulp-livereload": "4.0.2",
         "gulp-postcss": "9.0.0",
+        "gulp-terser-js": "^5.2.2",
         "gulp-uglify": "3.0.2",
         "gulp-zip": "5.1.0",
-        "postcss": "^8.2.15",
-        "postcss-import": "^14.0.0",
+        "postcss": "^8.3.0",
+        "postcss-import": "^14.0.2",
         "pump": "3.0.0",
         "tailwindcss": "^2.1.2"
     },
