@@ -1,5 +1,6 @@
 // Source: https://gist.github.com/kottenator/9d936eb3e4e3c3e02598
 function pagination(c, m) {
+    console.log("c: ", c, "m: ", m);
     var current = c,
         last = m,
         delta = 2,
