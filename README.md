@@ -58,7 +58,7 @@ This method is not officially supported by Ghost and might break any time (thoug
 We have two features which make use of Ghost's content API:
 
 1. [SearchInGhostEasy](https://github.com/gmfmi/searchinghost-easy), which adds a client-side full-text search for articles.
-1. Population of event cards in the homepage
+2. Population of event cards in the homepage
 
 If you want these features to be functional on your local machine, you'll need to update [default.hbs](./default.hbs) with a new local content API key. To add a new key, go to Integrations > Custom Integrations > Add custom integration and copy the content API key.
 
