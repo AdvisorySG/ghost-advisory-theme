@@ -1,7 +1,7 @@
 $(function () {
     var api = new GhostContentAPI({
-        url: "https://beta.advisory.sg",
-        key: "336313a0318904e945f0938d06",
+        url: ADVISORY.SITE_URL,
+        key: ADVISORY.CONTENT_API_KEY,
         version: "v4",
     });
 
