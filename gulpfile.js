@@ -6,7 +6,6 @@ const livereload = require("gulp-livereload");
 const postcss = require("gulp-postcss");
 const zip = require("gulp-zip");
 const terser = require("gulp-terser-js");
-const beeper = require("beeper");
 
 // postcss plugins
 const atImport = require("postcss-import");
@@ -17,14 +16,7 @@ function serve(done) {
     done();
 }
 
-const handleError = (done) => {
-    return function (err) {
-        if (err) {
-            beeper();
-        }
-        return done(err);
-    };
-};
+const handleError = (done) => (err) => done(err);
 
 function hbs(done) {
     pump(
