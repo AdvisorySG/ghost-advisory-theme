@@ -1,5 +1,6 @@
 module.exports = {
-    purge: ["./*.hbs", "./**/*.hbs"],
+    mode: "jit",
+    purge: ["*.hbs", "**/*.hbs", "!node_modules/**/*.hbs"],
     darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {},
