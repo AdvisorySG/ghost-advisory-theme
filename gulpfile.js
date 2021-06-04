@@ -20,7 +20,7 @@ const handleError = (done) => (err) => done(err);
 
 function hbs(done) {
     pump(
-        [src(["*.hbs", "**/*.hbs", "!node_modules/**/*.hbs"]), livereload()],
+        [src(["*.hbs", "**/**/*.hbs", "!node_modules/**/*.hbs"]), livereload()],
         handleError(done)
     );
 }
