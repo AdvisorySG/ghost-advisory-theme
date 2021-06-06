@@ -45,12 +45,17 @@ $(function () {
     }
 
     function renderContainer(posts) {
-        var html =
-            '<div class="grid grid-cols-1 gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-16 w-4/5 m-auto break-words">';
-        posts.slice(0, 4).forEach(function (post) {
-            html += renderCard(post);
-        });
-        html += "</div>";
+        if (posts.length > 0) {
+            var html =
+                '<div class="grid grid-cols-1 gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-16 w-4/5 m-auto break-words">';
+            posts.slice(0, 4).forEach(function (post) {
+                html += renderCard(post);
+            });
+            html += "</div>";
+        } else {
+            var html =
+                '<p class="text-center m-10 text-xl lg:text-2xl"> No upcoming events </p>';
+        }
 
         $("#event-card-container").html(html);
     }
