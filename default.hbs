@@ -62,18 +62,8 @@
         <script src="{{asset "js/bootstrap-pagination.js"}}"></script>
         <script src="https://cdn.jsdelivr.net/gh/gmfmi/searchinghost-easy@latest/dist/searchinghost-easy-backpack.js"></script>
 
+        {{> "api-keys"}}
         <script>
-            window.ADVISORY = {
-                SITE_URL: "{{@site.url}}",
-                // Note: CONTENT_API_KEY is instance-dependent; this is the key for `beta.advisory.sg`.
-                CONTENT_API_KEY: "3ecdb68993794bc0157e776e5d",
-            };
-
-            if (/^[a-z]+:\/\/localhost[:\/]/.test(ADVISORY.SITE_URL)) {
-                // Replace this with a new key if testing on a local instance.
-                ADVISORY.CONTENT_API_KEY = "";
-            }
-
             new SearchinGhostEasy({ contentApiKey: ADVISORY.CONTENT_API_KEY });
 
             // Filter feature
