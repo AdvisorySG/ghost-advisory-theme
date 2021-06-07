@@ -54,7 +54,7 @@ $(function () {
             html += "</div>";
         } else {
             var html =
-                '<p class="text-center m-10 text-xl lg:text-2xl"> No upcoming events </p>';
+                '<p class="text-center m-10 text-xl lg:text-2xl">No upcoming events.</p>';
         }
 
         $("#event-card-container").html(html);
