@@ -52,12 +52,10 @@ $(function () {
                 html += renderCard(post);
             });
             html += "</div>";
+            $("#event-card-container").html(html);
         } else {
-            var html =
-                '<p class="text-center m-10 text-xl lg:text-2xl">No upcoming events.</p>';
+            $("#event-card-placeholder").html("No upcoming events.");
         }
-
-        $("#event-card-container").html(html);
     }
 
     // Constructing date string for the current day
