@@ -41,16 +41,7 @@
                 {{!-- All content gets inserted here, index.hbs, post.hbs, etc --}}
             </main>
 
-            <footer class="gh-foot">
-                <div class="gh-container">
-                    <div class="gh-foot-menu">
-                        {{navigation type="secondary"}}
-                    </div>
-                    <div class="gh-foot-meta">
-                        Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
-                    </div>
-                </div>
-            </footer>
+            {{>footer}}
         </div>
 
         {{!-- <foot> --}}
@@ -220,7 +211,6 @@
             <script src="{{asset "built/eventCardFetcher.js"}}"></script>
         {{/is}}
         {{ghost_foot}}
-        {{>footer}}
         {{!-- Outputs important scripts - should always be included before closing body tag --}}
     </body>
 </html>
