@@ -1,0 +1,23 @@
+<article class="story-postcard">
+    <div onclick="location.href='{{url}}'" class="flex flex-col cursor-pointer h-full rounded-xl overflow-hidden md:flex-row md:h-60 lg:flex-col lg:h-full">
+        {{#if feature_image}}
+        <img class="object-cover m-0 w-full h-60 md:w-2/5 md:h-full lg:w-full lg:h-60" src="{{img_url feature_image}}" alt="{{title}}" />
+        {{else}} {{!-- Placeholder --}}
+        <img class="object-cover m-0 hidden md:block md:w-2/5 md:h-full lg:w-full lg:h-60" src="https://via.placeholder.com/100/FFFFFF/FFFFFF" alt="{{title}}" />
+        {{/if}}
+        <div class="flex-grow bg-gray-100 px-3 pt-2 pb-4">
+            <div>
+                <p class="text-sm my-1">
+                    {{#if primary_tag}}
+                    {{primary_tag.name}} - 
+                    {{else}}
+                    No tag - 
+                    {{/if}}
+                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="D MMM YYYY"}}</time>
+                </p>
+                <p class="text-lg font-bold my-2">{{title}}</p>
+                <p class="text-sm my-1 max-h-20 overflow-hidden">{{excerpt}}</p>
+            </div>
+        </div>
+    </div>
+</article>
