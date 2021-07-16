@@ -15,4 +15,5 @@ module.exports = {
     module: {
         rules: [{ test: /\.hbs$/, loader: "handlebars-loader" }],
     },
+    stats: "errors-warnings",
 };
