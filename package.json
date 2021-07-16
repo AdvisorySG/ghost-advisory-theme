@@ -45,13 +45,14 @@
         "gulp": "4.0.2",
         "gulp-livereload": "4.0.2",
         "gulp-postcss": "9.0.0",
-        "gulp-terser-js": "^5.2.2",
         "gulp-uglify": "3.0.2",
         "gulp-zip": "5.1.0",
+        "handlebars-loader": "^1.7.1",
         "postcss": "^8.3.5",
         "postcss-import": "^14.0.2",
         "pump": "3.0.0",
-        "tailwindcss": "^2.2.2"
+        "tailwindcss": "^2.2.2",
+        "webpack-stream": "^6.1.2"
     },
     "browserslist": [
         "defaults"
