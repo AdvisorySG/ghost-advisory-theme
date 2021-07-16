@@ -1,0 +1,27 @@
+<div class="grid grid-cols-1 gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-16 w-4/5 m-auto break-words">
+  {{#each events}}
+  <article class="border-2 border-gray-400 rounded-xl p-2.5 event-card">
+      <div class="grid grid-cols-2">
+          <div>
+              <p class="text-yellow-500 font-semibold text-3xl event-date-day">
+                  {{day}}
+              </p>
+              <p class="text-yellow-500 text-xl event-date-month">
+                  {{month}}
+              </p>
+          </div>
+          <div>
+              <p class="text-3xl text-gray-500 text-right">➔</p>
+          </div>
+      </div>
+      <div class="my-2.5">
+          <p class="text-gray-600 font-semibold text-3xl py-0.5">
+              {{titlePrefix}}:
+          </p>
+          <p class="text-gray-600 font-semibold text-xl">
+              {{titleSuffix}}
+          </p>
+      </div>
+  </article>
+  {{/each}}
+</div>
