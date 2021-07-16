@@ -1,13 +1,13 @@
 const eventCard = require("./partials/event-card.hbs");
 
 $(function () {
-    var api = new GhostContentAPI({
+    const api = new GhostContentAPI({
         url: ADVISORY.SITE_URL,
         key: ADVISORY.CONTENT_API_KEY,
         version: "v4",
     });
 
-    var monthNames = [
+    const MONTHS = [
         "January",
         "February",
         "March",
@@ -22,18 +22,18 @@ $(function () {
         "December",
     ];
 
-    function parseEvent(post) {
-        var splitTitle = post.title.split(":"); // <!> This assumes all event titles contain a colon
-        var splitDate = post.custom_excerpt.split("-");
+    const parseEvent = (post) => {
+        const splitTitle = post.title.split(":"); // <!> This assumes all event titles contain a colon
+        const splitDate = post.custom_excerpt.split("-");
         return {
             day: splitDate[2],
-            month: monthNames[parseInt(splitDate[1]) - 1],
+            month: MONTHS[parseInt(splitDate[1]) - 1],
             titlePrefix: splitTitle[0],
             titleSuffix: splitTitle[1],
         };
-    }
+    };
 
-    function renderContainer(posts) {
+    const renderContainer = (posts) => {
         if (posts.length > 0) {
             $("#event-card-container").html(
                 eventCard({
@@ -43,32 +43,17 @@ $(function () {
         } else {
             $("#event-card-placeholder").html("No upcoming events.");
         }
-    }
-
-    // Constructing date string for the current day
-    var today = new Date();
-    var month = today.getMonth() + 1;
-    if (month < 10) {
-        month = "0" + month;
-    }
-    var day = today.getDate();
-    if (day < 10) {
-        day = "0" + day;
-    }
-    var date = today.getFullYear() + "-" + month + "-" + day;
+    };
 
     // Fetching event posts from API
-    var filterQuery = "tag:hash-event+custom_excerpt:>='" + date + "'";
+    const date = new Date().toISOString().split("T")[0];
+    const filterQuery = `tag:hash-event+custom_excerpt:>='${date}'`;
     api.posts
         .browse({
             include: "tags",
             filter: filterQuery,
             order: "custom_excerpt ASC",
         })
-        .then(function (posts) {
-            renderContainer(posts);
-        })
-        .catch(function (err) {
-            console.error(err);
-        });
+        .then(renderContainer)
+        .catch(console.error);
 });
