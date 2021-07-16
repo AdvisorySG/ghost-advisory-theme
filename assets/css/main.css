@@ -7,7 +7,6 @@
 @import "ghost/header.css";
 @import "ghost/content.css";
 @import "ghost/readmore.css";
-@import "ghost/errors.css";
 @import "ghost/footer.css";
 
 @layer base {
