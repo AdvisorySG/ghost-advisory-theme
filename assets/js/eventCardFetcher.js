@@ -1,8 +1,8 @@
 $(function () {
     var api = new GhostContentAPI({
-        url: "https://beta.advisory.sg",
-        key: "336313a0318904e945f0938d06",
-        version: "v3",
+        url: ADVISORY.SITE_URL,
+        key: ADVISORY.CONTENT_API_KEY,
+        version: "v4",
     });
 
     var monthNames = [
@@ -45,14 +45,17 @@ $(function () {
     }
 
     function renderContainer(posts) {
-        var html =
-            '<div class="grid grid-cols-1 gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-16 w-4/5 m-auto break-words">';
-        posts.slice(0, 4).forEach(function (post) {
-            html += renderCard(post);
-        });
-        html += "</div>";
-
-        $("#event-card-container").html(html);
+        if (posts.length > 0) {
+            var html =
+                '<div class="grid grid-cols-1 gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-16 w-4/5 m-auto break-words">';
+            posts.slice(0, 4).forEach(function (post) {
+                html += renderCard(post);
+            });
+            html += "</div>";
+            $("#event-card-container").html(html);
+        } else {
+            $("#event-card-placeholder").html("No upcoming events.");
+        }
     }
 
     // Constructing date string for the current day

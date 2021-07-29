@@ -2,33 +2,25 @@ const { series, watch, src, dest, parallel } = require("gulp");
 const pump = require("pump");
 
 // gulp plugins and utils
-var livereload = require("gulp-livereload");
-var postcss = require("gulp-postcss");
-var zip = require("gulp-zip");
-var uglify = require("gulp-uglify");
-var beeper = require("beeper");
+const livereload = require("gulp-livereload");
+const postcss = require("gulp-postcss");
+const zip = require("gulp-zip");
+const terser = require("gulp-terser-js");
 
 // postcss plugins
-var atImport = require("postcss-import");
-var tailwindcss = require("tailwindcss");
+const atImport = require("postcss-import");
+const tailwindcss = require("tailwindcss");
 
 function serve(done) {
     livereload.listen();
     done();
 }
 
-const handleError = (done) => {
-    return function (err) {
-        if (err) {
-            beeper();
-        }
-        return done(err);
-    };
-};
+const handleError = (done) => (err) => done(err);
 
 function hbs(done) {
     pump(
-        [src(["*.hbs", "**/**/*.hbs", "!node_modules/**/*.hbs"]), livereload()],
+        [src(["*.hbs", "**/*.hbs", "!node_modules/**/*.hbs"]), livereload()],
         handleError(done)
     );
 }
@@ -51,7 +43,9 @@ function js(done) {
     pump(
         [
             src("assets/js/*.js", { sourcemaps: true }),
-            uglify(),
+            terser({
+                mangle: { toplevel: true },
+            }),
             dest("assets/built/", { sourcemaps: "." }),
             livereload(),
         ],
@@ -81,9 +75,9 @@ function zipper(done) {
 }
 
 const cssWatcher = () => watch("assets/css/**", css);
-const jsWatcher = () => watch("assets/js/**", js);
+const jsWatcher = () => watch("assets/js/**", series(js, css));
 const hbsWatcher = () =>
-    watch(["*.hbs", "**/**/*.hbs", "!node_modules/**/*.hbs"], hbs);
+    watch(["*.hbs", "**/**/*.hbs", "!node_modules/**/*.hbs"], series(hbs, css));
 const watcher = parallel(cssWatcher, jsWatcher, hbsWatcher);
 const build = series(css, js);
 const dev = series(build, serve, watcher);

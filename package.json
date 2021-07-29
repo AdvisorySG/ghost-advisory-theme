@@ -2,10 +2,9 @@
     "name": "ghost-advisory-theme",
     "description": "Custom-built Ghost theme for Advisory SG",
     "demo": "https://advisory.sg",
-    "version": "1.0.0",
+    "version": "1.0.0-beta",
     "engines": {
-        "ghost": ">=3.0.0",
-        "ghost-api": "v3"
+        "ghost-api": "v4"
     },
     "license": "MIT",
     "scripts": {
@@ -13,9 +12,6 @@
         "zip": "gulp zip",
         "test": "gscan .",
         "test:ci": "gscan --fatal --verbose .",
-        "pretest": "gulp build",
-        "preship": "yarn test",
-        "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi",
         "prepare": "husky install"
     },
     "author": {
@@ -42,20 +38,20 @@
     "bugs": "https://github.com/AdvisorySG/ghost-advisory-theme/issues",
     "contributors": "https://github.com/AdvisorySG/ghost-advisory-theme/graphs/contributors",
     "dependencies": {
-        "@tailwindcss/typography": "^0.4.0",
+        "@tailwindcss/typography": "^0.4.1",
         "@tryghost/admin-api": "^1.4.2",
-        "autoprefixer": "^10.2.5",
-        "beeper": "2.1.0",
-        "gscan": "4.0.2",
+        "autoprefixer": "^10.2.6",
+        "gscan": "4.2.1",
         "gulp": "4.0.2",
         "gulp-livereload": "4.0.2",
         "gulp-postcss": "9.0.0",
+        "gulp-terser-js": "^5.2.2",
         "gulp-uglify": "3.0.2",
         "gulp-zip": "5.1.0",
-        "postcss": "^8.2.15",
-        "postcss-import": "^14.0.0",
+        "postcss": "^8.3.5",
+        "postcss-import": "^14.0.2",
         "pump": "3.0.0",
-        "tailwindcss": "^2.1.2"
+        "tailwindcss": "^2.2.2"
     },
     "browserslist": [
         "defaults"
@@ -84,9 +80,8 @@
         }
     },
     "devDependencies": {
-        "danger": "^10.6.4",
-        "husky": "^6.0.0",
-        "prettier": "^2.3.0",
-        "pretty-quick": "^3.1.0"
+        "husky": "^7.0.1",
+        "prettier": "^2.3.1",
+        "pretty-quick": "^3.1.1"
     }
 }
