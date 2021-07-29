@@ -1,10 +1,20 @@
 {{!< default}}
 
-<div class="w-full max-w-screen-xl mx-auto my-0 prose lg:prose-xl">
+<div class="w-full max-w-screen-xl mx-auto my-0 prose lg:prose-xl max-w-none">
+    <h2 class="text-center m-4">
+        Featured Stories
+    </h2>
+    <div id="story-postcard-container" class="grid grid-cols-1 lg:grid-cols-3 gap-x-20 gap-y-10 w-4/5 m-auto">
+    {{#get "posts" include="tags" limit="3" order="published_at desc" filter="tags:-[hash-event]"}}
+        {{#foreach posts}}
+            {{> "story-postcard"}}
+        {{/foreach}}
+    {{/get}}
+    </div>
     <h2 class="text-center m-4">
         Upcoming Events
     </h2>
     <div id="event-card-container">
-        Loading...
+        <p id="event-card-placeholder" class="text-center m-10 text-xl lg:text-2xl">Loading...</p>
     </div>
 </div>
