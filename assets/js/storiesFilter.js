@@ -1,16 +1,8 @@
-// ! Potentially breaking regex
-// Basic slug generator: replace whitespaces with dashes, then strip punctuation
-const slugRegex = (value) =>
-    value
-        .replace(/\s+/g, "-")
-        .replace(/[.,'!?]/, "")
-        .toLowerCase();
-
 const retrieveFilters = (target) => {
     const filterOptions = $(target).val() || [];
     const isInternalTag = $(target).hasClass("internal-tag");
     const tagPrefix = isInternalTag ? ".tag-hash-" : ".tag-";
-    return filterOptions.map((value) => tagPrefix + slugRegex(value));
+    return filterOptions.map((value) => tagPrefix + value);
 };
 
 const filterPosts = () => {
