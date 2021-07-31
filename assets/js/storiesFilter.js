@@ -71,13 +71,9 @@ function getFilterOptions(target) {
     if (internalTag) {
         // Write values for internal tags
         internalFilters = filterOptions;
-        // Write internal filters to localstorage for persistance across pages
-        localStorage.setItem("internalFilters", rawFilter.join("|"));
     } else {
         // Write values for primary tags
         primaryFilters = filterOptions;
-        // Write filters to localstorage for persistance across pages
-        localStorage.setItem("primaryFilters", rawFilter.join("|"));
     }
 }
 function slugRegex(value) {
@@ -124,28 +120,7 @@ function filterPosts() {
     }
 }
 
-function retrieveFiltersFromLS() {
-    // Retrieve filters from local storage and set it to the respective select element (force refresh using change())
-    if (localStorage.getItem("internalFilters") != null) {
-        let rawIntFilter = localStorage.getItem("internalFilters").split("|");
-        $("#internal-filter").val(rawIntFilter).change();
-    } else {
-        // First load, select all by default
-        $("#internal-filter option").prop("selected", "selected");
-        $("#internal-filter").selectpicker("refresh");
-    }
-    if (localStorage.getItem("primaryFilters") != null) {
-        let rawPriFilter = localStorage.getItem("primaryFilters").split("|");
-        $("#primary-filter").val(rawPriFilter).change();
-    } else {
-        // First load, select all by default
-        $("#primary-filter option").prop("selected", "selected");
-        $("#primary-filter").selectpicker("refresh");
-    }
-}
 $(document).ready(function () {
-    // On page load, set persisted filters via localstorage
-    retrieveFiltersFromLS();
     // Filter posts on active page
     filterPosts();
     // Listen to changes to both filters
