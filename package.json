@@ -38,6 +38,7 @@
     "bugs": "https://github.com/AdvisorySG/ghost-advisory-theme/issues",
     "contributors": "https://github.com/AdvisorySG/ghost-advisory-theme/graphs/contributors",
     "dependencies": {
+        "@tailwindcss/line-clamp": "^0.2.1",
         "@tailwindcss/typography": "^0.4.1",
         "@tryghost/admin-api": "^1.4.2",
         "autoprefixer": "^10.2.6",
