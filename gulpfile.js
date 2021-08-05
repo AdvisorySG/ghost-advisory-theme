@@ -76,7 +76,8 @@ function zipper(done) {
     );
 }
 
-const cssWatcher = () => watch(["tailwind.config.js", "assets/css/**"], css);
+const cssWatcher = () =>
+    watch(["postcss.config.js", "tailwind.config.js", "assets/css/**"], css);
 const jsWatcher = () =>
     watch(["webpack.config.js", "assets/js/**"], series(js, css));
 const hbsWatcher = () =>
