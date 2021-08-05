@@ -11,6 +11,7 @@ const terser = require("gulp-terser-js");
 const atImport = require("postcss-import");
 const tailwindcss = require("tailwindcss");
 const autoprefixer = require("autoprefixer");
+const cssnano = require("cssnano");
 
 function serve(done) {
     livereload.listen();
@@ -27,7 +28,7 @@ function hbs(done) {
 }
 
 function css(done) {
-    var processors = [atImport, tailwindcss, autoprefixer];
+    var processors = [atImport, tailwindcss, autoprefixer, cssnano];
 
     pump(
         [
@@ -78,7 +79,7 @@ function zipper(done) {
 const cssWatcher = () => watch("assets/css/**", css);
 const jsWatcher = () => watch("assets/js/**", series(js, css));
 const hbsWatcher = () =>
-    watch(["*.hbs", "**/**/*.hbs", "!node_modules/**/*.hbs"], series(hbs, css));
+    watch(["*.hbs", "**/*.hbs", "!node_modules/**/*.hbs"], series(hbs, css));
 const watcher = parallel(cssWatcher, jsWatcher, hbsWatcher);
 const build = series(css, js);
 const dev = series(build, serve, watcher);
