@@ -7,12 +7,6 @@ const postcss = require("gulp-postcss");
 const zip = require("gulp-zip");
 const terser = require("gulp-terser-js");
 
-// postcss plugins
-const atImport = require("postcss-import");
-const tailwindcss = require("tailwindcss");
-const autoprefixer = require("autoprefixer");
-const cssnano = require("cssnano");
-
 function serve(done) {
     livereload.listen();
     done();
@@ -36,12 +30,10 @@ function hbs(done) {
 }
 
 function css(done) {
-    var processors = [atImport, tailwindcss, autoprefixer, cssnano];
-
     pump(
         [
             src("assets/css/*.css", { sourcemaps: true }),
-            postcss(processors),
+            postcss(),
             dest("assets/built/", { sourcemaps: "." }),
             livereload(),
         ],
