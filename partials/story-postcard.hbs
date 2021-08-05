@@ -1,5 +1,5 @@
 <article class="story-postcard">
-    <div onclick="location.href='{{url}}'" class="flex flex-col cursor-pointer h-full rounded-xl overflow-hidden md:flex-row md:h-60 lg:flex-col lg:h-full">
+    <div onclick="location.href='{{url}}'" class="flex flex-col cursor-pointer  rounded-xl overflow-hidden md:flex-row  lg:flex-col sm:w-500 sm:h-800 md:w-900 md:h-300 lg:w-300 lg:h-500"  >
         {{#if feature_image}}
         <img class="object-cover m-0 w-full h-60 md:min-w-[40%] md:max-w-[40%] md:h-full lg:w-full lg:max-w-full lg:h-60" src="{{img_url feature_image}}" alt="{{title}}" />
         {{else}} {{!-- Placeholder --}}
@@ -15,11 +15,13 @@
                     {{/if}}
                 </p>
                 <p class="text-lg font-bold my-2">{{title}}</p>
-                <p class="text-sm my-1 max-h-20 line-clamp-4">{{excerpt}}</p>
-                <div class="text-sm absolute bottom-0 right-0" >
-                    <i class="far fa-clock"></i>
-                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="D MMM YYYY"}}</time>
-                </div>
+                <p class="text-sm my-1 max-h-20 overflow-hidden">{{excerpt}}</p>
+
+
+            </div>
+            <div class="text-sm absolute bottom-0 right-0" >
+                <i class="far fa-clock"></i>
+                <time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="D MMM YYYY"}}</time>
             </div>
         </div>
     </div>
