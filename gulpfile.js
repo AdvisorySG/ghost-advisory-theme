@@ -10,6 +10,7 @@ const terser = require("gulp-terser-js");
 // postcss plugins
 const atImport = require("postcss-import");
 const tailwindcss = require("tailwindcss");
+const autoprefixer = require("autoprefixer");
 
 function serve(done) {
     livereload.listen();
@@ -26,7 +27,7 @@ function hbs(done) {
 }
 
 function css(done) {
-    var processors = [atImport, tailwindcss];
+    var processors = [atImport, tailwindcss, autoprefixer];
 
     pump(
         [
