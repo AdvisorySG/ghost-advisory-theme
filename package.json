@@ -36,7 +36,13 @@
         "url": "https://github.com/AdvisorySG/ghost-advisory-theme.git"
     },
     "bugs": "https://github.com/AdvisorySG/ghost-advisory-theme/issues",
-    "contributors": "https://github.com/AdvisorySG/ghost-advisory-theme/graphs/contributors",
+    "contributors": [
+        {
+            "name": "Advisory Singapore",
+            "email": "technology@advisory.sg",
+            "url": "https://github.com/AdvisorySG/ghost-advisory-theme/graphs/contributors"
+        }
+    ],
     "dependencies": {
         "@tailwindcss/line-clamp": "^0.2.1",
         "@tailwindcss/typography": "^0.4.1",
