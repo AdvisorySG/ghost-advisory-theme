@@ -9,16 +9,15 @@
             <div>
                 <p class="text-sm my-1">
                     {{#if primary_tag}}
-                    {{primary_tag.name}} - 
+                    {{primary_tag.name}}  
                     {{else}}
                     No tag - 
                     {{/if}}
                 </p>
                 <p class="text-lg font-bold my-2">{{title}}</p>
                 <p class="text-sm my-1 max-h-20 line-clamp-4">{{excerpt}}</p>
-
             </div>
-            <div class="text-sm absolute right-4 bottom-4" >
+            <div class="text-sm absolute right-4 bottom-4">
                 <i class="far fa-clock"></i>
                 <time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="D MMM YYYY"}}</time>
             </div>
