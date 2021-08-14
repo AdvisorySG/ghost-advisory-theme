@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn run pretty-quick --staged
+npx -p prettier -p pretty-quick pretty-quick --staged
