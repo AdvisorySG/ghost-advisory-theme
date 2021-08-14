@@ -37,8 +37,8 @@
     },
     "bugs": "https://github.com/AdvisorySG/ghost-advisory-theme/issues",
     "contributors": [{
-        "name" : "Advisory SG Ghost Team",
-        "email" : "contact@advisory.sg",
+        "name" : "Advisory Singapore",
+        "email" : "technology@advisory.sg",
         "url" : "https://github.com/AdvisorySG/ghost-advisory-theme/graphs/contributors"
     }],
     "dependencies": {
