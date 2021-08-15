@@ -17,9 +17,9 @@
     </header>
     {{/tag}}
 
-    <div class="px-0 py-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-20 gap-y-10 w-4/5 my-4 mx-auto">
     {{#foreach posts}}
-        {{> "card"}} {{!-- partials/card.hbs --}}
+        {{> "story-postcard"}} {{!-- partials/card.hbs --}}
     {{/foreach}}
     </div>
 </div>
