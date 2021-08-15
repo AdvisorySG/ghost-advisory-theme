@@ -76,7 +76,7 @@
     <div class="grid grid-cols-1 p-1 gap-6 md:p-0 md:grid-cols-3 pt-4 pb-4">
         {{#get "posts" limit="3" filter="tags:[{{post.tags}}]+id:-{{post.id}}" include="tags" as |related|}}
             {{#foreach related}}
-                {{> "story-postcard"}}
+                {{> "post-card"}}
             {{/foreach}}
             {{else}} <h1>There are no related articles.</h1>
         {{/get}}
