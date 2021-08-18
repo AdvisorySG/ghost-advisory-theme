@@ -64,32 +64,21 @@
             </section> }}
             </footer>
         </article>
-
-        <aside class="gh-readmore">
-            <div class="gh-readmore-inner w-full max-w-screen-xl mx-auto my-0">
-                <div class="gh-readmore-next">
-                    {{#next_post}}
-                        <a href="{{url}}">
-                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                            &nbsp;
-                            <h4>
-                                {{title}}
-                            </h4>
-                        </a>
-                    {{/next_post}}
-                </div>
-                <div class="gh-readmore-prev">
-                    {{#prev_post}}
-                        <a href="{{url}}">
-                            <h4>
-                                {{title}}
-                            </h4>
-                            &nbsp;
-                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                        </a>
-                    {{/prev_post}}
-                </div>
-            </div>
-        </article>
-    </aside>
 {{/post}}
+
+{{!-- implementation of related articles --}}
+{{!-- has to be outside post block due to conflict --}}
+<hr class="pb-4">
+<aside class="pb-4">
+    <h4 class="text-4xl">
+        Related Articles
+    </h4> 
+    <div class="grid grid-cols-1 p-1 gap-6 md:p-0 md:grid-cols-3 pt-4 pb-4">
+        {{#get "posts" limit="3" filter="tags:[{{post.tags}}]+id:-{{post.id}}" include="tags" as |related|}}
+            {{#foreach related}}
+                {{> "story-postcard"}}
+            {{/foreach}}
+            {{else}} <h1>There are no related articles.</h1>
+        {{/get}}
+    </div>
+</aside>
