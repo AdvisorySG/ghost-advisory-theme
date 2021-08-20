@@ -52,25 +52,20 @@
                 </div>
             </div>
         </div>
-    </div>
-    
+    </div>    
     <div class="m-4">
         {{pagination}}
     </div>
     <div class="gh-postfeed grid grid-cols-1 lg:grid-cols-3 gap-x-20 gap-y-10 w-4/5 m-auto">
-
         {{#get "posts" limit=@config.posts_per_page page=pagination.page include="tags,authors"}}
             {{! Loop through our articles collection }}
             {{#foreach posts}}
-                {{> "story-postcard"}}
+                {{> "postcard"}}
             {{/foreach}}
             {{! Use our pages (pagination) object }}
         {{/get}}
-
     </div>
     <div class="m-4">
         {{pagination}}
     </div>
-
-
 </div>
