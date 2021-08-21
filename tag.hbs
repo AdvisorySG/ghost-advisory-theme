@@ -16,10 +16,10 @@
         {{/if}}
     </header>
 
-    <div class="px-0 py-12 p-4">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-20 gap-y-10 w-4/5 my-4 mx-auto">
     {{#get "posts" limit="all" filter="tags:{{name}}" include="tags" as |tagged|}}
         {{#foreach tagged}}
-            {{> "card"}}
+            {{> "post-card"}}
         {{/foreach}}
         {{else}} <p>No Articles!</p>
     {{/get}}
