@@ -15,11 +15,14 @@
             <img class="gh-page-image" src="{{feature_image}}" alt="{{name}}" />
         {{/if}}
     </header>
-    {{/tag}}
 
-    <div class="px-0 py-6">
-    {{#foreach posts}}
-        {{> "card"}} {{!-- partials/card.hbs --}}
-    {{/foreach}}
+    <div class="px-0 py-12 p-4">
+    {{#get "posts" limit="all" filter="tags:{{name}}" include="tags" as |tagged|}}
+        {{#foreach tagged}}
+            {{> "card"}}
+        {{/foreach}}
+        {{else}} <h1>No Articles!</h1>
+    {{/get}}
     </div>
+    {{/tag}}
 </div>
