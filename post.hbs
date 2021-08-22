@@ -12,16 +12,6 @@
                         {{date format="D MMM YYYY"}}
                     </time>
                     <span>
-                        Tags:&nbsp;
-                        {{#foreach tags}}
-                            <span class="gh-post-meta-content-item">
-                                <a href={{url}}>
-                                    {{name}}
-                                </a>
-                            </span>
-                        {{/foreach}}
-                    </span>
-                    <span>
                         Written by:&nbsp;
                         {{#foreach authors}}
                             <span class="gh-post-meta-content-item">
@@ -31,8 +21,22 @@
                             </span>
                         {{/foreach}}
                     </span>
+                    <span>
+                        Reading Time:&nbsp;
+                        {{reading_time}}
+                    </span>
                 </span>
-
+                
+                <span class="flex flex-auto content-center gap-4 justify-center"> 
+                {{#foreach tags}}
+                    <div class="border-2 border-yellow-500 text-black rounded-full px-6 text-base">
+                        <a class="no-underline" href={{url}}>
+                            {{name}}
+                        </a>
+                    </div>
+                {{/foreach}}
+                </span>
+                 
                 {{#if custom_excerpt}}
                     <p>
                         {{custom_excerpt}}
