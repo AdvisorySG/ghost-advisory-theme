@@ -30,11 +30,15 @@
             <img class="gh-page-image" src="{{cover_image}}" alt="{{name}}" />
         {{/if}}
     </header>
-    {{/author}}
  
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-20 gap-y-10 w-4/5 my-4 mx-auto">
-    {{#foreach posts}}
-        {{> "post-card"}}
-    {{/foreach}}
+    {{#get "posts" limit="all" filter="author:{{name}}" include="tags" as |authored|}}
+        {{#foreach authored}}
+            {{> "post-card"}}
+        {{/foreach}}
+        {{else}} <p>No Articles!</p>
+    {{/get}}
     </div>
 </div>
+{{/author}}
+   
