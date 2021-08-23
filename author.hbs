@@ -32,8 +32,8 @@
     </header>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-20 gap-y-10 w-4/5 my-4 mx-auto">
-    {{#get "posts" limit="all" filter="authors:{{name}}" include="tags,authors" as |postw|}}
-        {{#foreach postw}}
+    {{#get "posts" limit="all" filter="author:{{slug}}" include="tags" as |authored|}}
+        {{#foreach authored}}
             {{> "post-card"}}
         {{/foreach}}
         {{else}} <p>There are no related articles.</p>
