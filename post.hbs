@@ -27,11 +27,19 @@
                     </span>
                 </span>
                 
-                <span class="flex flex-auto content-center gap-4 justify-center"> 
+                <span class="flex flex-auto content-center gap-2 justify-center"> 
+                    <div class="text-base">Tags:</div>
                 {{#foreach tags}}
-                        <a class="border-2 border-yellow-500 text-black rounded-full px-6 text-base no-underline" href={{url}}>
-                            {{name}}
+                    {{#if @last}}
+                        <a class="text-base" href={{url}}>
+                            {{name}} 
                         </a>
+                    {{else}}
+                        <a class="text-base" href={{url}}>
+                            {{name}} 
+                        </a>
+                        <div class="text-base">|</div>
+                    {{/if}}
                 {{/foreach}}
                 </span>
                  
