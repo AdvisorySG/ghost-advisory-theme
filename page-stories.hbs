@@ -50,7 +50,7 @@
             </div>
         </div>
     </div>
-    <div class="gh-postfeed">
+    <div class="gh-postfeed grid grid-cols-1 lg:grid-cols-3 gap-x-20 gap-y-10 w-4/5 m-auto">
         {{#get "posts" include="tags,authors"}}
             {{#foreach posts}}
                 {{> "post-card"}}
