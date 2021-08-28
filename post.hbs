@@ -22,25 +22,23 @@
                         {{/foreach}}
                     </span>
                     <span>
-                        Reading Time:&nbsp;
                         {{reading_time}}
                     </span>
                 </span>
-                
-                <span class="flex flex-auto content-center gap-2 justify-center"> 
-                    <div class="text-base">Tags:</div>
-                {{#foreach tags}}
-                    {{#if @last}}
-                        <a class="text-base" href={{url}}>
-                            {{name}} 
+
+                <br>
+
+                <span class="gh-post-meta"> 
+                    {{#foreach tags}}
+                        {{#if @first}}
+                           Tags:
+                        {{/if}}
+                    {{/foreach}}
+                    {{#foreach tags}}
+                        <a href={{url}}>
+                            {{name}}
                         </a>
-                    {{else}}
-                        <a class="text-base" href={{url}}>
-                            {{name}} 
-                        </a>
-                        <div class="text-base">|</div>
-                    {{/if}}
-                {{/foreach}}
+                    {{/foreach}}
                 </span>
                  
                 {{#if custom_excerpt}}
