@@ -33,11 +33,20 @@
                         {{#if @first}}
                            Tags:
                         {{/if}}
-                    {{/foreach}}
-                    {{#foreach tags}}
-                        <a href={{url}}>
-                            {{name}}
-                        </a>
+                        {{#if @last}}
+                            <span class="gh-post-meta-content-item">
+                                <a href={{url}}>
+                                    {{name}}
+                                </a>
+                            </span>
+                            {{else}}
+                             <span class="gh-post-meta-content-item">
+                                <a href={{url}}>
+                                    {{name}}
+                                </a>
+                            </span>
+                            |
+                        {{/if}}
                     {{/foreach}}
                 </span>
                  
