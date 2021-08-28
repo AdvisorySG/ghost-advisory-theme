@@ -1,188 +1,58 @@
-// Source: https://gist.github.com/kottenator/9d936eb3e4e3c3e02598
-function pagination(c, m) {
-    var current = c,
-        last = m,
-        delta = 2,
-        left = current - delta,
-        right = current + delta + 1,
-        range = [],
-        rangeWithDots = [],
-        l;
+const INCREMENT = 2;
 
-    for (var i = 1; i <= last; i++) {
-        if (i == 1 || i == last || (i >= left && i < right)) {
-            range.push(i);
-        }
-    }
+const retrieveFilters = (target) => {
+    const filterOptions = $(target).val() || [];
+    const isInternalTag = $(target).hasClass("internal-tag");
+    const tagPrefix = isInternalTag ? ".tag-hash-" : ".tag-";
+    return filterOptions.map((value) => tagPrefix + value);
+};
 
-    for (
-        var arr = range,
-            isArray = Array.isArray(arr),
-            i = 0,
-            arr = isArray ? arr : arr[Symbol.iterator]();
-        ;
+const filterPosts = (limit) => {
+    const primaryFilters = retrieveFilters($("#primary-filter"));
+    const internalFilters = retrieveFilters($("#internal-filter"));
+    const filters = primaryFilters.flatMap((filter1) =>
+        internalFilters.map((filter2) => filter1 + filter2)
+    );
 
-    ) {
-        var ref;
-
-        if (isArray) {
-            if (i >= arr.length) break;
-            ref = arr[i++];
-        } else {
-            i = arr.next();
-            if (i.done) break;
-            ref = i.value;
-        }
-
-        var n = ref;
-
-        if (l) {
-            if (n - l === 2) {
-                rangeWithDots.push(l + 1);
-            } else if (n - l !== 1) {
-                rangeWithDots.push("...");
-            }
-        }
-        rangeWithDots.push(n);
-        l = n;
-    }
-    return rangeWithDots;
-}
-
-// Filter feature
-let primaryFilters = "";
-let internalFilters = "";
-
-function getFilterOptions(target) {
-    // Retrieve select value from filter and manipulate the values for filtering
-    let filterOptions = $(target).val();
-    // Check if target is an internal tag filter
-    let internalTag = $(target).hasClass("internal-tag");
-    // Set respective prefix
-    let tagPrefix = internalTag ? ".tag-hash-" : ".tag-";
-    // Initialise a new array for holding raw values to be written to localstorage
-    let rawFilter = new Array();
-    // Loop through each item in the filter
-    $.each(filterOptions, function (index, value) {
-        // Push the raw value for localstorage
-        rawFilter.push(value);
-        filterOptions[index] = tagPrefix + slugRegex(value);
-    });
-    if (internalTag) {
-        // Write values for internal tags
-        internalFilters = filterOptions;
-    } else {
-        // Write values for primary tags
-        primaryFilters = filterOptions;
-    }
-}
-function slugRegex(value) {
-    // ! Potentially breaking regex
-    // Basic slug generator: replace whitespaces with dashes, then strip punctuation
-    return value
-        .replace(/\s+/g, "-")
-        .replace(/[.,'!?]/, "")
-        .toLowerCase();
-}
-function filterPosts() {
-    // Get filter options for both filter categories
-    getFilterOptions($("#primary-filter"));
-    getFilterOptions($("#internal-filter"));
-    let filters = [];
-    if (primaryFilters.length >= 1 && internalFilters.length >= 1) {
-        // Combine filters for an AND relationship filter
-        $.each(primaryFilters, function (indexP, valueP) {
-            $.each(internalFilters, function (indexI, valueI) {
-                filters.push(valueP + valueI);
-            });
-        });
-    } else {
-        // Get filters
-        filters = primaryFilters.concat(internalFilters);
-    }
-    // Hide all posts by default
+    let count = 0;
+    let isMoreLeft = true;
     $(".gh-postfeed")
         .children()
         .each(function () {
-            $(this).addClass("d-none");
-        });
-    if (filters.length > 0) {
-        // Show post if post meets the filter tags
-        $.each(filters, function (index, value) {
-            $(".gh-postfeed")
-                .children()
-                .each(function () {
-                    if ($(this).is(value)) {
-                        $(this).removeClass("d-none");
-                    }
-                });
-        });
-    }
-}
-
-$(document).ready(function () {
-    // Filter posts on active page
-    filterPosts();
-    // Listen to changes to both filters
-    $("#primary-filter, #internal-filter").change(function () {
-        // Retrieve filter options on selection change
-        // getFilterOptions(this);
-        // Filter
-        filterPosts();
-    });
-    // Mobile Menu Trigger
-    $(".gh-burger").click(function () {
-        $("body").toggleClass("gh-head-open");
-    });
-
-    $(".clear-filter").click(function (event) {
-        $(".gh-postfeed")
-            .children()
-            .each(function () {
-                $(this).removeClass("d-none");
-            });
-    });
-    function createPagination() {
-        var url = window.location.href;
-        if (pages > 1) {
-            var paginationArr = pagination(page, pages);
-            var paginationItem;
-            var isCurrent = "";
-
-            for (var i = paginationArr.length - 1; i >= 0; i--) {
-                var pageNum = paginationArr[i];
-
-                if (pageNum === page) {
-                    paginationItem =
-                        '<li class="page-item disabled"><a class="page-link">' +
-                        pageNum +
-                        "</a></li>";
-                } else if (typeof pageNum === "number") {
-                    var urlArray = url.split("/");
-                    if (urlArray[urlArray.length - 3] === "page") {
-                        url = url.replace(/\/page\/.*$/, "") + "/";
-                    }
-                    paginationItem =
-                        '<li class="page-item">' +
-                        '<a class="page-link" href="' +
-                        url +
-                        "page/" +
-                        pageNum +
-                        '" aria-label="Page ' +
-                        pageNum +
-                        '">' +
-                        pageNum +
-                        "</a>" +
-                        "</li>";
-                } else {
-                    paginationItem =
-                        '<li class=" page-item disabled"><a class="page-link">&hellip;</a></li>';
-                }
-                $(".pagination-previous").after(paginationItem);
+            if (count >= limit) {
+                $(this).addClass("d-none");
+                isMoreLeft = false;
+                return;
             }
-        } else {
-            $(".pagination").css("display", "none");
-        }
+
+            if (filters.some((filter) => $(this).is(filter))) {
+                $(this).removeClass("d-none");
+                count += 1;
+            } else {
+                $(this).addClass("d-none");
+            }
+        });
+
+    if (isMoreLeft) {
+        $("#load-more").addClass("d-none");
+        $("#load-more-text").removeClass("d-none");
+    } else {
+        $("#load-more").removeClass("d-none");
+        $("#load-more-text").addClass("d-none");
     }
-    createPagination();
+};
+
+$(document).ready(() => {
+    let postLimit = INCREMENT;
+    filterPosts(postLimit);
+
+    $("#primary-filter, #internal-filter").change(() => {
+        postLimit = INCREMENT;
+        filterPosts(postLimit);
+    });
+
+    $("#load-more").click(() => {
+        postLimit += INCREMENT;
+        filterPosts(postLimit);
+    });
 });

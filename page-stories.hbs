@@ -1,9 +1,6 @@
 {{!< default}}
 
 <div class="w-full max-w-screen-xl mx-auto my-0">
-    <div class="featured-post-slider">
-        <!-- TO DO -->
-    </div>
     <article class="stories-description gh-canvas mb-4 prose lg:prose-xl max-w-none">
         <header>
             <h1 class="gh-header">Stories</h1>
@@ -38,34 +35,30 @@
                     <select id="primary-filter" class="selectpicker" title="Select Industry(s)" multiple data-style="btn-secondary" data-actions-box="true" data-size="5" data-width="100%">
                         {{#get "tags" limit="all"}}
                         {{#foreach tags}}
-                            <option class="filter-selection">{{name}}</option>
+                            <option class="filter-selection" value="{{slug}}" selected>{{name}}</option>
                         {{/foreach}}
                         {{/get}}
                     </select>
                 </div>
                 <div class="col-xs-12 col-md-6 pb-4">
                     <select id="internal-filter" class="selectpicker internal-tag" title="Select Article Type(s)" multiple data-style="btn-secondary" data-actions-box="true" data-size="5" data-width="100%">
-                        <option class="filter-selection internal-tag">Conversations</option>
-                        <option class="filter-selection internal-tag">Insights</option>
-                        <option class="filter-selection internal-tag">Reflections</option>
+                        <option class="filter-selection internal-tag" value="conversations" selected>Conversations</option>
+                        <option class="filter-selection internal-tag" value="insights" selected>Insights</option>
+                        <option class="filter-selection internal-tag" value="reflections" selected>Reflections</option>
                     </select>
                 </div>
             </div>
         </div>
-    </div>    
-    <div class="m-4">
-        {{pagination}}
     </div>
-    <div class="gh-postfeed grid grid-cols-1 lg:grid-cols-3 gap-x-20 gap-y-10 w-4/5 m-auto">
-        {{#get "posts" limit=@config.posts_per_page page=pagination.page include="tags,authors"}}
-            {{! Loop through our articles collection }}
+    <div class="gh-postfeed">
+        {{#get "posts" include="tags,authors"}}
             {{#foreach posts}}
                 {{> "post-card"}}
             {{/foreach}}
-            {{! Use our pages (pagination) object }}
         {{/get}}
     </div>
-    <div class="m-4">
-        {{pagination}}
+    <div class="text-center my-3">
+        <button id="load-more" class="d-none bg-yellow-500 text-black leading-6 rounded-lg py-2 px-3">Load More</button>
+        <p id="load-more-text" class="d-none">There are no more posts left.</p>
     </div>
 </div>
