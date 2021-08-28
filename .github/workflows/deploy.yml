@@ -1,4 +1,4 @@
-name: Build and Deploy Theme
+name: Deploy Theme
 on:
     pull_request:
     push:
@@ -7,31 +7,26 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                node-version: [12.x]
+                node-version: [14.x]
         steps:
             - uses: actions/checkout@v2
-            - name: Get Yarn cache directory path
-              id: yarn-cache-dir-path
-              run: echo '::set-output name=dir::$(yarn cache dir)'
-            - name: Cache Yarn
-              uses: actions/cache@v1
-              id: yarn-cache
-              with:
-                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-                  restore-keys: |
-                      ${{ runner.os }}-yarn-
 
+            - name: Cache Node modules
+              uses: actions/cache@v1
+              with:
+                  path: ~/.npm
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-node-
             - name: Setup Node
               uses: actions/setup-node@v1
               with:
                   node-version: ${{ matrix.node-version }}
-            - run: npm install yarn
-            - run: yarn install
 
-            - run: yarn test:ci
+            - run: npm install
+            - run: npm run test:ci
+            - run: npm run zip
 
-            - run: yarn zip
             - run: unzip dist/ghost-advisory-theme.zip -d dist/
             - run: rm dist/ghost-advisory-theme.zip
             - name: Upload build
@@ -44,28 +39,26 @@ jobs:
         needs: build
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [14.x]
         steps:
             - uses: actions/checkout@v2
-            - name: Get Yarn cache directory path
-              id: yarn-cache-dir-path
-              run: echo '::set-output name=dir::$(yarn cache dir)'
-            - name: Cache Yarn
-              uses: actions/cache@v1
-              id: yarn-cache
-              with:
-                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-                  restore-keys: |
-                      ${{ runner.os }}-yarn-
 
+            - name: Cache Node modules
+              uses: actions/cache@v1
+              with:
+                  path: ~/.npm
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-node-
             - name: Setup Node
               uses: actions/setup-node@v1
               with:
                   node-version: ${{ matrix.node-version }}
-            - run: npm install yarn
-            - run: yarn install
 
-            - run: yarn zip
+            - run: npm install
+            - run: npm run zip
 
             - name: Deploy Ghost theme
               uses: TryGhost/action-deploy-theme@v1.2.0

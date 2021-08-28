@@ -1,7 +1,7 @@
 const INCREMENT = 2;
 
 const retrieveFilters = (target) => {
-    const filterOptions = $(target).val();
+    const filterOptions = $(target).val() || [];
     const isInternalTag = $(target).hasClass("internal-tag");
     const tagPrefix = isInternalTag ? ".tag-hash-" : ".tag-";
     return filterOptions.map((value) => tagPrefix + value);

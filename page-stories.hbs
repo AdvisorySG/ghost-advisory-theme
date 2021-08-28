@@ -53,10 +53,12 @@
     <div class="gh-postfeed">
         {{#get "posts" include="tags,authors"}}
             {{#foreach posts}}
-                {{> "card"}}
+                {{> "post-card"}}
             {{/foreach}}
         {{/get}}
     </div>
-    <button id="load-more">Load more</button>
-    <p id="load-more-text" class="d-none">There are no more posts left.</p>
+    <div class="text-center my-3">
+        <button id="load-more" class="d-none bg-yellow-500 text-black leading-6 rounded-lg py-2 px-3">Load More</button>
+        <p id="load-more-text" class="d-none">There are no more posts left.</p>
+    </div>
 </div>
