@@ -26,30 +26,16 @@
                     </span>
                 </span>
 
-                <br>
-
-                <span class="gh-post-meta"> 
-                    {{#foreach tags}}
-                        {{#if @first}}
-                           Tags:
-                        {{/if}}
-                        {{#if @last}}
-                            <span class="gh-post-meta-content-item">
-                                <a href={{url}}>
-                                    {{name}}
-                                </a>
-                            </span>
-                            {{else}}
-                             <span class="gh-post-meta-content-item">
-                                <a href={{url}}>
-                                    {{name}}
-                                </a>
-                            </span>
-                            |
-                        {{/if}}
-                    {{/foreach}}
+                <span class="flex flex-auto content-center gap-4 justify-center"> 
+                {{#foreach tags}}
+                    <div class="text-base text-black hover:underline border-1.5 border-black hover:border-yellow-500 rounded-full px-6">
+                        <a href={{url}}>
+                            {{name}}
+                        </a>
+                    </div>
+                {{/foreach}}
                 </span>
-                 
+
                 {{#if custom_excerpt}}
                     <p>
                         {{custom_excerpt}}
