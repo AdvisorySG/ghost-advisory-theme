@@ -9,9 +9,6 @@ module.exports = {
     darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {
-            borderWidth: {
-                1.5: "1.5px",
-            },
             typography: {
                 DEFAULT: {
                     css: {
