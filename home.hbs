@@ -14,7 +14,93 @@
     <h2 class="text-center m-4">
         Upcoming Events
     </h2>
-    <div id="event-card-container" class="m-4">
-        <p id="event-card-placeholder" class="text-center m-10 text-xl lg:text-2xl">Loading...</p>
+    <div class="m-4" x-data="{
+        posts: [],
+        showPlaceholder: true,
+        placeholderText: 'Loading...',
+        init() {
+            const api = new GhostContentAPI({
+                url: ADVISORY.SITE_URL,
+                key: ADVISORY.CONTENT_API_KEY,
+                version: 'v4',
+            });
+            
+            const MONTHS = [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December',
+            ];
+            
+            const parseEvent = (post) => {
+                const splitTitle = post.title.split(':'); // <!> This assumes all event titles contain a colon
+                const splitDate = post.custom_excerpt.split('-');
+                return {
+                    day: splitDate[2],
+                    month: MONTHS[parseInt(splitDate[1]) - 1],
+                    titlePrefix: splitTitle[0],
+                    titleSuffix: splitTitle[1],
+                };
+            };
+            const date = new Date().toISOString().split('T')[0];
+            let referenceObj = this;
+            const filterQuery = `tag:hash-event+custom_excerpt:>='${date}'`;
+            api.posts
+                .browse({
+                    include: 'tags',
+                    filter: filterQuery,
+                    order: 'custom_excerpt ASC',
+                })
+                .then((posts)=>{
+                        if (posts.length > 0) {
+                            referenceObj.showPlaceholder = false;
+                            referenceObj.posts = posts.slice(0, 4).map(parseEvent);
+                        } else {
+                            referenceObj.showPlaceholder = true;
+                            referenceObj.placeholderText = 'No upcoming events.';
+                        }
+                })
+                .catch(console.error);
+        }
+    }">
+        <!-- Render Cards -->
+        <div class="grid grid-cols-1 gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-16 w-4/5 m-auto break-words"
+            x-show="!showPlaceholder">
+            <template x-for="post in posts" :key="post">
+              <article class="border-2 border-gray-400 rounded-xl p-2.5 event-card">
+                  <div class="grid grid-cols-2">
+                      <div>
+                          <p class="text-yellow-500 font-semibold text-3xl event-date-day"
+                              x-text="post.day">
+                          </p>
+                          <p class="text-yellow-500 text-xl event-date-month"
+                              x-text="post.month">
+                          </p>
+                      </div>
+                      <div>
+                          <p class="text-3xl text-gray-500 text-right">➔</p>
+                      </div>
+                  </div>
+                  <div class="my-2.5">
+                      <p class="text-gray-600 font-semibold text-3xl py-0.5"
+                          x-text="post.titlePrefix+':'">
+                      </p>
+                      <p class="text-gray-600 font-semibold text-xl"
+                          x-text="post.titleSuffix">
+                      </p>
+                  </div>
+              </article>
+            </template>
+        </div>
+        <!-- Render Text -->
+        <p class="text-center m-10 text-xl lg:text-2xl" x-show="showPlaceholder">Loading...</p>
     </div>
 </div>
