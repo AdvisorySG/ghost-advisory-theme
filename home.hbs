@@ -4,10 +4,10 @@
     <h2 class="text-center m-4">
         Featured Stories
     </h2>
-    <div id="story-postcard-container" class="grid grid-cols-1 lg:grid-cols-3 gap-x-20 gap-y-10 w-4/5 m-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-20 gap-y-10 w-4/5 m-auto">
     {{#get "posts" include="tags" limit="3" order="published_at desc" filter="tags:-[hash-event]"}}
         {{#foreach posts}}
-            {{> "story-postcard"}}
+            {{> "post-card"}}
         {{/foreach}}
     {{/get}}
     </div>
