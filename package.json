@@ -59,7 +59,7 @@
         "postcss-import": "^14.0.2",
         "pump": "3.0.0",
         "tailwindcss": "^2.2.2",
-        "webpack-stream": "^6.1.2"
+        "webpack-stream": "^7.0.0"
     },
     "browserslist": [
         "defaults"
