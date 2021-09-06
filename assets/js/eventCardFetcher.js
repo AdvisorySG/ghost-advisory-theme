@@ -1,3 +1,5 @@
+const EVENTS_LIMIT = 3;
+
 const api = new GhostContentAPI({
     url: ADVISORY.SITE_URL,
     key: ADVISORY.CONTENT_API_KEY,
@@ -35,8 +37,8 @@ const date = new Date().toISOString().split("T")[0];
 window.eventCards = function () {
     return {
         posts: [],
-        showPlaceholder: true,
-        placeholderText: "Loading...",
+        isShowPlaceholder: true,
+        placeholderText: null,
         init() {
             let referenceObj = this;
             const filterQuery = `tag:hash-event+custom_excerpt:>='${date}'`;
@@ -48,10 +50,12 @@ window.eventCards = function () {
                 })
                 .then((posts) => {
                     if (posts.length > 0) {
-                        referenceObj.showPlaceholder = false;
-                        referenceObj.posts = posts.slice(0, 4).map(parseEvent);
+                        referenceObj.isShowPlaceholder = false;
+                        referenceObj.posts = posts
+                            .slice(0, EVENTS_LIMIT + 1)
+                            .map(parseEvent);
                     } else {
-                        referenceObj.showPlaceholder = true;
+                        referenceObj.isShowPlaceholder = true;
                         referenceObj.placeholderText = "No upcoming events.";
                     }
                 })
