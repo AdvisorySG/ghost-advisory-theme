@@ -16,15 +16,7 @@ const handleError = (done) => (err) => done(err);
 
 function hbs(done) {
     pump(
-        [
-            src([
-                "*.hbs",
-                "**/*.hbs",
-                "!assets/**/*.hbs",
-                "!node_modules/**/*.hbs",
-            ]),
-            livereload(),
-        ],
+        [src(["*.hbs", "**/*.hbs", "!node_modules/**/*.hbs"]), livereload()],
         handleError(done)
     );
 }
@@ -78,13 +70,9 @@ function zipper(done) {
 
 const cssWatcher = () =>
     watch(["postcss.config.js", "tailwind.config.js", "assets/css/**"], css);
-const jsWatcher = () =>
-    watch(["webpack.config.js", "assets/js/**"], series(js, css));
+const jsWatcher = () => watch(["assets/js/**"], series(js, css));
 const hbsWatcher = () =>
-    watch(
-        ["*.hbs", "**/*.hbs", "!assets/**/*.hbs", "!node_modules/**/*.hbs"],
-        series(hbs, css)
-    );
+    watch(["*.hbs", "**/*.hbs", "!node_modules/**/*.hbs"], series(hbs, css));
 const watcher = parallel(cssWatcher, jsWatcher, hbsWatcher);
 const build = series(css, js);
 const dev = series(build, serve, watcher);
