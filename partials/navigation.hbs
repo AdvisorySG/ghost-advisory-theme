@@ -1,19 +1,11 @@
-<ul class="nav" role="menu">
-    {{#foreach navigation}}
-        <li
-            class="{{link_class for=(url) class=(concat "nav-" slug)}}"
-            role="menuitem"
-        >
-            <a href="{{url absolute="true"}}">
-                {{label}}
-            </a>
-        </li>
-    {{/foreach}}
-    {{#unless isSecondary}}
-        <li class="nav-search">
-            <a href="#searchinghost-easy">
-                <i class="fas fa-search"></i>
-            </a>
-        </li>
-    {{/unless}}
-</ul>
+{{#foreach navigation}}
+    <a href="{{url absolute="true"}}"
+        class="text-base leading-4 font-medium text-gray-900 hover:underline focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
+        {{label}}
+    </a>
+{{/foreach}}
+{{#unless isSecondary}}
+        <a href="#searchinghost-easy">
+            <i class="fas fa-search"></i>
+        </a>
+{{/unless}}
