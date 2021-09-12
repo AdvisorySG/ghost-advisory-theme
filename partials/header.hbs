@@ -1,5 +1,5 @@
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<header id="header" x-data="{ mobileMenuOpen: false }" class="relative bg-white">
+<header id="header" x-data="{ mobileMenuOpen: false }" class="relative bg-white z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="flex justify-between items-end py-14 md:space-x-10">
             <div class="lg:w-0 lg:flex-1">
@@ -18,7 +18,7 @@
                     </svg>
                 </button>
             </div>
-            <nav class="hidden md:flex space-x-4 text-base z-50">
+            <nav class="hidden md:flex space-x-4 text-base">
             {{#if @site.navigation}}
                 {{navigation}}
             {{/if}}
