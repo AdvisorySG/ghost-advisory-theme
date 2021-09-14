@@ -14,6 +14,7 @@ module.exports = {
                     css: {
                         a: {
                             textDecoration: "none",
+                            color: "currentColor",
                         },
                     },
                 },
