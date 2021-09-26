@@ -474,9 +474,6 @@
     /* Post
     /* ---------------------------------------------------------- */
 
-    .gh-header {
-        text-align: center;
-    }
     .gh-header > :first-child {
         margin: 0 0 0.625rem 0;
     }
@@ -484,12 +481,6 @@
         margin: 0.625rem 0;
     }
 
-    .gh-post-meta {
-        font-size: 0.875rem;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        opacity: 0.8;
-    }
     .gh-post-meta > :after {
         padding: 0.625rem;
         content: "|";
@@ -502,11 +493,6 @@
     }
     .gh-post-meta .gh-post-meta-content-item:last-child:after {
         content: "";
-    }
-
-    .gh-feature-image {
-        width: 100%;
-        margin: 0.625rem 0 0 0;
     }
 
     .gh-post-footer {
