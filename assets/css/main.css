@@ -52,7 +52,7 @@
             [full-end];
     }
 
-    @media (max-width: 1296px) {
+    @media (max-width: 1280px) {
         .gh-canvas {
             grid-template-columns:
                 [full-start]
@@ -69,7 +69,7 @@
         }
     }
 
-    @media (max-width: 778px) {
+    @media (max-width: 768px) {
         .gh-canvas {
             grid-template-columns:
                 [full-start]
@@ -162,7 +162,7 @@
         background: #3eb0ef;
     }
 
-    @media (max-width: 650px) {
+    @media (max-width: 640px) {
         .gh-canvas blockquote,
         .gh-canvas ol,
         .gh-canvas ul,
@@ -571,7 +571,7 @@
         transform: rotate(20deg);
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 768px) {
         .gh-author-meta {
             font-size: 1rem;
         }
