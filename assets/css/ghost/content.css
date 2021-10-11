@@ -17,7 +17,7 @@
         [full-end];
 }
 
-@media (max-width: 1296px) {
+@media (max-width: 1280px) {
     .gh-canvas {
         grid-template-columns:
             [full-start]
@@ -34,7 +34,7 @@
     }
 }
 
-@media (max-width: 778px) {
+@media (max-width: 768px) {
     .gh-canvas {
         grid-template-columns:
             [full-start]
@@ -127,7 +127,7 @@
     background: #3eb0ef;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 640px) {
     .gh-canvas blockquote,
     .gh-canvas ol,
     .gh-canvas ul,
@@ -436,9 +436,6 @@
 /* Post
 /* ---------------------------------------------------------- */
 
-.gh-header {
-    text-align: center;
-}
 .gh-header > :first-child {
     margin: 0 0 0.625rem 0;
 }
@@ -446,12 +443,6 @@
     margin: 0.625rem 0;
 }
 
-.gh-post-meta {
-    font-size: 0.875rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    opacity: 0.8;
-}
 .gh-post-meta > :after {
     padding: 0.625rem;
     content: "|";
@@ -464,11 +455,6 @@
 }
 .gh-post-meta .gh-post-meta-content-item:last-child:after {
     content: "";
-}
-
-.gh-feature-image {
-    width: 100%;
-    margin: 0.625rem 0 0 0;
 }
 
 .gh-post-footer {
@@ -533,7 +519,7 @@
     transform: rotate(20deg);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
     .gh-author-meta {
         font-size: 1rem;
     }
