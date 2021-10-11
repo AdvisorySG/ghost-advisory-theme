@@ -5,7 +5,7 @@ const pump = require("pump");
 const livereload = require("gulp-livereload");
 const postcss = require("gulp-postcss");
 const zip = require("gulp-zip");
-const webpack = require("webpack-stream");
+const terser = require("gulp-terser-js");
 
 // postcss plugins
 const atImport = require("postcss-import");
@@ -43,7 +43,9 @@ function js(done) {
     pump(
         [
             src("assets/js/*.js", { sourcemaps: true }),
-            webpack(require("./webpack.config.js")),
+            terser({
+                mangle: { toplevel: true },
+            }),
             dest("assets/built/", { sourcemaps: "." }),
             livereload(),
         ],

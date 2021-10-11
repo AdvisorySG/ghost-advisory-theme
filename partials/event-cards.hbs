@@ -1,0 +1,32 @@
+<!-- AlpineJS Code -->
+<div class="m-4" x-data="eventCards()">
+    <div class="grid grid-cols-1 gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-16 w-4/5 m-auto break-words"
+        x-show="!isShowPlaceholder">
+        <template x-for="post in posts">
+          <article class="border-2 border-gray-400 rounded-xl p-2.5 event-card">
+              <div class="grid grid-cols-2">
+                  <div>
+                      <p class="text-yellow-500 font-semibold text-3xl event-date-day"
+                          x-text="post.day">
+                      </p>
+                      <p class="text-yellow-500 text-xl event-date-month"
+                          x-text="post.month">
+                      </p>
+                  </div>
+                  <div>
+                      <p class="text-3xl text-gray-500 text-right">➔</p>
+                  </div>
+              </div>
+              <div class="my-2.5">
+                  <p class="text-gray-600 font-semibold text-3xl py-0.5"
+                      x-text="post.titlePrefix+':'">
+                  </p>
+                  <p class="text-gray-600 font-semibold text-xl"
+                      x-text="post.titleSuffix">
+                  </p>
+              </div>
+          </article>
+        </template>
+    </div>
+    <p class="text-center m-10 text-xl lg:text-2xl" x-show="isShowPlaceholder">Loading...</p>
+</div>
