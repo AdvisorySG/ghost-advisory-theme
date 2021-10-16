@@ -5,9 +5,11 @@
         <article class="prose lg:prose-xl">
             <header class="gh-header">
                 <h1 id="title">
+            <header class="gh-header text-center">
+                <h1>
                     {{title}}
                 </h1>
-                <span class="gh-post-meta">
+                <span class="gh-post-meta text-sm tracking-wide uppercase opacity-80">
                     <time datetime="{{date format="YYYY-MM-DD"}}">
                         {{date format="D MMM YYYY"}}
                     </time>
@@ -43,7 +45,7 @@
             <div class="gh-content">
                 {{#if feature_image}}
                     <img
-                        class="gh-feature-image"
+                        class="w-full mt-2.5"
                         src="{{feature_image}}"
                         alt="{{title}}"
                     />
@@ -60,19 +62,6 @@
                     </span>
 
             </div>
-
-            <footer class="gh-post-footer">
-                {{! <section class="gh-post-comments">
-                <div class="gh-post-comments-header-container">
-                    <div class="gh-post-comments-header-item gh-post-comments-header">Responses</div> 
-                    <div class="gh-post-comments-header-item gh-post-comments-other">
-                        <div class="gh-post-comments-share">Share</div>
-                        <div class="gh-post-comments-more">More</div>
-                    </div> 
-                </div>
-                If you want to embed comments, this is a good place to do it!
-            </section> }}
-            </footer>
         </article>
 {{/post}}
 <script type="text/javascript">

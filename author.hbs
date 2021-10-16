@@ -30,11 +30,17 @@
             <img class="gh-page-image" src="{{cover_image}}" alt="{{name}}" />
         {{/if}}
     </header>
-    {{/author}}
- 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-20 gap-y-10 w-4/5 my-4 mx-auto">
-    {{#foreach posts}}
-        {{> "post-card"}}
-    {{/foreach}}
-    </div>
+    
+    {{#get "posts" limit="all" filter="author:{{slug}} + tags:-hash-event" include="tags" as |authored|}}
+        {{#if authored}}
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-20 gap-y-10 w-4/5 my-4 mx-auto">
+                {{#foreach authored}}
+                    {{> "post-card"}}
+                {{/foreach}}
+            </div>
+        {{else}}
+            <p>There are no articles written by this author.</p>
+        {{/if}}
+    {{/get}}
 </div>
+{{/author}}
