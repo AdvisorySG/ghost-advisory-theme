@@ -16,13 +16,16 @@
         {{/if}}
     </header>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-20 gap-y-10 w-4/5 my-4 mx-auto">
-    {{#get "posts" limit="all" filter="tags:{{slug}}" include="tags" as |tagged|}}
-        {{#foreach tagged}}
-            {{> "post-card"}}
-        {{/foreach}}
-        {{else}} <p>There are no articles with this tag.</p>
+    {{#get "posts" limit="all" filter="tags:{{slug}} + tags:-hash-event" include="tags" as |tagged|}}
+        {{#if tagged}}
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-20 gap-y-10 w-4/5 my-4 mx-auto">
+                {{#foreach tagged}}
+                    {{> "post-card"}}
+                {{/foreach}}
+            </div>
+        {{else}}
+            <p>There are no articles with this tag.</p>
+        {{/if}}
     {{/get}}
-    </div>
 </div>
 {{/tag}}
