@@ -4,7 +4,7 @@
     <div class="{{post_class}} gh-canvas">
         <article class="prose lg:prose-xl">
             <header class="gh-header">
-                <h1>
+                <h1 id="title">
                     {{title}}
                 </h1>
                 <span class="gh-post-meta">
@@ -47,8 +47,18 @@
                         src="{{feature_image}}"
                         alt="{{title}}"
                     />
+                    
                 {{/if}}
+
                 {{content}}
+
+                    <span class="float-right">
+                        Share this article
+                        <a href="https://www.facebook.com" class="fab fa-facebook-square fa-2x" id="facebookButton"></a>
+                        <a href="https://www.twitter.com" class="fab fa-twitter-square fa-2x " id="twitterButton"></a>
+                        <a href="https://www.linkedin.com" class="fab fa-linkedin fa-2x " id="linkedinButton"></a>
+                    </span>
+
             </div>
 
             <footer class="gh-post-footer">
@@ -65,7 +75,28 @@
             </footer>
         </article>
 {{/post}}
+<script type="text/javascript">
 
+    var facebookButton = document.getElementById("facebookButton");
+    var twitterButton = document.getElementById("twitterButton");
+    var linkedinButton = document.getElementById("linkedinButton");
+    var title = document.getElementById("title").innerText;
+    var postUrl = encodeURI(document.location.href);
+    facebookButton.setAttribute(
+        "href",
+        `https://www.facebook.com/sharer.php?u=${postUrl}`
+    );
+
+    twitterButton.setAttribute(
+        "href",
+        `https://twitter.com/share?text=${title}`
+    );
+
+    linkedinButton.setAttribute(
+        "href",
+        `https://www.linkedin.com/shareArticle?url=${postUrl}&title=${title}`
+    );
+</script>
 {{!-- implementation of related articles --}}
 {{!-- has to be outside post block due to conflict --}}
 <hr class="pb-4">
