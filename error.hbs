@@ -1,50 +1,50 @@
 {{!< default}}
 
 <section class="w-full max-w-screen-xl mx-auto my-0">
-    <section class="gh-error-content">
-        <h1 class="gh-error-code">
+    <section class="prose text-center max-w-screen-sm mx-auto">
+        <h1 class="text-8xl mx-0 my-0">
             {{statusCode}}
         </h1>
-        <p class="gh-error-description">
+        <p class="text-xl mx-0 my-0">
             {{message}}
         </p>
-        <p class="gh-error-link">
+        <p class="text-base mx-0 my-3">
             <a href="{{@site.url}}">
                 Go to the front page →
             </a>
         </p>
 
         {{#if errorDetails}}
-            <section class="gh-error-stack">
-                <h4>
-                    Theme errors:
-                </h4>
-                <ul class="gh-error-stack-list">
-                    {{#foreach errorDetails}}
-                        <li>
-                            <h5 class="gh-error-stack-function">
-                                {{{rule}}}
-                            </h5>
-
-                            {{#foreach failures}}
-                                <span class="gh-error-stack-file">
-                                    <strong>
-                                        Ref:
-                                    </strong>
-                                    {{ref}}
-                                </span>
-                                <br />
-                                <span class="gh-error-stack-file">
-                                    <strong>
-                                        Message:
-                                    </strong>
-                                    {{message}}
-                                </span>
-                            {{/foreach}}
-                        </li>
-                    {{/foreach}}
-                </ul>
-            </section>
+        <section class="text-left py-4">
+            <h4>
+                Theme errors:
+            </h4>
+            <ul class="text-sm mt-2">
+                {{#foreach errorDetails}}
+                    <li class="px-0 py-5 m-0">
+                        <h5 class="mb-0.5 border-t border-gray-300">
+                            {{{rule}}}
+                        </h5>
+    
+                        {{#foreach failures}}
+                            <span>
+                                <strong>
+                                    Ref:
+                                </strong>
+                                {{ref}}
+                            </span>
+                            <br />
+                            <span>
+                                <strong>
+                                    Message:
+                                </strong>
+                                {{message}}
+                            </span>
+                        {{/foreach}}
+                    </li>
+                {{/foreach}}
+            </ul>
+        </section>
         {{/if}}
     </section>
 </section>
