@@ -7,10 +7,6 @@ const postcss = require("gulp-postcss");
 const zip = require("gulp-zip");
 const terser = require("gulp-terser-js");
 
-// postcss plugins
-const atImport = require("postcss-import");
-const tailwindcss = require("tailwindcss");
-
 function serve(done) {
     livereload.listen();
     done();
@@ -26,12 +22,10 @@ function hbs(done) {
 }
 
 function css(done) {
-    var processors = [atImport, tailwindcss];
-
     pump(
         [
             src("assets/css/*.css", { sourcemaps: true }),
-            postcss(processors),
+            postcss(),
             dest("assets/built/", { sourcemaps: "." }),
             livereload(),
         ],
@@ -74,10 +68,11 @@ function zipper(done) {
     );
 }
 
-const cssWatcher = () => watch("assets/css/**", css);
-const jsWatcher = () => watch("assets/js/**", series(js, css));
+const cssWatcher = () =>
+    watch(["postcss.config.js", "tailwind.config.js", "assets/css/**"], css);
+const jsWatcher = () => watch(["assets/js/**"], series(js, css));
 const hbsWatcher = () =>
-    watch(["*.hbs", "**/**/*.hbs", "!node_modules/**/*.hbs"], series(hbs, css));
+    watch(["*.hbs", "**/*.hbs", "!node_modules/**/*.hbs"], series(hbs, css));
 const watcher = parallel(cssWatcher, jsWatcher, hbsWatcher);
 const build = series(css, js);
 const dev = series(build, serve, watcher);

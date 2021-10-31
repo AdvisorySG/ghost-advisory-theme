@@ -9,7 +9,7 @@
     "license": "MIT",
     "scripts": {
         "dev": "gulp",
-        "zip": "gulp zip",
+        "zip": "NODE_ENV=production gulp zip",
         "test": "gscan .",
         "test:ci": "gscan --fatal --verbose .",
         "prepare": "husky install"
@@ -53,7 +53,6 @@
         "gulp-livereload": "4.0.2",
         "gulp-postcss": "9.0.1",
         "gulp-terser-js": "^5.2.2",
-        "gulp-uglify": "3.0.2",
         "gulp-zip": "5.1.0",
         "postcss": "^8.3.5",
         "postcss-import": "^14.0.2",
