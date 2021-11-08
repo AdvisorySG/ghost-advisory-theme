@@ -8,7 +8,18 @@ module.exports = {
     ],
     darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {},
+        extend: {
+            typography: {
+                DEFAULT: {
+                    css: {
+                        a: {
+                            textDecoration: "none",
+                            color: "currentColor",
+                        },
+                    },
+                },
+            },
+        },
     },
     variants: {
         extend: {},
